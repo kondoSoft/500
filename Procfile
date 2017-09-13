@@ -1,1 +1,1 @@
-web: gunicorn vscorrupcion4.wsgi
+web: gunicorn vscorrupcion.wsgi

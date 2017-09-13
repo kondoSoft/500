@@ -1,5 +1,5 @@
 """
-Django settings for vscorrupcion4 project on Heroku. For more info, see:
+Django settings for vscorrupcion project on Heroku. For more info, see:
 https://github.com/heroku/heroku-django-template
 
 For more information on this file, see
@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'vscorrupcion4.urls'
+ROOT_URLCONF = 'vscorrupcion.urls'
 
 TEMPLATES = [
     {
@@ -71,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'vscorrupcion4.wsgi.application'
+WSGI_APPLICATION = 'vscorrupcion.wsgi.application'
 
 
 # Database
