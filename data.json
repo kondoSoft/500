@@ -642,5 +642,257 @@
   "fields": {
     "pais": "MX"
   }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 1,
+  "fields": {
+    "text_pregunta": "\u00bfLa empresa publica en su p\u00e1gina web un programa anticorrupci\u00f3n o de integridad?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 2,
+  "fields": {
+    "text_pregunta": "\u00bfLa empresa publica en su p\u00e1gina web un c\u00f3digo de \u00e9tica o de conducta para empleados?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 3,
+  "fields": {
+    "text_pregunta": "\u00bfLa empresa publica en su p\u00e1gina web una declaraci\u00f3n o compromiso anticorrupci\u00f3n / cero tolerancia a la corrupci\u00f3n?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 4,
+  "fields": {
+    "text_pregunta": "\u00bfLa empresa publica en su p\u00e1gina web un compromiso p\u00fablico con la legalidad y el respeto a las leyes nacionales e internacionales ?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 5,
+  "fields": {
+    "text_pregunta": "\u00bfLa empresa publica en su p\u00e1gina web una prohibici\u00f3n expl\u00edcita de sobornos y pagos facilitadores?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 6,
+  "fields": {
+    "text_pregunta": "\u00bfLa empresa publica en su p\u00e1gina web una pol\u00edtica de hospitalidad y vi\u00e1ticos?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 7,
+  "fields": {
+    "text_pregunta": "\u00bfLa empresa publica en su p\u00e1gina web una pol\u00edtica de regalos y agradecimientos? \n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 8,
+  "fields": {
+    "text_pregunta": "\u00bfLa empresa publica en su p\u00e1gina web pol\u00edticas espec\u00edficas para prevenir fraudes internos?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 9,
+  "fields": {
+    "text_pregunta": "\u00bfLa empresa publica en su p\u00e1gina web pol\u00edticas espec\u00edficas para prevenir lavado de dinero?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 10,
+  "fields": {
+    "text_pregunta": "\u00bfLa empresa publica en su p\u00e1gina web una pol\u00edtica de donaciones y/o contribuciones pol\u00edticas?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 11,
+  "fields": {
+    "text_pregunta": "\u00bfLa empresa publica en su p\u00e1gina web una pol\u00edtica de donaciones y/o contribuciones sociales?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 12,
+  "fields": {
+    "text_pregunta": "De acuerdo a la informaci\u00f3n p\u00fablica \u00bflos l\u00edderes o directivos de la empresa respaldan los documentos en que se establece el programa anticorrupci\u00f3n o de integridad?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 13,
+  "fields": {
+    "text_pregunta": "De acuerdo a la informaci\u00f3n p\u00fablica \u00bfempleados y directivos est\u00e1n sujetos al programa anticorrupci\u00f3n o de integridado al c\u00f3digo de conducta?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 14,
+  "fields": {
+    "text_pregunta": "De acuerdo a la informaci\u00f3n p\u00fablica \u00bflos agentes (o quienes act\u00faan en representaci\u00f3n de la empresa) est\u00e1n sujetos al programa anticorrupci\u00f3n o de integridado al c\u00f3digo de conducta?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 15,
+  "fields": {
+    "text_pregunta": "De acuerdo a la informaci\u00f3n p\u00fablica \u00bfexiste un programa anticorrupci\u00f3n o de integridad exclusivamente para los socios comerciales (proveedores, contratistas, outsourcers) de la empresa?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 16,
+  "fields": {
+    "text_pregunta": "De acuerdo a la informaci\u00f3n p\u00fablica \u00bfexiste una definici\u00f3n de conflicto de inter\u00e9s? \n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 17,
+  "fields": {
+    "text_pregunta": "Escribe la definici\u00f3n de conflicto de inter\u00e9s seg\u00fan la empresa (en caso de tenerla)\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 18,
+  "fields": {
+    "text_pregunta": "De acuerdo a la informaci\u00f3n p\u00fablica \u00bfexisten otras definiciones sobre actos de corrupci\u00f3n (ej.: soborno, pago facilitador o tr\u00e1fico de influencias)?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 19,
+  "fields": {
+    "text_pregunta": "Escriba qu\u00e9 otros actos de corrupci\u00f3n est\u00e1n definidos en los documentos p\u00fablicos\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 20,
+  "fields": {
+    "text_pregunta": "De acuerdo a la informaci\u00f3n p\u00fablica \u00bfexiste un programa de capacitaci\u00f3n o un entrenamiento anticorrupci\u00f3n?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 21,
+  "fields": {
+    "text_pregunta": "De acuerdo a la informaci\u00f3n p\u00fablica \u00bfqui\u00e9nes participan del entrenamiento anticorrupci\u00f3n?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 22,
+  "fields": {
+    "text_pregunta": "De acuerdo a la informaci\u00f3n p\u00fablica \u00bfexiste un mecanismo para monitorear el programa anticorrupci\u00f3n o de integridad?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 23,
+  "fields": {
+    "text_pregunta": "Escriba el mecanismo para monitorear el programa anticorrupci\u00f3n encontrado en documentos p\u00fablicos\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 24,
+  "fields": {
+    "text_pregunta": "De acuerdo a la informaci\u00f3n p\u00fablica \u00bfexisten sanciones o penalizaciones por incumplimiento al c\u00f3digo de \u00e9tica c\u00f3digo de conducta o cualquiera de las pol\u00edticas que integran el programa anticorrupci\u00f3n?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 25,
+  "fields": {
+    "text_pregunta": "De acuerdo a la informaci\u00f3n p\u00fablica \u00bfexiste un sistema de denuncia? \n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 26,
+  "fields": {
+    "text_pregunta": "De acuerdo a la informaci\u00f3n p\u00fablica \u00bfexiste un correo electr\u00f3nico para hacer una denuncia?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 27,
+  "fields": {
+    "text_pregunta": "Escriba el correo electr\u00f3nico para denuncias que se encontr\u00f3 en documentos p\u00fablicos\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 28,
+  "fields": {
+    "text_pregunta": "De acuerdo a la informaci\u00f3n p\u00fablica \u00bfexiste un n\u00famero telef\u00f3nico para hacer una denuncia?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 29,
+  "fields": {
+    "text_pregunta": "Escriba el n\u00famero telef\u00f3nico para denuncias que se encontr\u00f3 en documentos p\u00fablicos\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 30,
+  "fields": {
+    "text_pregunta": "De acuerdo a la informaci\u00f3n p\u00fablica \u00bfen esta l\u00ednea de denuncia se mantiene la confidencialidad o anonimidad del denunciante?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 31,
+  "fields": {
+    "text_pregunta": "De acuerdo a la informaci\u00f3n p\u00fablica \u00bfse prohiben expresamente las represalias a los denunciantes?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 32,
+  "fields": {
+    "text_pregunta": "\u00bfCu\u00e1l es el origen del material consultado?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 33,
+  "fields": {
+    "text_pregunta": "\u00bfEn qu\u00e9 tipo de sitio se encontr\u00f3 la informaci\u00f3n?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 34,
+  "fields": {
+    "text_pregunta": "\u00bfEn qu\u00e9 idioma se encontr\u00f3 la informaci\u00f3n?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 35,
+  "fields": {
+    "text_pregunta": "\u00bfLa informaci\u00f3n se encontr\u00f3 en un sitio para M\u00e9xico y en espa\u00f1ol?\n"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 36,
+  "fields": {
+    "text_pregunta": "N\u00famero de clicks que se necesitaron para llegar a la informaci\u00f3n requerida"
+  }
 }
 ]
