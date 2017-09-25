@@ -26,6 +26,7 @@ class Paises(models.Model):
 
 class Pregunta(models.Model):
     text_pregunta = models.CharField(max_length=200)
+    respuesta = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return self.text_pregunta
@@ -33,11 +34,11 @@ class Pregunta(models.Model):
 
         
 class Cuestionario(models.Model):
-    preguntas = models.ForeignKey(Pregunta)
-    respuesta = models.CharField(max_length=200)
+    preguntas = models.ManyToManyField(Pregunta)
+    created = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return 'Pregunta: %s, respuesta: %s' %(self.preguntas, self.respuesta)
+        return 'Pregunta: %s, created: %s' %(self.preguntas, self.created)
 
         
     
@@ -47,7 +48,7 @@ class Empresa(models.Model):
     pais = models.ForeignKey(Paises)
     website_corporativo = models.URLField(max_length=200)
     website_integridad = models.URLField(max_length=200)
-    cuestionario = models.ManyToManyField(Cuestionario)
+    cuestionario = models.OneToOneField(Cuestionario)
 
     class Meta:
         verbose_name = 'Empresa'

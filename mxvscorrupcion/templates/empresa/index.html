@@ -1,0 +1,19 @@
+{% extends "empresa/base.html" %}
+
+{% block contenido %}
+	
+	<main>
+		{%if empresas %}
+		<ul>
+			{%for empresa in empresas%}
+				<li>
+					<strong>Empresa:</strong> {{empresa.nombre}}, <strong>Sector:</strong> {{empresa.sector}}
+				</li>
+			{% endfor %}
+		</ul>
+		{% else %}
+			<h1>No hay Contexto</h1>
+		{% endif %}
+
+	</main>
+{% endblock contenido %}
