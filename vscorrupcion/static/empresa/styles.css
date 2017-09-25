@@ -1,0 +1,13 @@
+main{
+	max-width: 960px;
+	margin: 0 auto;
+}
+*{
+	font-family: helvetica;
+}
+ul{
+	list-style:none;
+}
+li{
+	margin:10px 0px;
+}
