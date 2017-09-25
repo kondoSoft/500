@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from mxvscorrupcion import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^', views.empresa, name='empresa'),
+    url(r'^logout/', views.logout, name='logout')
 ]

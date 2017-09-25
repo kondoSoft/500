@@ -2,3 +2,9 @@ venv
 *.pyc
 staticfiles
 .env
+.DS_Store
+db.sqlite3
+empresas.csv
+preguntas.csv
+script.py
+vscorrupcion/staticfiles
