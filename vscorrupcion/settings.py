@@ -132,3 +132,8 @@ STATICFILES_DIRS = [
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+#Login options
+LOGIN_REDIRECT_URL ='/empresa/'
+LOGIN_URL = '/login/'
+LOGOUT_REDIRECT_URL = '/login/'
