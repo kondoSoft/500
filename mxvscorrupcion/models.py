@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Sectores(models.Model):
-    nombre = models.CharField(max_length=200)
+    nombre = models.CharField(max_length=255)
 
     class Meta:
         verbose_name = 'Sector'
@@ -14,7 +14,7 @@ class Sectores(models.Model):
         return self.nombre
 
 class Paises(models.Model):
-    pais = models.CharField(max_length=200)
+    pais = models.CharField(max_length=255)
 
     class Meta:
         verbose_name = 'Pais'
@@ -25,8 +25,8 @@ class Paises(models.Model):
         return self.pais
 
 class Pregunta(models.Model):
-    text_pregunta = models.CharField(max_length=200)
-    respuesta = models.CharField(max_length=200, null=True)
+    text_pregunta = models.CharField(max_length=255)
+    respuesta = models.CharField(max_length=255, null=True)
 
     def __str__(self):
         return self.text_pregunta
@@ -43,11 +43,11 @@ class Cuestionario(models.Model):
         
     
 class Empresa(models.Model):
-    nombre = models.CharField(max_length=200)
+    nombre = models.CharField(max_length=255)
     sector = models.ForeignKey(Sectores)
     pais = models.ForeignKey(Paises)
-    website_corporativo = models.URLField(max_length=200)
-    website_integridad = models.URLField(max_length=200)
+    website_corporativo = models.URLField(max_length=255)
+    website_integridad = models.URLField(max_length=1000)
     cuestionario = models.OneToOneField(Cuestionario)
 
     class Meta:
