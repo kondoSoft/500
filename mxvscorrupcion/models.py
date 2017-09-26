@@ -26,10 +26,10 @@ class Paises(models.Model):
 
 class Pregunta(models.Model):
     text_pregunta = models.CharField(max_length=255)
-    respuesta = models.CharField(max_length=255, null=True)
+    respuesta = models.TextField(null=True)
 
     def __str__(self):
-        return self.text_pregunta
+        return 'Pregunta: %s || Respuesta: %s' %(self.text_pregunta, self.respuesta)
 
 
         
