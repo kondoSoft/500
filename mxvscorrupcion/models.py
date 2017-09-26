@@ -46,7 +46,7 @@ class Empresa(models.Model):
     nombre = models.CharField(max_length=255)
     sector = models.ForeignKey(Sectores)
     pais = models.ForeignKey(Paises)
-    website_corporativo = models.URLField(max_length=255)
+    website_corporativo = models.URLField(max_length=1000)
     website_integridad = models.URLField(max_length=1000)
     cuestionario = models.OneToOneField(Cuestionario)
 
