@@ -6,26 +6,40 @@ from django.conf import settings
 
 
 
-from .models import Empresa
+from .models import Empresa, Cuestionario
 
 
 # Create your views here.
 
-def index(request):
-	return redirect(settings.LOGIN_URL)
-
 def empresa(request):
 	user = request.user
+	empresa = Empresa.objects.get(nombre=user.first_name)
+	cuestionario = Cuestionario.objects.get(pk=empresa.cuestionario_id)
+	preguntas = cuestionario.preguntas.all()
+	empresas = Empresa.objects.all()
+	context = {
+		'empresas':empresas,
+		'empresa': empresa,
+		'preguntas': preguntas
+	}
 	if user.is_authenticated:
-		empresas = Empresa.objects.all()
-		context = {
-			'empresas':empresas,
-			'user':user
-		}
 		return render(request, 'empresa/index.html', context)
 	else:
 		return redirect(settings.LOGIN_URL)
 
+
+def editInfo(request):
+	user = request.user
+	empresa = Empresa.objects.get(nombre=user.first_name)
+
+
+	context = {
+		'empresa': empresa
+	}
+	if user.is_authenticated:
+		return render(request, 'empresa/edit-info.html', context)
+	else:
+		return redirect(settings.LOGIN_URL)	
 
 
 def loginUser(request):
