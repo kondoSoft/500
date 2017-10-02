@@ -53,7 +53,15 @@
 						{% for pregunta in preguntas %}
 							<tr>
 								<td><a href="#" class="preguntas" data-id="{{pregunta.pk}}" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="left" title="Haz Click para editar la respuesta">{{pregunta.text_pregunta}}</a></td>
-								<td> {{pregunta.respuesta}} </td>
+								{% if pregunta.respuesta == '1' %}
+									<td>Si</td>
+								{% elif preguntas.respuesta == '0.5' %}
+									<td>Únicamente respecto a la Ley de Protección de Datos Personales /Derechos ARCO</td>
+								{% elif preguntas.respuesta == '0' %}
+									<td>No</td>
+								{% else %}
+									<td> {{pregunta.respuesta}} </td>
+								{% endif %}
 							</tr>
 						{% endfor %}
 					</tbody>
@@ -76,7 +84,7 @@
         </button>
       </div>
       <div class="modal-body">
-      	<form action="{% url 'modify-answer' 'none' %}" method="POST" id="edit-answer">
+      	<form action="{% url 'modify-answer' 'none' %}" method="post" id="edit-answer">
     			{% csrf_token %}
     			<input type="hidden" name="pregunta_id" id="pregunta_id">
       		<div class="form-group">

@@ -1,19 +1,26 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404, HttpResponse
 from django.template import loader
 from django.contrib.auth import authenticate, login
 from django.conf import settings
 
-from .models import Empresa, Cuestionario, Pregunta
+from .models import Empresa, Cuestionario, Pregunta, Articulo
 
 
 # Create your views here.
+# def index(request):
+# 	user = request.user
+# 	if user.is_authenticated:
+# 		return redirect('empresa')
+# 	else:
+# 		return redirect(settings.LOGIN_URL)
+
 def index(request):
-	user = request.user
-	if user.is_authenticated:
-		return redirect('empresa')
-	else:
-		return redirect(settings.LOGIN_URL)
+	posts = Articulo.objects.all()
+	template = 'micrositio/index.html'
+	context = {'posts': posts}
+
+	return render(request, template, context)
 
 
 def empresa(request):
@@ -82,8 +89,13 @@ def modifyAnswer(request, pk):
 		return redirect('edit-info')
 
 
-
-
+def articulos(request, slug):
+	articulo = get_object_or_404(Articulo, slug=slug)
+	template = 'micrositio/post.html'
+	context = {
+		'post': articulo
+	}
+	return render(request, template, context)
 
 
 
