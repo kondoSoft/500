@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^login/', views.loginUser, name='login'),
     url(r'^edit/', views.editInfo, name='edit-info'),
     url(r'^signin/', views.register, name='register'),
+    url(r'^articulos/(?P<slug>[-\w]+)/$', views.articulos, name='articulos'),
     url(r'^modify-answer/(?P<pk>[0-9 a-z]+)/$', views.modifyAnswer, name='modify-answer'),
     url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
 ]

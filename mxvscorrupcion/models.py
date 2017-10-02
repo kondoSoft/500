@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 
@@ -57,6 +58,20 @@ class Empresa(models.Model):
     def __str__(self):
         return self.nombre
 
+class Articulo(models.Model):
+    titulo = models.CharField(max_length=255)
+    contenido = models.TextField()
+    slug =models.SlugField(max_length=255)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        verbose_name = "Articulo"
+        verbose_name_plural = "Articulos"
 
+    def get_absoulte_url(self):
+        return reverse('articulos', args=[self.slug])
 
+    def __str__(self):
+        return self.titulo
+    
