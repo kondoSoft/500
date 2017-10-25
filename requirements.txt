@@ -4,3 +4,4 @@ django-tinymce==2.6.0
 gunicorn==19.6.0
 pytz==2017.2
 whitenoise==3.2
+psycopg2==2.6.2
