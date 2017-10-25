@@ -136,6 +136,6 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #Login options
-LOGIN_REDIRECT_URL ='/empresa/'
+LOGIN_REDIRECT_URL ='/edit/'
 LOGIN_URL = '/login/'
 LOGOUT_REDIRECT_URL = '/login/'
