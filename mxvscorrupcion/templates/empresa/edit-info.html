@@ -52,7 +52,7 @@
 						</tr>
 						{% for pregunta in preguntas %}
 							<tr>
-								<td><a href="#" class="preguntas" data-id="{{pregunta.pk}}" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="left" title="Haz Click para editar la respuesta">{{pregunta.text_pregunta}}</a></td>
+								<td><a href="#" class="preguntas" data-id="{{pregunta.pk}}" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="left" title="Haz Click para editar la respuesta">{{pregunta.reactivo}}</a></td>
 								{% if pregunta.respuesta == '1' %}
 									<td>Si</td>
 								{% elif pregunta.respuesta == '0.5' %}

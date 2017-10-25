@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'tinymce',
-    'mxvscorrupcion'
+    'mxvscorrupcion',
+    'helpers'
 ]
 
 MIDDLEWARE = [

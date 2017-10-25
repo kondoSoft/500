@@ -59,6 +59,8 @@ class Empresa(models.Model):
     website_corporativo = models.URLField(max_length=1000)
     website_integridad = models.URLField(max_length=1000)
     cuestionario = models.OneToOneField(Cuestionario)
+    tot100 = models.CharField(max_length=255, blank=True, null=True)
+    tot = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         verbose_name = 'Empresa'
