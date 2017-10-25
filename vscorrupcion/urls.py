@@ -30,4 +30,6 @@ urlpatterns = [
     url(r'^articulos/(?P<slug>[-\w]+)/$', views.articulos, name='articulos'),
     url(r'^modify-answer/(?P<pk>[0-9 a-z]+)/$', views.modifyAnswer, name='modify-answer'),
     url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
+    url(r'^revisor/', views.revisor, name='revisor'),
+    url(r'^validate/', views.validate, name='validate'),
 ]

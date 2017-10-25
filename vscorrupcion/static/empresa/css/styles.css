@@ -24,3 +24,6 @@ li{
 	align-items: center;
 	padding: 100px;
 }
+
+/*Clases Genericas*/
+.uppercase{text-transform: uppercase;}
