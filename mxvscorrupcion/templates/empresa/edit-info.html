@@ -55,9 +55,9 @@
 								<td><a href="#" class="preguntas" data-id="{{pregunta.pk}}" data-toggle="modal" data-target="#exampleModal" data-toggle="tooltip" data-placement="left" title="Haz Click para editar la respuesta">{{pregunta.text_pregunta}}</a></td>
 								{% if pregunta.respuesta == '1' %}
 									<td>Si</td>
-								{% elif preguntas.respuesta == '0.5' %}
+								{% elif pregunta.respuesta == '0.5' %}
 									<td>Únicamente respecto a la Ley de Protección de Datos Personales /Derechos ARCO</td>
-								{% elif preguntas.respuesta == '0' %}
+								{% elif pregunta.respuesta == '0' %}
 									<td>No</td>
 								{% else %}
 									<td> {{pregunta.respuesta}} </td>
@@ -89,7 +89,11 @@
     			<input type="hidden" name="pregunta_id" id="pregunta_id">
       		<div class="form-group">
 				    <label for="respuesta">Respuesta</label>
-				    <input type="text" class="form-control" id="respuesta" placeholder="Ingrese respuesta" name="respuesta">
+            <select name="respuesta" id="respuesta">
+              <option value="1">Si</option>
+              <option value="0">No</option>
+              <option value="0.5">Únicamente respecto a la Ley de Protección de Datos Personales /Derechos ARCO</option>
+            </select>
   				</div>
       	</form>
       </div>

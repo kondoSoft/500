@@ -63,8 +63,16 @@ def loginUser(request):
 		password = request.POST.get('password')
 		user = authenticate(request, username=username, password=password)
 		if user is not None:
-			login(request, user)
-			return redirect(settings.LOGIN_REDIRECT_URL, user)
+			group = user.groups.all()[0].name
+			if group == 'empresa':
+				login(request, user)
+				return redirect(settings.LOGIN_REDIRECT_URL, user)
+			elif group == 'revisor' :
+				login(request, user)
+				return redirect('/revisor/', user)
+			else :
+				login(request, user)
+				return redirect('/admin/', user)
 		else:
 			return render(request, 'empresa/login.html', {'error': True})
 	else:
@@ -98,6 +106,13 @@ def articulos(request, slug):
 	return render(request, template, context)
 
 
+def revisor(request):
+	template = 'revisor/index.html'  
+	return render(request, template)
 
+
+def validate(request):
+	template = 'revisor/validate.html'
+	return render(request, template)
 
 
