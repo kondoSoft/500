@@ -1,0 +1,347 @@
+[
+{
+  "model": "mxvscorrupcion.empresa",
+  "pk": 1,
+  "fields": {
+    "nombre": "Petr\u00f3leos Mexicanos",
+    "sector": 96,
+    "pais": 35,
+    "website_corporativo": "http://www.pemex.com/Paginas/default.aspx",
+    "website_integridad": "http://www.pemex.com/acerca/codigo-de-conducta/Paginas/default.aspx",
+    "cuestionario": 1
+  }
+},
+{
+  "model": "mxvscorrupcion.cuestionario",
+  "pk": 1,
+  "fields": {
+    "created": "2017-10-25T20:22:39.906Z",
+    "preguntas": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36
+    ]
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 1,
+  "fields": {
+    "reactivo": 39,
+    "respuesta": "1"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 2,
+  "fields": {
+    "reactivo": 40,
+    "respuesta": "1"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 3,
+  "fields": {
+    "reactivo": 41,
+    "respuesta": "1"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 4,
+  "fields": {
+    "reactivo": 42,
+    "respuesta": "1"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 5,
+  "fields": {
+    "reactivo": 43,
+    "respuesta": "1"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 6,
+  "fields": {
+    "reactivo": 44,
+    "respuesta": "0.5"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 7,
+  "fields": {
+    "reactivo": 45,
+    "respuesta": "0.5"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 8,
+  "fields": {
+    "reactivo": 46,
+    "respuesta": "0.5"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 9,
+  "fields": {
+    "reactivo": 47,
+    "respuesta": "0"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 10,
+  "fields": {
+    "reactivo": 48,
+    "respuesta": "0"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 11,
+  "fields": {
+    "reactivo": 49,
+    "respuesta": "0"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 12,
+  "fields": {
+    "reactivo": 50,
+    "respuesta": "1"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 13,
+  "fields": {
+    "reactivo": 51,
+    "respuesta": "1"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 14,
+  "fields": {
+    "reactivo": 52,
+    "respuesta": "1"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 15,
+  "fields": {
+    "reactivo": 53,
+    "respuesta": "0.5"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 16,
+  "fields": {
+    "reactivo": 54,
+    "respuesta": "1"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 17,
+  "fields": {
+    "reactivo": 55,
+    "respuesta": "El conflicto de inter\u00e9s se presenta cuando por razones de parentesco, amistad, intereses patrimoniales, o cualquier otra, una persona favorece los intereses propios o de terceras personas sobre los del PEMEX."
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 18,
+  "fields": {
+    "reactivo": 56,
+    "respuesta": "1"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 19,
+  "fields": {
+    "reactivo": 57,
+    "respuesta": "Tr\u00e1fico de Influencias"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 20,
+  "fields": {
+    "reactivo": 58,
+    "respuesta": "0"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 21,
+  "fields": {
+    "reactivo": 59,
+    "respuesta": "0"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 22,
+  "fields": {
+    "reactivo": 60,
+    "respuesta": "1"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 23,
+  "fields": {
+    "reactivo": 61,
+    "respuesta": "Existe un Comit\u00e9 de \u00c9tica que conoce y analiza las infracciones, verifica la ejecuci\u00f3n de sanciones, promueve estrategias corporativas y establece mecanismos de medici\u00f3n sobre la ejecuci\u00f3n de los principios del c\u00f3digo de \u00e9tica"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 24,
+  "fields": {
+    "reactivo": 62,
+    "respuesta": "1"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 25,
+  "fields": {
+    "reactivo": 63,
+    "respuesta": "0.5"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 26,
+  "fields": {
+    "reactivo": 64,
+    "respuesta": "1"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 27,
+  "fields": {
+    "reactivo": 65,
+    "respuesta": "codigodeconducta@pemex.com"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 28,
+  "fields": {
+    "reactivo": 66,
+    "respuesta": "1"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 29,
+  "fields": {
+    "reactivo": 67,
+    "respuesta": "01 800 522 6363"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 30,
+  "fields": {
+    "reactivo": 68,
+    "respuesta": "0.5"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 31,
+  "fields": {
+    "reactivo": 69,
+    "respuesta": "1"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 32,
+  "fields": {
+    "reactivo": 70,
+    "respuesta": "1"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 33,
+  "fields": {
+    "reactivo": 71,
+    "respuesta": "1"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 34,
+  "fields": {
+    "reactivo": 72,
+    "respuesta": "1"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 35,
+  "fields": {
+    "reactivo": 73,
+    "respuesta": "1"
+  }
+},
+{
+  "model": "mxvscorrupcion.pregunta",
+  "pk": 36,
+  "fields": {
+    "reactivo": 74,
+    "respuesta": "1"
+  }
+}
+]

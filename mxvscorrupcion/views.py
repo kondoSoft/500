@@ -46,6 +46,7 @@ def editInfo(request):
 		empresa = Empresa.objects.get(nombre=user.first_name)
 		cuestionario = Cuestionario.objects.get(pk=empresa.cuestionario_id)
 		preguntas = cuestionario.preguntas.all()
+		print(preguntas[0].reactivo)
 
 		context = {
 			'empresa': empresa,
@@ -114,5 +115,4 @@ def revisor(request):
 def validate(request):
 	template = 'revisor/validate.html'
 	return render(request, template)
-
 
