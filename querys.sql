@@ -8,11 +8,11 @@ left join
 left join 
   mxvscorrupcion_pregunta as p on p.id = cp.pregunta_id 
 left join 
-  mxvscorrupcion_catalogo_preguntas as catp on catp.id_reactivo=p.id_pregunta 
+  mxvscorrupcion_catalogo_preguntas as catp on catp.id=p.id 
 where 
-  catp.id_reactivo = 'TOT100' 
+  catp.id = 40
 order by 
-  p.respuesta desc;
+  p.respuesta desc
 
 
 -- Este seria el query para sacar el ranking por sector
@@ -28,6 +28,7 @@ group by
   s.nombre;
 
 
+-- query = 'select e.nombre,e.tot100 from mxvscorrupcion_empresa as e order by e.tot100 desc;'
 -- El ranking global
 select 
   e.nombre,e.tot100 

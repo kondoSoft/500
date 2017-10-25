@@ -35,7 +35,7 @@ def empresa(request):
 			'empresa': empresa,
 			'preguntas': preguntas
 		}
-		return render(request, 'empresa/index.html', context)
+		return render(request, 'empresa/edit-info.html', context)
 	else:
 		return redirect(settings.LOGIN_URL)
 
