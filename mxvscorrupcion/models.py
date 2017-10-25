@@ -1,5 +1,7 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from tinymce.models import HTMLField
+from django.utils.text import slugify
 
 # Create your models here.
 
@@ -42,11 +44,11 @@ class Pregunta(models.Model):
     def __str__(self):
         return 'Pregunta: %s || Respuesta: %s' %(self.reactivo, self.respuesta)
 
-        
+
 class Cuestionario(models.Model):
     preguntas = models.ManyToManyField(Pregunta)
     created = models.DateTimeField(auto_now_add=True)
-    
+
     def __str__(self):
         return 'Pregunta: %s, created: %s' %(self.preguntas, self.created)
 
@@ -67,14 +69,22 @@ class Empresa(models.Model):
 
 class Articulo(models.Model):
     titulo = models.CharField(max_length=255)
-    contenido = models.TextField()
-    slug =models.SlugField(max_length=255)
+    contenido = HTMLField()
+    slug =models.SlugField(max_length=255, unique=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name = "Articulo"
         verbose_name_plural = "Articulos"
+
+    def save(self, *args, **kwargs):
+        #this line below give to the instance slug field a slug name
+        self.slug = slugify(self.titulo)
+        #this line below save every fields of the model instance
+        super(Articulo, self).save(*args, **kwargs)
+
+        return self
 
     def get_absoulte_url(self):
         return reverse('articulos', args=[self.slug])
@@ -86,5 +96,3 @@ class Corte(models.Model):
     cuestionario = models.ForeignKey(Cuestionario)
     fecha_de_corte = models.DateTimeField(null=True)
     aprovado = models.NullBooleanField(blank=True, null=True)
-
-    
