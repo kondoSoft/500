@@ -9,7 +9,9 @@
     <section>
       <article>
         <h3> {{post.titulo}} </h3>
-        <p> {{post.contenido}} </p>
+        <p> 
+          {{post.contenido | safe}} 
+        </p>
         <small> {{post.created}} </small>
       </article>
     </section>
