@@ -70,7 +70,7 @@ class Empresa(models.Model):
 class Articulo(models.Model):
     titulo = models.CharField(max_length=255)
     contenido = HTMLField()
-    slug =models.SlugField(max_length=255, unique=True)
+    slug =models.SlugField(max_length=255, unique=True, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 

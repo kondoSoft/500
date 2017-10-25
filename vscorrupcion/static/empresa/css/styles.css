@@ -27,3 +27,16 @@ li{
 
 /*Clases Genericas*/
 .uppercase{text-transform: uppercase;}
+
+
+/*REVISOR*/
+.title{
+	background: #6B1B19;
+	color: #FFF;
+	margin: 0px;
+	margin-bottom: 20px;
+}
+
+.title div{
+	padding: 10px 10px;
+}
