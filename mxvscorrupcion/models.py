@@ -25,13 +25,22 @@ class Paises(models.Model):
     def __str__(self):
         return self.pais
 
+class Catalogo_Preguntas(models.Model):
+    descripcion = models.TextField()
+    bloque = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.descripcion
+    class Meta:
+        verbose_name = 'Catalogo_Preguntas'
+        verbose_name_plural = 'Catalogo_Preguntas'
+
 class Pregunta(models.Model):
-    text_pregunta = models.CharField(max_length=255)
+    reactivo = models.ForeignKey(Catalogo_Preguntas)
     respuesta = models.TextField(null=True)
 
     def __str__(self):
-        return 'Pregunta: %s || Respuesta: %s' %(self.text_pregunta, self.respuesta)
-
+        return 'Pregunta: %s || Respuesta: %s' %(self.reactivo, self.respuesta)
 
         
 class Cuestionario(models.Model):
@@ -41,8 +50,6 @@ class Cuestionario(models.Model):
     def __str__(self):
         return 'Pregunta: %s, created: %s' %(self.preguntas, self.created)
 
-        
-    
 class Empresa(models.Model):
     nombre = models.CharField(max_length=255)
     sector = models.ForeignKey(Sectores)
@@ -74,4 +81,10 @@ class Articulo(models.Model):
 
     def __str__(self):
         return self.titulo
+
+class Corte(models.Model):
+    cuestionario = models.ForeignKey(Cuestionario)
+    fecha_de_corte = models.DateTimeField(null=True)
+    aprovado = models.NullBooleanField(blank=True, null=True)
+
     
