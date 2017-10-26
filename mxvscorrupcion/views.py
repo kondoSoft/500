@@ -3,8 +3,11 @@ from django.http import Http404, HttpResponse
 from django.template import loader
 from django.contrib.auth import authenticate, login
 from django.conf import settings
+from django.http import HttpResponse
 
-from .models import Empresa, Cuestionario, Pregunta, Articulo
+from openpyxl import Workbook, load_workbook
+
+from .models import Empresa, Cuestionario, Pregunta, Articulo, Catalogo_Preguntas
 
 
 # Create your views here.
@@ -54,7 +57,7 @@ def editInfo(request):
 		}
 		return render(request, 'empresa/edit-info.html', context)
 	else:
-		return redirect(settings.LOGIN_URL)	
+		return redirect(settings.LOGIN_URL)
 
 
 def loginUser(request):
@@ -108,7 +111,7 @@ def articulos(request, slug):
 
 
 def revisor(request):
-	template = 'revisor/index.html'  
+	template = 'revisor/index.html'
 	return render(request, template)
 
 
@@ -116,3 +119,21 @@ def validate(request):
 	template = 'revisor/validate.html'
 	return render(request, template)
 
+def import_empresas(request):
+	wb = load_workbook('mxvscorrupcion/501.xlsx')
+	sheet = wb.get_sheet_by_name('Códigos')
+	print(sheet)
+	row1 = sheet.cell(row=3, column=3)
+	print(row1)
+	for line in range(9, 44):
+		# for col in range(1,3):
+		# print(sheet.cell(line, 1).value)
+		# print(sheet.cell(line, 2).value)
+		# print(sheet.cell(line, 3).value)
+		pregunta = Catalogo_Preguntas()
+		pregunta.bloque = sheet.cell(row=line, column=1).value
+		pregunta.id_reactivo = sheet.cell(row=line, column=2).value
+		pregunta.descripcion = sheet.cell(row=line, column=3).value
+		pregunta.save()
+
+	return HttpResponse(row1.value)

@@ -32,5 +32,6 @@ urlpatterns = [
     url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
     url(r'^revisor/', views.revisor, name='revisor'),
     url(r'^validate/', views.validate, name='validate'),
+    url(r'^empresas/', views.import_empresas, name='validate'),
     url(r'^tinymce/', include('tinymce.urls')),
 ]
