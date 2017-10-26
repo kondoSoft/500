@@ -33,4 +33,6 @@ urlpatterns = [
     url(r'^revisor/', views.revisor, name='revisor'),
     url(r'^validate/', views.validate, name='validate'),
     url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^glosario/', views.glosario, name='glosario'),
+    url(r'^fuentes/', views.fuentes, name='fuentes')
 ]
