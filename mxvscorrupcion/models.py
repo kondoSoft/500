@@ -39,15 +39,12 @@ class Catalogo_Preguntas(models.Model):
         verbose_name_plural = 'Catalogo_Preguntas'
 
 class Respuestas(models.Model):
-    valor = models.CharField(max_length=3, choices=(
-    (u'0', '0'),
-    (u'0.5', '0.5'),
-    (u'1', '1'),
-))
+    valor = models.CharField(max_length=3)
     opcion = models.CharField(max_length=200)
-    Pregunta = models.ForeignKey(Catalogo_Preguntas)
+    catalogo_pregunta = models.ForeignKey(Catalogo_Preguntas)
     def __str__(self):
         return self.opcion + ' ' + self.valor
+
 class Pregunta(models.Model):
     reactivo = models.ForeignKey(Catalogo_Preguntas)
     respuesta = models.ForeignKey(Respuestas)

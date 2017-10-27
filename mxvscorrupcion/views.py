@@ -7,7 +7,7 @@ from django.http import HttpResponse
 
 from openpyxl import Workbook, load_workbook
 
-from .models import Empresa, Cuestionario, Pregunta, Articulo, Catalogo_Preguntas
+from .models import Empresa, Cuestionario, Pregunta, Articulo, Catalogo_Preguntas, Respuestas
 
 
 # Create your views here.
@@ -125,7 +125,7 @@ def import_empresas(request):
 	print(sheet)
 	row1 = sheet.cell(row=3, column=3)
 	print(row1)
-	for line in range(9, 44):
+	for line in range(9, 45):
 		# for col in range(1,3):
 		# print(sheet.cell(line, 1).value)
 		# print(sheet.cell(line, 2).value)
@@ -135,5 +135,28 @@ def import_empresas(request):
 		pregunta.id_reactivo = sheet.cell(row=line, column=2).value
 		pregunta.descripcion = sheet.cell(row=line, column=3).value
 		pregunta.save()
+		respuestas = Respuestas()
+		respuestas.opcion = sheet.cell(row=line, column=4).value
+		if (respuestas.opcion is None):
+			respuestas.opcion = 'N/A'
+		respuestas.valor = '0'
+		respuestas.catalogo_pregunta = pregunta
+		respuestas.save()
+		respuestas = Respuestas()
+		respuestas.opcion = sheet.cell(row=line, column=5).value
+		if (respuestas.opcion is None):
+			respuestas.opcion = 'N/A'
+		respuestas.valor = '0.5'
+		respuestas.catalogo_pregunta = pregunta
+
+		respuestas.save()
+		respuestas = Respuestas()
+		respuestas.opcion = sheet.cell(row=line, column=6).value
+		if (respuestas.opcion is None):
+			respuestas.opcion = 'N/A'
+		respuestas.valor = '1'
+		respuestas.catalogo_pregunta = pregunta
+
+		respuestas.save()
 
 	return HttpResponse(row1.value)

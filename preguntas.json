@@ -1,0 +1,1298 @@
+[
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 366,
+  "fields": {
+    "valor": "0",
+    "opcion": "NO",
+    "catalogo_pregunta": 134
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 367,
+  "fields": {
+    "valor": "0.5",
+    "opcion": ".",
+    "catalogo_pregunta": 134
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 368,
+  "fields": {
+    "valor": "1",
+    "opcion": "S\u00ed",
+    "catalogo_pregunta": 134
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 369,
+  "fields": {
+    "valor": "0",
+    "opcion": "NO",
+    "catalogo_pregunta": 135
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 370,
+  "fields": {
+    "valor": "0.5",
+    "opcion": ".",
+    "catalogo_pregunta": 135
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 371,
+  "fields": {
+    "valor": "1",
+    "opcion": "S\u00ed",
+    "catalogo_pregunta": 135
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 372,
+  "fields": {
+    "valor": "0",
+    "opcion": "NO",
+    "catalogo_pregunta": 136
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 373,
+  "fields": {
+    "valor": "0.5",
+    "opcion": ".",
+    "catalogo_pregunta": 136
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 374,
+  "fields": {
+    "valor": "1",
+    "opcion": "S\u00ed",
+    "catalogo_pregunta": 136
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 375,
+  "fields": {
+    "valor": "0",
+    "opcion": "NO",
+    "catalogo_pregunta": 137
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 376,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "\u00danicamente respecto a la Ley de Protecci\u00f3n de Datos Personales /Derechos ARCO",
+    "catalogo_pregunta": 137
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 377,
+  "fields": {
+    "valor": "1",
+    "opcion": "S\u00ed",
+    "catalogo_pregunta": 137
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 378,
+  "fields": {
+    "valor": "0",
+    "opcion": "NO",
+    "catalogo_pregunta": 138
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 379,
+  "fields": {
+    "valor": "0.5",
+    "opcion": ".",
+    "catalogo_pregunta": 138
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 380,
+  "fields": {
+    "valor": "1",
+    "opcion": "S\u00ed",
+    "catalogo_pregunta": 138
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 381,
+  "fields": {
+    "valor": "0",
+    "opcion": "NO",
+    "catalogo_pregunta": 139
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 382,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "S\u00ed",
+    "catalogo_pregunta": 139
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 383,
+  "fields": {
+    "valor": "1",
+    "opcion": ". ",
+    "catalogo_pregunta": 139
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 384,
+  "fields": {
+    "valor": "0",
+    "opcion": "NO",
+    "catalogo_pregunta": 140
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 385,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "S\u00ed",
+    "catalogo_pregunta": 140
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 386,
+  "fields": {
+    "valor": "1",
+    "opcion": ". ",
+    "catalogo_pregunta": 140
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 387,
+  "fields": {
+    "valor": "0",
+    "opcion": "NO",
+    "catalogo_pregunta": 141
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 388,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "S\u00ed",
+    "catalogo_pregunta": 141
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 389,
+  "fields": {
+    "valor": "1",
+    "opcion": ". ",
+    "catalogo_pregunta": 141
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 390,
+  "fields": {
+    "valor": "0",
+    "opcion": "NO",
+    "catalogo_pregunta": 142
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 391,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "S\u00ed",
+    "catalogo_pregunta": 142
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 392,
+  "fields": {
+    "valor": "1",
+    "opcion": ".",
+    "catalogo_pregunta": 142
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 393,
+  "fields": {
+    "valor": "0",
+    "opcion": "NO",
+    "catalogo_pregunta": 143
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 394,
+  "fields": {
+    "valor": "0.5",
+    "opcion": ".",
+    "catalogo_pregunta": 143
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 395,
+  "fields": {
+    "valor": "1",
+    "opcion": "S\u00ed",
+    "catalogo_pregunta": 143
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 396,
+  "fields": {
+    "valor": "0",
+    "opcion": "NO",
+    "catalogo_pregunta": 144
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 397,
+  "fields": {
+    "valor": "0.5",
+    "opcion": ".",
+    "catalogo_pregunta": 144
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 398,
+  "fields": {
+    "valor": "1",
+    "opcion": "S\u00ed",
+    "catalogo_pregunta": 144
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 399,
+  "fields": {
+    "valor": "0",
+    "opcion": "NO / No Aplica",
+    "catalogo_pregunta": 145
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 400,
+  "fields": {
+    "valor": "0.5",
+    "opcion": ".",
+    "catalogo_pregunta": 145
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 401,
+  "fields": {
+    "valor": "1",
+    "opcion": "SI",
+    "catalogo_pregunta": 145
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 402,
+  "fields": {
+    "valor": "0",
+    "opcion": "Informaci\u00f3n no disponible / No aplica",
+    "catalogo_pregunta": 146
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 403,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "Empleados (todas las categor\u00edas)",
+    "catalogo_pregunta": 146
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 404,
+  "fields": {
+    "valor": "1",
+    "opcion": "Empleados y directivos mencionados de manera expl\u00edcita",
+    "catalogo_pregunta": 146
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 405,
+  "fields": {
+    "valor": "0",
+    "opcion": ".",
+    "catalogo_pregunta": 147
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 406,
+  "fields": {
+    "valor": "0.5",
+    "opcion": ".",
+    "catalogo_pregunta": 147
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 407,
+  "fields": {
+    "valor": "1",
+    "opcion": "Agentes",
+    "catalogo_pregunta": 147
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 408,
+  "fields": {
+    "valor": "0",
+    "opcion": "No",
+    "catalogo_pregunta": 148
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 409,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "Socios comerciales son sujetos al c\u00f3digo de la empresa",
+    "catalogo_pregunta": 148
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 410,
+  "fields": {
+    "valor": "1",
+    "opcion": "S\u00ed (pol\u00edtica espec\u00edfica para contratistas)",
+    "catalogo_pregunta": 148
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 411,
+  "fields": {
+    "valor": "0",
+    "opcion": "No",
+    "catalogo_pregunta": 149
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 412,
+  "fields": {
+    "valor": "0.5",
+    "opcion": ".",
+    "catalogo_pregunta": 149
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 413,
+  "fields": {
+    "valor": "1",
+    "opcion": "S\u00ed",
+    "catalogo_pregunta": 149
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 414,
+  "fields": {
+    "valor": "0",
+    "opcion": "N/A",
+    "catalogo_pregunta": 150
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 415,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "N/A",
+    "catalogo_pregunta": 150
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 416,
+  "fields": {
+    "valor": "1",
+    "opcion": "N/A",
+    "catalogo_pregunta": 150
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 417,
+  "fields": {
+    "valor": "0",
+    "opcion": "N/A",
+    "catalogo_pregunta": 151
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 418,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "N/A",
+    "catalogo_pregunta": 151
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 419,
+  "fields": {
+    "valor": "1",
+    "opcion": "N/A",
+    "catalogo_pregunta": 151
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 420,
+  "fields": {
+    "valor": "0",
+    "opcion": "N/A",
+    "catalogo_pregunta": 152
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 421,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "N/A",
+    "catalogo_pregunta": 152
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 422,
+  "fields": {
+    "valor": "1",
+    "opcion": "N/A",
+    "catalogo_pregunta": 152
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 423,
+  "fields": {
+    "valor": "0",
+    "opcion": "No",
+    "catalogo_pregunta": 153
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 424,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "S\u00ed",
+    "catalogo_pregunta": 153
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 425,
+  "fields": {
+    "valor": "1",
+    "opcion": ". ",
+    "catalogo_pregunta": 153
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 426,
+  "fields": {
+    "valor": "0",
+    "opcion": "Informaci\u00f3n no disponible / No aplica",
+    "catalogo_pregunta": 154
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 427,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "Empleados (todas las categor\u00edas)",
+    "catalogo_pregunta": 154
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 428,
+  "fields": {
+    "valor": "1",
+    "opcion": "Empleados y directivos mencionados de manera expl\u00edcita",
+    "catalogo_pregunta": 154
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 429,
+  "fields": {
+    "valor": "0",
+    "opcion": "No se encontr\u00f3 un mecanismo espec\u00edfico",
+    "catalogo_pregunta": 155
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 430,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "N/A",
+    "catalogo_pregunta": 155
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 431,
+  "fields": {
+    "valor": "1",
+    "opcion": "Se encontr\u00f3 un mecanismo espec\u00edfico",
+    "catalogo_pregunta": 155
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 432,
+  "fields": {
+    "valor": "0",
+    "opcion": "N/A",
+    "catalogo_pregunta": 156
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 433,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "N/A",
+    "catalogo_pregunta": 156
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 434,
+  "fields": {
+    "valor": "1",
+    "opcion": "N/A",
+    "catalogo_pregunta": 156
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 435,
+  "fields": {
+    "valor": "0",
+    "opcion": "No se hace menci\u00f3n a sanciones",
+    "catalogo_pregunta": 157
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 436,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "Se menciona que existen sanciones pero no se especifica que tipo de sanciones se impondr\u00edan",
+    "catalogo_pregunta": 157
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 437,
+  "fields": {
+    "valor": "1",
+    "opcion": "S\u00ed, existen sanciones claras y detalladas por violaciones a los c\u00f3digos de la empresa",
+    "catalogo_pregunta": 157
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 438,
+  "fields": {
+    "valor": "0",
+    "opcion": "No",
+    "catalogo_pregunta": 158
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 439,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "N/A",
+    "catalogo_pregunta": 158
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 440,
+  "fields": {
+    "valor": "1",
+    "opcion": "S\u00ed",
+    "catalogo_pregunta": 158
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 441,
+  "fields": {
+    "valor": "0",
+    "opcion": "No",
+    "catalogo_pregunta": 159
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 442,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "N/A",
+    "catalogo_pregunta": 159
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 443,
+  "fields": {
+    "valor": "1",
+    "opcion": "S\u00ed",
+    "catalogo_pregunta": 159
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 444,
+  "fields": {
+    "valor": "0",
+    "opcion": "N/A",
+    "catalogo_pregunta": 160
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 445,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "N/A",
+    "catalogo_pregunta": 160
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 446,
+  "fields": {
+    "valor": "1",
+    "opcion": "N/A",
+    "catalogo_pregunta": 160
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 447,
+  "fields": {
+    "valor": "0",
+    "opcion": "No",
+    "catalogo_pregunta": 161
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 448,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "N/A",
+    "catalogo_pregunta": 161
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 449,
+  "fields": {
+    "valor": "1",
+    "opcion": "S\u00ed",
+    "catalogo_pregunta": 161
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 450,
+  "fields": {
+    "valor": "0",
+    "opcion": "N/A",
+    "catalogo_pregunta": 162
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 451,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "N/A",
+    "catalogo_pregunta": 162
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 452,
+  "fields": {
+    "valor": "1",
+    "opcion": "N/A",
+    "catalogo_pregunta": 162
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 453,
+  "fields": {
+    "valor": "0",
+    "opcion": "No",
+    "catalogo_pregunta": 163
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 454,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "N/A",
+    "catalogo_pregunta": 163
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 455,
+  "fields": {
+    "valor": "1",
+    "opcion": "S\u00ed",
+    "catalogo_pregunta": 163
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 456,
+  "fields": {
+    "valor": "0",
+    "opcion": "No",
+    "catalogo_pregunta": 164
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 457,
+  "fields": {
+    "valor": "0.5",
+    "opcion": ".",
+    "catalogo_pregunta": 164
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 458,
+  "fields": {
+    "valor": "1",
+    "opcion": "S\u00ed",
+    "catalogo_pregunta": 164
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 459,
+  "fields": {
+    "valor": "0",
+    "opcion": "NA, otras respuestas",
+    "catalogo_pregunta": 165
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 460,
+  "fields": {
+    "valor": "0.5",
+    "opcion": ".",
+    "catalogo_pregunta": 165
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 461,
+  "fields": {
+    "valor": "1",
+    "opcion": "Sitio web de la empresa",
+    "catalogo_pregunta": 165
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 462,
+  "fields": {
+    "valor": "0",
+    "opcion": "Otras respuestas",
+    "catalogo_pregunta": 166
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 463,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "Sitio Global o para Latinoam\u00e9rica   ",
+    "catalogo_pregunta": 166
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 464,
+  "fields": {
+    "valor": "1",
+    "opcion": "Sitio para M\u00e9xico  ",
+    "catalogo_pregunta": 166
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 465,
+  "fields": {
+    "valor": "0",
+    "opcion": "Toda la informaci\u00f3n en un idioma distinto al espa\u00f1ol",
+    "catalogo_pregunta": 167
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 466,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "Parte de la informaci\u00f3n en espa\u00f1ol",
+    "catalogo_pregunta": 167
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 467,
+  "fields": {
+    "valor": "1",
+    "opcion": "Toda la informaci\u00f3n en espa\u00f1ol",
+    "catalogo_pregunta": 167
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 468,
+  "fields": {
+    "valor": "0",
+    "opcion": "Otras respuestas",
+    "catalogo_pregunta": 168
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 469,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "Sitio Global o para Latinoam\u00e9rica + Toda la informaci\u00f3n en espa\u00f1ol",
+    "catalogo_pregunta": 168
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 470,
+  "fields": {
+    "valor": "1",
+    "opcion": "Sitio para M\u00e9xico + Toda la informaci\u00f3n en espa\u00f1ol",
+    "catalogo_pregunta": 168
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 471,
+  "fields": {
+    "valor": "0",
+    "opcion": "M\u00e1s de 5, otras respuestas",
+    "catalogo_pregunta": 169
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 472,
+  "fields": {
+    "valor": "0.5",
+    "opcion": "4 a 5",
+    "catalogo_pregunta": 169
+  }
+},
+{
+  "model": "mxvscorrupcion.respuestas",
+  "pk": 473,
+  "fields": {
+    "valor": "1",
+    "opcion": "3 o menos",
+    "catalogo_pregunta": 169
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 134,
+  "fields": {
+    "descripcion": "\u00bfLa empresa publica en su p\u00e1gina web una pol\u00edtica anticorrupci\u00f3n o de integridad?",
+    "id_reactivo": "IC_1",
+    "bloque": "INTEGRIDAD - ELEMENTOS DE UNA POL\u00cdTICA DE INTEGRIDAD"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 135,
+  "fields": {
+    "descripcion": "\u00bfLa empresa publica en su p\u00e1gina web un c\u00f3digo de \u00e9tica o de conducta para empleados?",
+    "id_reactivo": "IC_2",
+    "bloque": "INTEGRIDAD - ELEMENTOS DE UNA POL\u00cdTICA DE INTEGRIDAD"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 136,
+  "fields": {
+    "descripcion": "\u00bfLa empresa publica en su p\u00e1gina web una declaraci\u00f3n o compromiso anticorrupci\u00f3n / cero tolerancia a la corrupci\u00f3n?",
+    "id_reactivo": "IC_3",
+    "bloque": "INTEGRIDAD - ELEMENTOS DE UNA POL\u00cdTICA DE INTEGRIDAD"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 137,
+  "fields": {
+    "descripcion": "\u00bfLa empresa publica en su p\u00e1gina web un compromiso p\u00fablico con la legalidad y el respeto a las leyes nacionales e internacionales ?",
+    "id_reactivo": "IC_4",
+    "bloque": "INTEGRIDAD - ELEMENTOS DE UNA POL\u00cdTICA DE INTEGRIDAD"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 138,
+  "fields": {
+    "descripcion": "\u00bfLa empresa publica en su p\u00e1gina web una prohibici\u00f3n expl\u00edcita de sobornos y pagos facilitadores?",
+    "id_reactivo": "IC_5",
+    "bloque": "INTEGRIDAD - ELEMENTOS DE UNA POL\u00cdTICA DE INTEGRIDAD"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 139,
+  "fields": {
+    "descripcion": "\u00bfLa empresa publica en su p\u00e1gina web una pol\u00edtica de hospitalidad y vi\u00e1ticos?",
+    "id_reactivo": "IC_6",
+    "bloque": "INTEGRIDAD - ELEMENTOS DE UNA POL\u00cdTICA DE INTEGRIDAD"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 140,
+  "fields": {
+    "descripcion": "\u00bfLa empresa publica en su p\u00e1gina web una pol\u00edtica de regalos y agradecimientos? ",
+    "id_reactivo": "IC_7",
+    "bloque": "INTEGRIDAD - ELEMENTOS DE UNA POL\u00cdTICA DE INTEGRIDAD"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 141,
+  "fields": {
+    "descripcion": "\u00bfLa empresa publica en su p\u00e1gina web pol\u00edticas espec\u00edficas para prevenir fraudes internos?",
+    "id_reactivo": "IC_8",
+    "bloque": "INTEGRIDAD - ELEMENTOS DE UNA POL\u00cdTICA DE INTEGRIDAD"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 142,
+  "fields": {
+    "descripcion": "\u00bfLa empresa publica en su p\u00e1gina web pol\u00edticas espec\u00edficas para prevenir lavado de dinero?",
+    "id_reactivo": "IC_9",
+    "bloque": "INTEGRIDAD - ELEMENTOS DE UNA POL\u00cdTICA DE INTEGRIDAD"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 143,
+  "fields": {
+    "descripcion": "\u00bfLa empresa publica en su p\u00e1gina web una pol\u00edtica de donaciones y/o contribuciones pol\u00edticas?",
+    "id_reactivo": "IC_10",
+    "bloque": "INTEGRIDAD - ELEMENTOS DE UNA POL\u00cdTICA DE INTEGRIDAD"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 144,
+  "fields": {
+    "descripcion": "\u00bfLa empresa publica en su p\u00e1gina web una pol\u00edtica de donaciones y/o contribuciones sociales?",
+    "id_reactivo": "IC_11",
+    "bloque": "INTEGRIDAD - ELEMENTOS DE UNA POL\u00cdTICA DE INTEGRIDAD"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 145,
+  "fields": {
+    "descripcion": "De acuerdo a la informaci\u00f3n p\u00fablica, \u00bflos l\u00edderes o directivos de la empresa respaldan los documentos en que se establece la pol\u00edtica anticorrupci\u00f3n o de integridad??",
+    "id_reactivo": "IC_12",
+    "bloque": "INTEGRIDAD - ALCANCE Y SOCIALIZACI\u00d3N DE LA POL\u00cdTICA"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 146,
+  "fields": {
+    "descripcion": "De acuerdo a la informaci\u00f3n p\u00fablica, \u00bfempleados y directivos est\u00e1n sujetos a la pol\u00edtica anticorrupci\u00f3n o de integridad, o al c\u00f3digo de conducta?",
+    "id_reactivo": "IC_13",
+    "bloque": "INTEGRIDAD - ALCANCE Y SOCIALIZACI\u00d3N DE LA POL\u00cdTICA"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 147,
+  "fields": {
+    "descripcion": "De acuerdo a la informaci\u00f3n p\u00fablica, \u00bflos agentes (o quienes act\u00faan en representaci\u00f3n de la empresa) est\u00e1n sujetos a la pol\u00edtica anticorrupci\u00f3n o de integridad, o al c\u00f3digo de conducta?",
+    "id_reactivo": "IC_13A",
+    "bloque": "INTEGRIDAD - ALCANCE Y SOCIALIZACI\u00d3N DE LA POL\u00cdTICA"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 148,
+  "fields": {
+    "descripcion": "De acuerdo a la informaci\u00f3n p\u00fablica, \u00bfexiste una pol\u00edtica anticorrupci\u00f3n o de integridad exclusivamente para los socios comerciales (proveedores, contratistas, outsourcers) de la empresa?",
+    "id_reactivo": "IC_14",
+    "bloque": "INTEGRIDAD - ALCANCE Y SOCIALIZACI\u00d3N DE LA POL\u00cdTICA"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 149,
+  "fields": {
+    "descripcion": "De acuerdo a la informaci\u00f3n p\u00fablica, \u00bfexiste una definici\u00f3n de conflicto de inter\u00e9s? ",
+    "id_reactivo": "IC_15",
+    "bloque": "INTEGRIDAD - ALCANCE Y SOCIALIZACI\u00d3N DE LA POL\u00cdTICA"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 150,
+  "fields": {
+    "descripcion": "Escribe la definici\u00f3n de conflicto de inter\u00e9s seg\u00fan la empresa (en caso de tenerla)",
+    "id_reactivo": "IC_15A",
+    "bloque": "INTEGRIDAD - ALCANCE Y SOCIALIZACI\u00d3N DE LA POL\u00cdTICA"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 151,
+  "fields": {
+    "descripcion": "De acuerdo a la informaci\u00f3n p\u00fablica, \u00bfexisten otras definiciones sobre actos de corrupci\u00f3n (ej.: soborno, pago facilitador o tr\u00e1fico de influencias)?",
+    "id_reactivo": "IC_16",
+    "bloque": "INTEGRIDAD - ALCANCE Y SOCIALIZACI\u00d3N DE LA POL\u00cdTICA"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 152,
+  "fields": {
+    "descripcion": "Escriba qu\u00e9 otros actos de corrupci\u00f3n est\u00e1n definidos en los documentos p\u00fablicos",
+    "id_reactivo": "IC_16A",
+    "bloque": "INTEGRIDAD - ALCANCE Y SOCIALIZACI\u00d3N DE LA POL\u00cdTICA"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 153,
+  "fields": {
+    "descripcion": "De acuerdo a la informaci\u00f3n p\u00fablica, \u00bfexiste un programa de capacitaci\u00f3n o un entrenamiento anticorrupci\u00f3n?",
+    "id_reactivo": "IC_17",
+    "bloque": "INTEGRIDAD - ALCANCE Y SOCIALIZACI\u00d3N DE LA POL\u00cdTICA"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 154,
+  "fields": {
+    "descripcion": "De acuerdo a la informaci\u00f3n p\u00fablica, \u00bfqui\u00e9nes participan del entrenamiento anticorrupci\u00f3n?\n",
+    "id_reactivo": "IC_18",
+    "bloque": "INTEGRIDAD - ALCANCE Y SOCIALIZACI\u00d3N DE LA POL\u00cdTICA"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 155,
+  "fields": {
+    "descripcion": "De acuerdo a la informaci\u00f3n p\u00fablica, \u00bfexiste un mecanismo para monitorear la pol\u00edtica anticorrupci\u00f3n o de integridad?",
+    "id_reactivo": "IC_19",
+    "bloque": "INTEGRIDAD - MECANISMOS DE CONTROL, DENUNCIA Y SANCI\u00d3N"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 156,
+  "fields": {
+    "descripcion": "Escriba el mecanismo para monitorear la pol\u00edtica anticorrupci\u00f3n encontrado en documentos p\u00fablicos",
+    "id_reactivo": "IC_19A",
+    "bloque": "INTEGRIDAD - MECANISMOS DE CONTROL, DENUNCIA Y SANCI\u00d3N"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 157,
+  "fields": {
+    "descripcion": "De acuerdo a la informaci\u00f3n p\u00fablica, \u00bfexisten sanciones o penalizaciones por incumplimiento al c\u00f3digo de \u00e9tica, c\u00f3digo de conducta o cualquiera de llos componentes de la pol\u00edtica anticorrupci\u00f3n?",
+    "id_reactivo": "IC_20",
+    "bloque": "INTEGRIDAD - MECANISMOS DE CONTROL, DENUNCIA Y SANCI\u00d3N"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 158,
+  "fields": {
+    "descripcion": "De acuerdo a la informaci\u00f3n p\u00fablica, \u00bfexiste un sistema de denuncia? ",
+    "id_reactivo": "IC_21",
+    "bloque": "INTEGRIDAD - MECANISMOS DE CONTROL, DENUNCIA Y SANCI\u00d3N"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 159,
+  "fields": {
+    "descripcion": "De acuerdo a la informaci\u00f3n p\u00fablica, \u00bfexiste un correo electr\u00f3nico para hacer una denuncia?",
+    "id_reactivo": "IC_22",
+    "bloque": "INTEGRIDAD - MECANISMOS DE CONTROL, DENUNCIA Y SANCI\u00d3N"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 160,
+  "fields": {
+    "descripcion": "Escriba el correo electr\u00f3nico para denuncias que se encontr\u00f3 en documentos p\u00fablicos",
+    "id_reactivo": "IC_22A",
+    "bloque": "INTEGRIDAD - MECANISMOS DE CONTROL, DENUNCIA Y SANCI\u00d3N"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 161,
+  "fields": {
+    "descripcion": "De acuerdo a la informaci\u00f3n p\u00fablica, \u00bfexiste un n\u00famero telef\u00f3nico para hacer una denuncia?",
+    "id_reactivo": "IC_23",
+    "bloque": "INTEGRIDAD - MECANISMOS DE CONTROL, DENUNCIA Y SANCI\u00d3N"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 162,
+  "fields": {
+    "descripcion": "Escriba el n\u00famero telef\u00f3nico para denuncias que se encontr\u00f3 en documentos p\u00fablicos",
+    "id_reactivo": "IC_23A",
+    "bloque": "INTEGRIDAD - MECANISMOS DE CONTROL, DENUNCIA Y SANCI\u00d3N"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 163,
+  "fields": {
+    "descripcion": "De acuerdo a la informaci\u00f3n p\u00fablica, \u00bfen esta l\u00ednea de denuncia se mantiene la confidencialidad o anonimidad del denunciante?",
+    "id_reactivo": "IC_24",
+    "bloque": "INTEGRIDAD - MECANISMOS DE CONTROL, DENUNCIA Y SANCI\u00d3N"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 164,
+  "fields": {
+    "descripcion": "De acuerdo a la informaci\u00f3n p\u00fablica, \u00bfse prohiben expresamente las represalias a los denunciantes?",
+    "id_reactivo": "IC_25",
+    "bloque": "INTEGRIDAD - MECANISMOS DE CONTROL, DENUNCIA Y SANCI\u00d3N"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 165,
+  "fields": {
+    "descripcion": "\u00bfCu\u00e1l es el origen del material consultado?",
+    "id_reactivo": "IC_26",
+    "bloque": "INTEGRIDAD - ACCESIBILIDAD DE LA INFORMACI\u00d3N"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 166,
+  "fields": {
+    "descripcion": "\u00bfEn qu\u00e9 tipo de sitio se encontr\u00f3 la informaci\u00f3n?",
+    "id_reactivo": "IC_27",
+    "bloque": "INTEGRIDAD - ACCESIBILIDAD DE LA INFORMACI\u00d3N"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 167,
+  "fields": {
+    "descripcion": "\u00bfEn qu\u00e9 idioma se encontr\u00f3 la informaci\u00f3n?",
+    "id_reactivo": "IC_28",
+    "bloque": "INTEGRIDAD - ACCESIBILIDAD DE LA INFORMACI\u00d3N"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 168,
+  "fields": {
+    "descripcion": "\u00bfLa informaci\u00f3n se encontr\u00f3 en un sitio para M\u00e9xico y en espa\u00f1ol?",
+    "id_reactivo": "IC_27+28",
+    "bloque": "INTEGRIDAD - ACCESIBILIDAD DE LA INFORMACI\u00d3N"
+  }
+},
+{
+  "model": "mxvscorrupcion.catalogo_preguntas",
+  "pk": 169,
+  "fields": {
+    "descripcion": "N\u00famero de clicks que se necesitaron para llegar a la informaci\u00f3n requerida",
+    "id_reactivo": "IC_29",
+    "bloque": "INTEGRIDAD - ACCESIBILIDAD DE LA INFORMACI\u00d3N"
+  }
+}
+]

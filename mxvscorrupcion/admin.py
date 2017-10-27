@@ -9,6 +9,8 @@ class MyModelAdmin(admin.ModelAdmin):
 
 # Register your models here.
 admin.site.site_header = 'Las 500 contra la corrupción'
+
+
 admin.site.register(Empresa)
 admin.site.register(Sectores)
 admin.site.register(Paises)
@@ -16,4 +18,13 @@ admin.site.register(Cuestionario)
 admin.site.register(Pregunta)
 admin.site.register(Articulo)
 admin.site.register(Respuestas)
-admin.site.register(Catalogo_Preguntas)
+
+class PreguntasInline(admin.TabularInline):
+  model = Respuestas
+
+class PreguntasAdmin(admin.ModelAdmin):
+  inlines = [
+    PreguntasInline
+  ]
+
+admin.site.register(Catalogo_Preguntas, PreguntasAdmin)
