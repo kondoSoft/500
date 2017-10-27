@@ -1,3 +1,4 @@
+from django.core import serializers
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404, HttpResponse
 from django.template import loader
@@ -24,7 +25,6 @@ def index(request):
 	context = {'posts': posts}
 
 	return render(request, template, context)
-
 
 def empresa(request):
 	user = request.user
@@ -126,10 +126,6 @@ def import_empresas(request):
 	row1 = sheet.cell(row=3, column=3)
 	print(row1)
 	for line in range(9, 45):
-		# for col in range(1,3):
-		# print(sheet.cell(line, 1).value)
-		# print(sheet.cell(line, 2).value)
-		# print(sheet.cell(line, 3).value)
 		pregunta = Catalogo_Preguntas()
 		pregunta.bloque = sheet.cell(row=line, column=1).value
 		pregunta.id_reactivo = sheet.cell(row=line, column=2).value
@@ -160,3 +156,13 @@ def import_empresas(request):
 		respuestas.save()
 
 	return HttpResponse(row1.value)
+
+def glosario(request):
+	if request.method == 'GET':
+		data = serializers.serialize("json", Glosario.objects.all())
+		return HttpResponse(data)
+
+def fuentes(request):
+	if request.method == 'GET':
+		data = serializers.serialize("json", Fuentes.objects.all())
+		return HttpResponse(data)

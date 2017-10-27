@@ -34,4 +34,6 @@ urlpatterns = [
     url(r'^validate/', views.validate, name='validate'),
     url(r'^empresas/', views.import_empresas, name='validate'),
     url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^glosario/', views.glosario, name='glosario'),
+    url(r'^fuentes/', views.fuentes, name='fuentes')
 ]

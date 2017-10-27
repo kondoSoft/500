@@ -4,10 +4,35 @@ from tinymce.models import HTMLField
 from django.utils.text import slugify
 
 # Create your models here.
+class Glosario(models.Model):
+    titulo = models.CharField(max_length=255)
+    descripcion = models.TextField(null=True)
+
+    class Meta:
+        verbose_name = 'Glosario'
+        verbose_name_plural = 'Glosarios'
+        ordering = ['titulo']
+
+    def __str__(self):
+        return self.titulo
+
+class Fuentes(models.Model):
+    titulo = models.CharField(max_length=255)
+    libro = models.CharField(max_length=255)
+    url = models.URLField(max_length=500, blank=True, default='')
+
+    class Meta:
+        verbose_name = 'Fuente'
+        verbose_name_plural = 'Fuentes'
+        ordering = ['titulo']
+
+    def __str__(self):
+        return self.titulo
 
 class Sectores(models.Model):
     nombre = models.CharField(max_length=255)
-
+    extra = models.CharField(max_length=34, default='holo')
+    extras = models.CharField(max_length=34, default='holo')
     class Meta:
         verbose_name = 'Sector'
         verbose_name_plural = 'Sectores'
