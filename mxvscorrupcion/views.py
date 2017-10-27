@@ -1,10 +1,10 @@
+from django.core import serializers
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404, HttpResponse
 from django.template import loader
 from django.contrib.auth import authenticate, login
 from django.conf import settings
-
-from .models import Empresa, Cuestionario, Pregunta, Articulo
+from .models import Empresa, Cuestionario, Pregunta, Articulo, Glosario, Fuentes
 
 
 # Create your views here.
@@ -116,3 +116,12 @@ def validate(request):
 	template = 'revisor/validate.html'
 	return render(request, template)
 
+def glosario(request):
+	if request.method == 'GET':
+		data = serializers.serialize("json", Glosario.objects.all())
+		return HttpResponse(data)
+
+def fuentes(request):
+	if request.method == 'GET':
+		data = serializers.serialize("json", Fuentes.objects.all())
+		return HttpResponse(data)
