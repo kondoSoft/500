@@ -12,13 +12,15 @@ class MyModelAdmin(admin.ModelAdmin):
 admin.site.site_header = 'Las 500 contra la corrupción'
 
 
-admin.site.register(Empresa)
+# admin.site.register(Empresa)
 admin.site.register(Sectores)
 admin.site.register(Paises)
-admin.site.register(Cuestionario)
+# admin.site.register(Cuestionario)
 admin.site.register(Pregunta)
 admin.site.register(Articulo)
 admin.site.register(Respuestas)
+admin.site.register(Glosario)
+admin.site.register(Fuentes)
 
 class PreguntasInline(admin.TabularInline):
   model = Respuestas
@@ -29,5 +31,24 @@ class PreguntasAdmin(admin.ModelAdmin):
   ]
 
 admin.site.register(Catalogo_Preguntas, PreguntasAdmin)
-admin.site.register(Glosario)
-admin.site.register(Fuentes)
+
+class CuestionarioInline(admin.TabularInline):
+  model = Cuestionario
+
+class CuestionarioAdmin(admin.ModelAdmin):
+  inlines = [
+    CuestionarioInline
+  ]
+
+admin.site.register(Empresa, CuestionarioAdmin)
+
+class CuestionarioInline(admin.TabularInline):
+  model = Cuestionario.preguntas.through
+
+class CuestionarioAdmin(admin.ModelAdmin):
+  inlines = [
+    CuestionarioInline
+  ]
+  # exclude=('respuestas',)
+
+admin.site.register(Cuestionario, CuestionarioAdmin)

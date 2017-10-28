@@ -8,7 +8,7 @@ from django.http import HttpResponse
 
 from openpyxl import Workbook, load_workbook
 
-from .models import Empresa, Cuestionario, Pregunta, Articulo, Catalogo_Preguntas, Respuestas
+from .models import Empresa, Cuestionario, Pregunta, Articulo, Catalogo_Preguntas, Respuestas, Sectores, Paises
 
 
 # Create your views here.
@@ -119,6 +119,16 @@ def validate(request):
 	template = 'revisor/validate.html'
 	return render(request, template)
 
+def glosario(request):
+	if request.method == 'GET':
+		data = serializers.serialize("json", Glosario.objects.all())
+		return HttpResponse(data)
+
+def fuentes(request):
+	if request.method == 'GET':
+		data = serializers.serialize("json", Fuentes.objects.all())
+		return HttpResponse(data)
+
 def import_empresas(request):
 	wb = load_workbook('mxvscorrupcion/501.xlsx')
 	sheet = wb.get_sheet_by_name('Códigos')
@@ -157,12 +167,81 @@ def import_empresas(request):
 
 	return HttpResponse(row1.value)
 
-def glosario(request):
-	if request.method == 'GET':
-		data = serializers.serialize("json", Glosario.objects.all())
-		return HttpResponse(data)
+def getSector(sector):
+	sector = Sectores.objects.filter(nombre=sector)[0]
+	return sector
 
-def fuentes(request):
-	if request.method == 'GET':
-		data = serializers.serialize("json", Fuentes.objects.all())
-		return HttpResponse(data)
+def getCountry(country):
+	country = Paises.objects.filter(pais=country)[0]
+	return country
+
+def getQuestion(qid):
+	print('getQuestion', qid)
+	if qid == 'IC_13C':
+		qid = 'IC_13A'
+	return Catalogo_Preguntas.objects.filter(id_reactivo=qid)[0]
+
+def getAnswersByQid(qid):
+	return Respuestas.objects.filter(catalogo_pregunta__pk=qid)
+
+
+def import_empresas_final(request):
+	wb = load_workbook('mxvscorrupcion/501.xlsx')
+	sheet = wb.get_sheet_by_name('BD c valores COMP')
+	print(sheet)
+	row1 = sheet.cell(row=3, column=3)
+	print(row1)
+	# get questions ids
+	# for line in range(9, 45):
+	question_id_ary = []
+	question_answer = []
+	for question in range(7, 43):
+		current_id = sheet.cell(row=1, column=question).value
+		question_id_ary.append(current_id)
+
+	# get client
+	for client_Key in range(3, 4):
+		client_data = {}
+		client_answers = []
+	# for client in range(3, 502):
+		# for data in range(1, 6):
+
+		name = sheet.cell(row=client_Key, column=2).value
+		sector = sheet.cell(row=client_Key, column=3).value
+		pais = sheet.cell(row=client_Key, column=4).value
+		website_corporativo = sheet.cell(row=client_Key, column=5).value
+		website_integridad = sheet.cell(row=client_Key, column=6).value
+
+		client = Empresa()
+		client.nombre = name
+		client.sector = getSector(sector)
+		client.pais = getCountry(pais)
+		client.website_corporativo = website_corporativo
+		client.website_integridad = website_integridad
+		client.save()
+
+		for question in range(7, 43):
+			current_answer = sheet.cell(row=client_Key, column=question).value
+			question_answer.append(current_answer)
+			qindex =question-7
+			print(question_id_ary[qindex])
+
+
+
+			question_id = question_id_ary[qindex]
+			if question_id is not 'IC_15A':
+				print('question is', question_id)
+				question = getQuestion(question_id)
+				answers = getAnswersByQid(question.pk)
+				print(answers)
+				print('>>> ',current_answer)
+				selected_answer = answers.filter(valor = current_answer)[0]
+				print(selected_answer)
+				preguntaObj = Pregunta(reactivo=question, respuesta=selected_answer).save()
+
+
+
+			res = [question_id_ary, question_answer]
+
+
+	return HttpResponse(res)
