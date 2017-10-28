@@ -168,7 +168,8 @@ def import_empresas(request):
 	return HttpResponse(row1.value)
 
 def getSector(sector):
-	sector = Sectores.objects.filter(nombre=sector)[0]
+	print('getSector ', sector)
+	sector = Sectores.objects.filter(nombre=sector.strip())[0]
 	return sector
 
 def getCountry(country):
@@ -200,7 +201,7 @@ def import_empresas_final(request):
 		question_id_ary.append(current_id)
 
 	# get client
-	for client_Key in range(3, 4):
+	for client_Key in range(3, 502):
 		client_data = {}
 		client_answers = []
 	# for client in range(3, 502):
@@ -212,6 +213,8 @@ def import_empresas_final(request):
 		website_corporativo = sheet.cell(row=client_Key, column=5).value
 		website_integridad = sheet.cell(row=client_Key, column=6).value
 
+		print('name ', name)
+		print('sector ', sector)
 		client = Empresa()
 		client.nombre = name
 		client.sector = getSector(sector)
@@ -219,6 +222,10 @@ def import_empresas_final(request):
 		client.website_corporativo = website_corporativo
 		client.website_integridad = website_integridad
 		client.save()
+
+		cuestionario = Cuestionario()
+		print(dir(cuestionario))
+		print(client.pk)
 
 		for question in range(7, 43):
 			current_answer = sheet.cell(row=client_Key, column=question).value
@@ -229,15 +236,23 @@ def import_empresas_final(request):
 
 
 			question_id = question_id_ary[qindex]
-			if question_id is not 'IC_15A':
-				print('question is', question_id)
+			if question_id != 'IC_15A' and question_id != 'IC_16A' and question_id != 'IC_19A' and question_id != 'IC_22A' and question_id != 'IC_23A':
 				question = getQuestion(question_id)
 				answers = getAnswersByQid(question.pk)
-				print(answers)
-				print('>>> ',current_answer)
 				selected_answer = answers.filter(valor = current_answer)[0]
-				print(selected_answer)
-				preguntaObj = Pregunta(reactivo=question, respuesta=selected_answer).save()
+				# try:
+				preguntaObj = Pregunta()
+				preguntaObj.reactivo = question
+				preguntaObj.respuesta = selected_answer
+				preguntaObj.save()
+				cuestionario.Empresa = client
+				cuestionario.save()
+				cuestionario.preguntas.add(preguntaObj)
+				cuestionario.save()
+				# except:
+				# 	print('''pregunta couldn't be added''')
+				# 	pass
+
 
 
 
