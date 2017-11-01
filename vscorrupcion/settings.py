@@ -142,3 +142,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 LOGIN_REDIRECT_URL ='/edit/'
 LOGIN_URL = '/login/'
 LOGOUT_REDIRECT_URL = '/login/'
+
+EMAIL_HOST = 'mail.integridadcorporativa500.mx'
+EMAIL_HOST_USER = 'contacto@integridadcorporativa500.mx'
+EMAIL_HOST_PASSWORD = 'integridad500..'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+

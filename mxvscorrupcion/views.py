@@ -1,10 +1,12 @@
 from django.core import serializers
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import Http404, HttpResponse
+from django.http import Http404, HttpResponse, JsonResponse
 from django.template import loader
 from django.contrib.auth import authenticate, login
 from django.conf import settings
-from django.http import HttpResponse
+from django.core.mail import send_mail
+from django.views.decorators.csrf import csrf_exempt
+
 
 from openpyxl import Workbook, load_workbook
 
@@ -230,7 +232,7 @@ def import_empresas_final(request):
 		for question in range(7, 43):
 			current_answer = sheet.cell(row=client_Key, column=question).value
 			question_answer.append(current_answer)
-			qindex =question-7
+			qindex = question-7
 			print(question_id_ary[qindex])
 
 
@@ -260,3 +262,23 @@ def import_empresas_final(request):
 
 
 	return HttpResponse(res)
+
+@csrf_exempt
+def send_email(request):
+	method = request.method
+	if method == 'POST':
+		name = request.POST.get('name')
+		email = request.POST.get('email')
+		message = request.POST.get('message')
+		send_mail(
+			'Haz recibido un correo de ' + name + ' | Contacto Integridad Corporativa',
+			message,
+			email,
+			['contacto@integridadcorporativa500.mx'],
+			fail_silently=False
+		)
+		return JsonResponse({'ok': True})
+	# elif method == 'GET':
+	# 	return HttpResponse('Listo')
+
+
