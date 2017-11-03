@@ -1,5 +1,6 @@
 dj-database-url==0.4.1
 Django==1.11.1
+django-cors-headers==2.1.0
 django-tinymce==2.6.0
 et-xmlfile==1.0.1
 gunicorn==19.6.0

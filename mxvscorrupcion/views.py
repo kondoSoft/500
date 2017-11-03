@@ -10,7 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 from openpyxl import Workbook, load_workbook
 
-from .models import Empresa, Cuestionario, Pregunta, Articulo, Catalogo_Preguntas, Respuestas, Sectores, Paises
+from .models import Empresa, Cuestionario, Pregunta, Articulo, Catalogo_Preguntas, Respuestas, Sectores, Paises, Fuentes
 
 
 # Create your views here.
@@ -129,7 +129,7 @@ def glosario(request):
 def fuentes(request):
 	if request.method == 'GET':
 		data = serializers.serialize("json", Fuentes.objects.all())
-		return HttpResponse(data)
+		return HttpResponse(data, content_type="application/json")
 
 def import_empresas(request):
 	wb = load_workbook('mxvscorrupcion/501.xlsx')
@@ -270,14 +270,16 @@ def send_email(request):
 		name = request.POST.get('name')
 		email = request.POST.get('email')
 		message = request.POST.get('message')
-		send_mail(
+		result = send_mail(
 			'Haz recibido un correo de ' + name + ' | Contacto Integridad Corporativa',
 			message,
 			email,
 			['contacto@integridadcorporativa500.mx'],
 			fail_silently=False
 		)
-		return JsonResponse({'ok': True})
+		if result:
+			return JsonResponse({'ok': True})
+			
 	# elif method == 'GET':
 	# 	return HttpResponse('Listo')
 
