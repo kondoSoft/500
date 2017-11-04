@@ -113,8 +113,12 @@ def articulos(request, slug):
 
 
 def revisor(request):
-	template = 'revisor/index.html'
-	return render(request, template)
+	user = request.user
+	if user.is_authenticated:
+		template = 'revisor/index.html'
+		return render(request, template)
+	else:
+		return redirect(settings.LOGIN_URL)
 
 
 def validate(request):
