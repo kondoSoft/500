@@ -29,37 +29,23 @@ def index(request):
 	return render(request, template, context)
 
 def empresa(request):
-	user = request.user
-	if user.is_authenticated:
-		empresa = Empresa.objects.get(nombre=user.first_name)
-		cuestionario = Cuestionario.objects.get(pk=empresa.cuestionario_id)
-		preguntas = cuestionario.preguntas.all()
-		empresas = Empresa.objects.all()
-		context = {
-			'empresas':empresas,
-			'empresa': empresa,
-			'preguntas': preguntas
-		}
-		return render(request, 'empresa/edit-info.html', context)
-	else:
-		return redirect(settings.LOGIN_URL)
+	return render(request, 'empresa/index.html')
 
+# def editInfo(request):
+# 	user = request.user
+# 	if user.is_authenticated:
+# 		empresa = Empresa.objects.get(nombre=user.first_name)
+# 		cuestionario = Cuestionario.objects.get(pk=empresa.cuestionario_id)
+# 		preguntas = cuestionario.preguntas.all()
+# 		print(preguntas[0].reactivo)
 
-def editInfo(request):
-	user = request.user
-	if user.is_authenticated:
-		empresa = Empresa.objects.get(nombre=user.first_name)
-		cuestionario = Cuestionario.objects.get(pk=empresa.cuestionario_id)
-		preguntas = cuestionario.preguntas.all()
-		print(preguntas[0].reactivo)
-
-		context = {
-			'empresa': empresa,
-			'preguntas': preguntas
-		}
-		return render(request, 'empresa/edit-info.html', context)
-	else:
-		return redirect(settings.LOGIN_URL)
+# 		context = {
+# 			'empresa': empresa,
+# 			'preguntas': preguntas
+# 		}
+# 		return render(request, 'empresa/edit-info.html', context)
+# 	else:
+# 		return redirect(settings.LOGIN_URL)
 
 
 def loginUser(request):
@@ -113,8 +99,12 @@ def articulos(request, slug):
 
 
 def revisor(request):
-	template = 'revisor/index.html'
-	return render(request, template)
+	user = request.user
+	if user.is_authenticated:
+		template = 'revisor/index.html'
+		return render(request, template)
+	else:
+		return redirect(settings.LOGIN_URL)
 
 
 def validate(request):

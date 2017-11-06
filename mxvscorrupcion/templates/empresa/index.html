@@ -1,126 +1,113 @@
 {% extends "empresa/base.html" %}
-
-{% block content %}
-<div class="row">
-	<div class="col-sm-12">
-		<div class="box box-info">
-			<div class="box-header with-border">
-				<h3 class="box-title">Default Box Example</h3>
-				<div class="box-tools pull-right">
-					<!-- Buttons, labels, and many other things can be placed here! -->
-					<!-- Here is a label for example -->
-					<span class="label label-primary">Label</span>
-				</div>
-				<!-- /.box-tools -->
-			</div>
-			<!-- /.box-header -->
-			<div class="box-body">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis reprehenderit quidem vero est necessitatibus, aliquam blanditiis repellendus, dolorum ea, non distinctio. Earum repellat nulla blanditiis minima quibusdam accusamus, fugit repellendus!
-			</div>
-			<!-- /.box-body -->
-			<div class="box-footer">
-				The footer of the box
-			</div>
-			<!-- box-footer -->
-		</div>
-		<!-- /.box -->
-	</div>
+{% block mainContent %}
+<div class="col-lg-12">
+    <div class="row route" >
+        <div class="col-lg-12">
+            <p class="route-paragraph">
+                HOME > INFORMACIÓN ACTUALIZADA > EMPRESA
+            </p>
+        </div>
+        <hr class="route-hr">
+    </div>
+    <div class="row">
+        <div class="col-lg-12 info">
+            <p>AQUÍ VERAS TU INFORMACIÓN ACTUALIZADA UNA VEZ ACEPTADO LOS CAMBIOS</p>
+            <p class="info-p">
+                Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer 
+            </p>
+        </div>
+    </div>
+    <div class="col-lg-12 col-button">
+        <button type="button" class="btn btn-danger">
+            EDITAR INFORMACIÓN
+        </button>
+    </div>
+    <!-- <div class="row align-items-center justify-content-around" style="background-color: red; padding: 25px 0px; text-align: center;">
+        <div class="col-lg-5" style="background-color: #EAEBEA; padding: 20px;">
+            hello world
+        </div>
+        <div class="col-lg-5" style="background-color: #EAEBEA; padding: 20px;">
+            hello world
+        </div>
+    </div> -->
 </div>
-<div class="row">
-	<div class="col-sm-6">
-		<div class="box box-primary">
-			<div class="box-header with-border">
-				<h3 class="box-title">Doughnut Chart</h3>
-			</div>
-			<div class="box-body" style="">
-				<canvas id="pieChart" style="height: 284px; width: 568px;" width="568" height="284"></canvas>
-			</div>
-			<!-- /.box-body -->
-		</div>
-		
-	</div>
-	<div class="col-sm-6">
-		<div class="box box-primary">
-			<div class="box-header with-border">
-				<h3 class="box-title">Bar Chart</h3>
-			</div>
-			<div class="box-body" style="">
-				<canvas id="barChart" style="height: 284px; width: 568px;" width="568" height="284"></canvas>
-			</div>
-			<!-- /.box-body -->
-		</div>
-	</div>
+<div class="col-lg-12 container-questions">
+    <div class="row titles">
+        <div class="col-lg-6 text-align-center title-container">
+            <p class="title-p-border">PREGUNTA</p>
+        </div>
+        <div class="col-lg-6 text-align-center title-container">
+            <p class="title-p">RESPUESTA</p>
+        </div>
+    </div>
+    <div class="row question-answer-container">
+        <div class="col-lg-6 question-answer-left">
+            <p class="question-answer-left-p">1. ¿La empresa publica en su página web un código de ética o de conducta para empleados?</p>
+        </div>
+        <div class="col-lg-6 align-self-center question-answer-right">
+            <p class="question-answer-right-p">Sí</p>
+        </div>
+    </div>
+    <div class="row question-answer-container">
+        <div class="col-lg-6 question-answer-left">
+            <p class="question-answer-left-p">2. ¿La empresa publica en su página web una declaración o compromiso anticorrupción / cero tolerancia a la corrupción?</p>
+        </div>
+        <div class="col-lg-6 align-self-center question-answer-right">
+            <p class="question-answer-right-p">Sí</p>
+        </div>
+    </div>
+    <div class="row question-answer-container">
+        <div class="col-lg-6 question-answer-left">
+            <p class="question-answer-left-p">3. ¿La empresa publica en su página web un compromiso publico con la legalidad y el respeto a las leyes nacionales e internacionales?</p>
+        </div>
+        <div class="col-lg-6 align-self-center question-answer-right">
+            <p class="question-answer-right-p">Sí</p>
+        </div>
+    </div>
+    <div class="row question-answer-container">
+        <div class="col-lg-6 question-answer-left">
+            <p class="question-answer-left-p">4. ¿La empresa publica en su página web una prohibición explícita de sobornos y pagos facilitadores?</p>
+        </div>
+        <div class="col-lg-6 align-self-center question-answer-right">
+            <p class="question-answer-right-p">Sí</p>
+        </div>
+    </div>
+    <div class="row question-answer-container">
+        <div class="col-lg-6 question-answer-left">
+            <p class="question-answer-left-p">5. ¿La empresa publica en su página web una política de hospitalidad y viáticos?</p>
+        </div>
+        <div class="col-lg-6 align-self-center question-answer-right">
+            <p class="question-answer-right-p">0.5</p>
+        </div>
+    </div>
+    <div class="row question-answer-last">
+        <div class="col-lg-6 question-answer-left">
+            <p class="question-answer-left-p">6. ¿La empresa publica en su página web una política de regalos y agradecimientos?</p>
+        </div>
+        <div class="col-lg-6 align-self-center question-answer-right">
+            <p class="question-answer-right-p">0.5</p>
+        </div>
+    </div>
 </div>
-{% endblock %}
-
-
-{% block extraJavascript %}
-<script>
-var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
-
-var barChartData = {
-	labels : ["January","February","March","April","May","June","July"],
-	datasets : [
-		{
-			fillColor : "rgba(220,220,220,0.5)",
-			strokeColor : "rgba(220,220,220,0.8)",
-			highlightFill: "rgba(220,220,220,0.75)",
-			highlightStroke: "rgba(220,220,220,1)",
-			data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
-		},
-		{
-			fillColor : "rgba(151,187,205,0.5)",
-			strokeColor : "rgba(151,187,205,0.8)",
-			highlightFill : "rgba(151,187,205,0.75)",
-			highlightStroke : "rgba(151,187,205,1)",
-			data : [randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor(),randomScalingFactor()]
-		}
-	]
-
-}
-var doughnutData = [
-	{
-		value: 300,
-		color:"#F7464A",
-		highlight: "#FF5A5E",
-		label: "Red"
-	},
-	{
-		value: 50,
-		color: "#46BFBD",
-		highlight: "#5AD3D1",
-		label: "Green"
-	},
-	{
-		value: 100,
-		color: "#FDB45C",
-		highlight: "#FFC870",
-		label: "Yellow"
-	},
-	{
-		value: 40,
-		color: "#949FB1",
-		highlight: "#A8B3C5",
-		label: "Grey"
-	},
-	{
-		value: 120,
-		color: "#4D5360",
-		highlight: "#616774",
-		label: "Dark Grey"
-	}
-
-];
-
-window.onload = function(){
-	var ctx = document.getElementById("pieChart").getContext("2d");
-	window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : true});
-
-	var ctx = document.getElementById("barChart").getContext("2d");
-	window.myBar = new Chart(ctx).Bar(barChartData, {
-		responsive : true
-	});
-};
-
-</script>
-{% endblock extraJavascript %}
+<div class="row button-group">
+    <div class="col-lg-6">
+        <button type="button" class="btn btn-danger">
+            VER RESUMEN
+        </button>
+    </div>
+    <div class="col-lg-6">
+        <div class="row">
+            <div class="col-lg-9 text-right">
+                <button type="button" class="btn btn-danger">
+                    GUARDAR CAMBIOS
+                </button>
+            </div>
+            <div class="col-lg-3 text-right">
+                <button type="button" class="btn btn-danger">
+                    CANCELAR
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock mainContent %}

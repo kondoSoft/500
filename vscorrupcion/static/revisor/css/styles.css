@@ -1,0 +1,164 @@
+/* HEADER */
+header{
+	display: flex;
+	justify-content: space-between;
+	background: #ED462F;
+	color: #FFF;
+	padding: 10px 40px;
+	font-weight: 200;
+	align-items: center;
+}
+header p>span{
+	font-weight: 600;
+}
+
+header a {
+	color: #FFF;
+	text-decoration: none;
+	transition: 0.3s;
+}
+header a:hover {
+	color: #000;
+	text-decoration: none;
+}
+
+/*Footer*/
+footer{
+	background: #888988;
+	color: #FFF;
+	padding-top: 20px;
+}
+footer a{
+	color: #FFF;
+	transition: 0.3s;
+}
+footer a:nth-child(1):hover{
+	color: #29487D;
+}
+footer a:nth-child(2):hover{
+	color: #33A1F2;
+}
+footer a:nth-child(3):hover{
+	color: #252625;
+}
+footer a:nth-child(4):hover{
+	color: #ED462F;
+}
+
+footer hr{
+	background: #7A1F13;
+	height: 5px;
+	border-radius: 10px;
+}
+
+.logo-footer{
+	width: 60%;
+  display: block;
+  margin: 0 auto;
+}
+
+.logos-footer{
+	display: block;
+	margin: 0 auto;
+}
+
+.row-flex{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 100%;
+	margin-bottom: 10px; 
+}
+
+.row-flex.center{
+	justify-content: center;
+}
+
+.bottom{
+	display: flex;
+	background: #7A1F13;
+	justify-content: center;
+	align-items: center;
+	padding: 20px 0px;
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+}
+/*Footer Cerre*/
+
+/*Clases genericas*/
+.uppercase{text-transform: uppercase;}
+.no-margin{margin: 0px;}
+.no-padding{padding: 0px;}
+
+/* Contenido */
+.title{margin: 20px 0px;}
+.title h3{
+	font-weight: 600;
+	font-size: 22px;
+	margin-top: 20px;
+}
+.title hr:nth-child(2){
+	width: 350px;
+	height: 4px;
+	border: none;
+	background: #D9483D;
+	margin: 0px auto;
+}
+.title hr:nth-child(3){
+	width: 250px;
+	height: 4px;
+	border: none;
+	background: #D9483D;
+	margin-top: 10px;
+}
+.instructions{
+	background: #EAEBEA;
+	margin: 30px 0px;
+	padding: 20px 150px;
+}
+.instructions h3{
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.instructions p{
+	font-size: 14px;
+}
+
+.updates{
+	margin-bottom: 50px;
+}
+
+.update{
+	border: 2px solid #CBCCCB;
+	padding: 20px;
+}
+.update h3{
+	color: #D9483D;	font-weight: 600;
+}
+.time-left{
+	background: #EAEBEA;
+	padding: 5px 25px;
+}
+.time-left p:nth-child(1){
+	color: #ED462F;
+	font-weight: 600;
+}
+
+.disclaimer h4{
+	font-weight: 400;
+	border-bottom: 3px solid #868786;
+	width: 330px;
+  margin: 0 auto;
+}
+.disclaimer i {
+	display: block;
+	text-align: center;
+	position: relative;
+	bottom: 13px;
+	color: #868786;
+}
+.disclaimer{
+	background: #EAEBEA;
+}
