@@ -1,101 +1,144 @@
 {% extends "revisor/base.html" %}
 
-{% block content %}
-  <div class="row">
-    <div class="col-sm-9">
-      <h3>Petroleos Mexicanos</h3>
-      <p>actualizó su información, el 17 de Septiembre de 2017 a las 20:00</p>
+{% block mainContent %}
+<div class="row company-data">
+  <div class="col-sm-9">
+    <h3 class="no-margin">Petroleos Mexicanos</h3>
+    <p class="no-margin">actualizó su información, el 17 de Septiembre de 2017 a las 20:00</p>
+  </div>
+  <div class="col-sm-3">
+    <div class="text-center time-left">
+      <p class="no-margin">Quedan 00 hr y 00 min</p>
+      <p>para que finalize el plazo de validación.</p>
     </div>
-    <div class="col-sm-3">
-      <div class="text-center" style="border: 2px solid red;">
-        <p class="no-margin">Quedan 00 hr y 00 min</p>
-        <p>para que finalize el plazo de validación.</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="instructions">
+      <div class="box-header with-border">
+        <h3 class="box-title text-center uppercase">instrucciones para validar información</h3>
+        <!-- /.box-tools -->
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <p class="text-center no-margin">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat et magnam veniam aperiam nostrum consequatur iusto ipsa enim rerum, omnis sit quam eveniet provident praesentium. Vel non tenetur eos ullam.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio architecto maiores porro veniam officiis, eum iste repudiandae neque ut odio vitae deserunt sed, debitis sunt inventore assumenda fugiat. Similique, soluta!
+        </p>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+</div>  
+<div class="row title-table">
+  <div class="col-sm-4 text-center">información anterior</div>
+  <div class="col-sm-4 text-center">información actualizada</div>
+  <div class="col-sm-4 text-center">validación</div>
+</div>
+<div class="col box-question">
+  <div class="row question">
+    <div class="col-sm-12">
+      <p>
+        1. ¿La empresa publica en su página web un código de ética o de conducta para empleados?
+      </p>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-sm-4">No</div>
+    <div class="col-sm-4">Sí</div>
+    <div class="col-sm-4 status-info">
+      <p class="status no-margin uppercase">respuesta aceptada</p>
+      <p class="no-margin">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias vel, iste maiores excepturi quam quod!</p>
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+  </div>
+</div>
+<div class="col box-question">
+  <div class="row question">
+    <div class="col-sm-12">
+      <p>
+        1. ¿La empresa publica en su página web un código de ética o de conducta para empleados?
+      </p>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-sm-4">No</div>
+    <div class="col-sm-4">Sí</div>
+    <div class="col-sm-4 status-info">
+      <p class="status no-margin uppercase">respuesta aceptada</p>
+      <p class="no-margin">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias vel, iste maiores excepturi quam quod!</p>
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+  </div>
+</div>
+<div class="col box-question">
+  <div class="row question">
+    <div class="col-sm-12">
+      <p>
+        1. ¿La empresa publica en su página web un código de ética o de conducta para empleados?
+      </p>
+    </div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-sm-4">No</div>
+    <div class="col-sm-4">Sí</div>
+    <div class="col-sm-4 buttons">
+      <div class="row justify-content-around">
+        <button class="accept">
+          <i class="fa fa-check" aria-hidden="true"></i>
+          aceptar
+        </button>
+        <button class="invert reject">
+          <i class="fa fa-times" aria-hidden="true"></i>
+          rechazar
+        </button>
       </div>
     </div>
   </div>
-  <div class="row title">
-    <div class="col-sm-4">informacion anterior</div>
-    <div class="col-sm-4">informacion actualizada</div>
-    <div class="col-sm-4">validacion</div>
+</div>
+<div class="col box-question">
+  <div class="row question">
+    <div class="col-sm-12">
+      <p>
+        1. ¿La empresa publica en su página web un código de ética o de conducta para empleados?
+      </p>
+    </div>
   </div>
-  <div class="box box-solid box-default">
-    <div class="box-header with-border">
-      <h3 class="box-title">1. ¿La empresa publica en su página web un programa anticorrupción o de integridad</h3>
-    <!-- /.box-tools -->
-    </div>
-    <!-- /.box-header -->
-    <div class="box-body">
-      <div class="row no-margin">
-        <div class="col-sm-4">NO</div>
-        <div class="col-sm-4">SI</div>
-        <div class="col-sm-4">
-          <p>Respuesta aceptada</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        </div>
-      </div>    
-    </div>
-    <!-- /.box-body -->
-  </div>
-  <!-- /.box -->
-  <div class="box box-solid box-default">
-    <div class="box-header with-border">
-      <h3 class="box-title">2. ¿La empresa publica en su página web una declaración o compromiso anticorrupción / cero tolerancia a la corrupción?</h3>
-    <!-- /.box-tools -->
-    </div>
-    <!-- /.box-header -->
-    <div class="box-body">
-      <div class="row no-margin">
-        <div class="col-sm-4">NO</div>
-        <div class="col-sm-4">SI</div>
-        <div class="col-sm-4">
-          <p>Rechazada por ausencia de infromacion</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates fuga eveniet sunt iure, quae! Vitae ea iure veniam ullam, alias harum sapiente blanditiis esse perferendis? Assumenda placeat ipsam in facilis!</p>
-        </div>
-      </div> 
-    </div>
-    <!-- /.box-body -->
-  </div>
-  <!-- /.box -->
-  <div class="box box-solid box-default">
-    <div class="box-header with-border">
-      <h3 class="box-title">3. ¿La empresa publica en su página web una declaración o compromiso anticorrupción / cero tolerancia a la corrupción?</h3>
-    <!-- /.box-tools -->
-    </div>
-    <!-- /.box-header -->
-    <div class="box-body">
-      <div class="row no-margin">
-        <div class="col-sm-4">NO</div>
-        <div class="col-sm-4">SI</div>
-        <div class="col-sm-4 text-center">
-          <div class="col-sm-6">
-            <button>Aceptar</button>
-            
-          </div>
-          <div class="col-sm-6">
-            <button>Rechazar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- /.box-body -->
-  </div>
-  <!-- /.box -->
-  <div class="row" style="margin-top: 40px;">
-    <div class="col-sm-9">
-      <button>ver resumen</button>
-    </div>
-    <div class="col-sm-3 text-center">
-      <div class="col-sm-6">
-        <button>actualizar</button>
-      </div>
-      <div class="col-sm-6">
-        <button>cancelar</button>
+  <div class="row align-items-center">
+    <div class="col-sm-4">No</div>
+    <div class="col-sm-4">Sí</div>
+    <div class="col-sm-4 buttons">
+      <div class="row justify-content-around">
+        <button class="accept">
+          <i class="fa fa-check" aria-hidden="true"></i>
+          aceptar
+        </button>
+        <button class="invert reject">
+          <i class="fa fa-times" aria-hidden="true"></i>
+          rechazar
+        </button>
       </div>
     </div>
   </div>
-  <div class="row" style="margin-top: 20px;">
-    <div class="col-sm-12 text-center"><a href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i>
- Regresar</a></div>
+</div>
+<div class="row buttons">
+  <div class="col-sm-8">
+    <button id="summary" class="invert">ver resumen</button>
   </div>
-{% endblock content %}
+  <div class="col-sm-4">
+    <button id="update">actualizar</button>
+    <button id="cancel" class="invert">cancelar</button>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <a href="{% url 'revisor' %}" class="text-center return uppercase">
+    <i class="fa fa-chevron-left" aria-hidden="true"></i> regresar
+  </a>
+</div>
+{% endblock mainContent %}
 
