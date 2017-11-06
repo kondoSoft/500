@@ -9,7 +9,7 @@ class MyModelAdmin(admin.ModelAdmin):
         }
 
 # Register your models here.
-admin.site.site_header = 'Las 500 contra la corrupción'
+admin.site.site_header = "Las 500 contra la corrupción"
 
 
 # admin.site.register(Empresa)
