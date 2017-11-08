@@ -1,0 +1,146 @@
+[
+{
+  "model": "mxvscorrupcion.entradas_recientes",
+  "pk": 1,
+  "fields": {
+    "titulo": "Reprueban 500 empresas en ranking de medidas anticorrupci\u00f3n",
+    "fecha": "2017-10-31",
+    "url": "http://www.eluniversal.com.mx/cartera/negocios/reprueban-500-empresas-en-ranking-de-medidas-anticorrupcion"
+  }
+},
+{
+  "model": "mxvscorrupcion.entradas_recientes",
+  "pk": 2,
+  "fields": {
+    "titulo": "62% de las empresas m\u00e1s importantes de M\u00e9xico repuebra en la lucha anticorrupci\u00f3n",
+    "fecha": "2017-10-31",
+    "url": "https://www.publimetro.com.mx/mx/noticias/2017/10/31/62-de-las-empresas-mas-importantes-de-mexico-reprueba-en-lucha-anticorrupcion.html"
+  }
+},
+{
+  "model": "mxvscorrupcion.entradas_recientes",
+  "pk": 3,
+  "fields": {
+    "titulo": "Mexicanos contra la Corrupci\u00f3n crea plataforma IC500",
+    "fecha": "2017-10-31",
+    "url": "https://www.eleconomista.com.mx/empresas/Mexicanos-contra-la-Corrupcion-creanplataforma-IC500-20171031-0105.html"
+  }
+},
+{
+  "model": "mxvscorrupcion.entradas_recientes",
+  "pk": 4,
+  "fields": {
+    "titulo": "Letrero",
+    "fecha": "2017-10-31",
+    "url": "https://www.eleconomista.com.mx/opinion/La-Gran-Carpa-20171031-0060.html"
+  }
+},
+{
+  "model": "mxvscorrupcion.entradas_recientes",
+  "pk": 5,
+  "fields": {
+    "titulo": "LA CORRUPCI\u00d3N SE DEBE ATACAR ENTRE EL SECTOR P\u00daBLICO Y PRIVADO",
+    "fecha": "2017-10-31",
+    "url": "http://expansion.mx/empresas/2017/10/31/la-corrupcion-un-problema-que-deben-atacar-el-sector-publico-y-privado"
+  }
+},
+{
+  "model": "mxvscorrupcion.entradas_recientes",
+  "pk": 6,
+  "fields": {
+    "titulo": "OPINI\u00d3N: UN COMPROMISO NUEVO CONTRA LA CORRUPCI\u00d3N",
+    "fecha": "2017-10-31",
+    "url": "http://expansion.mx/opinion/2017/10/31/un-compromiso-nuevo-contra-la-corrupcion"
+  }
+},
+{
+  "model": "mxvscorrupcion.entradas_recientes",
+  "pk": 7,
+  "fields": {
+    "titulo": "Empresas someten a evaluaci\u00f3n sus pol\u00edticas anticorrupci\u00f3n",
+    "fecha": "2017-10-31",
+    "url": "http://expansion.mx/opinion/2017/10/31/un-compromiso-nuevo-contra-la-corrupcion"
+  }
+},
+{
+  "model": "mxvscorrupcion.entradas_recientes",
+  "pk": 8,
+  "fields": {
+    "titulo": "\"HAY QUE PASAR DEL PAPEL AL COMBATE DE LA CORRUPCI\u00d3N\": AMPARO CASAR",
+    "fecha": "2017-10-31",
+    "url": "http://expansion.mx/empresas/2017/10/31/hay-que-pasar-del-papel-al-combate-de-la-corrupcion-amparo-casar"
+  }
+},
+{
+  "model": "mxvscorrupcion.entradas_recientes",
+  "pk": 9,
+  "fields": {
+    "titulo": "\u00bfV\u00cdCTIMAS O C\u00d3MPLICES?: LAS 500 EMPRESAS FRENTE A LA CORRUPCI\u00d3N",
+    "fecha": "2017-10-31",
+    "url": "http://expansion.mx/empresas/2017/10/27/victimas-o-complices-las-500-empresas-frente-a-la-corrupcion"
+  }
+},
+{
+  "model": "mxvscorrupcion.entradas_recientes",
+  "pk": 10,
+  "fields": {
+    "titulo": "Grandes firmas fallan contra la corrupci\u00f3n",
+    "fecha": "2017-11-01",
+    "url": "http://www.eluniversal.com.mx/cartera/economia/grandes-firmas-fallan-contra-la-corrupcion"
+  }
+},
+{
+  "model": "mxvscorrupcion.entradas_recientes",
+  "pk": 11,
+  "fields": {
+    "titulo": "Empresas en busca de la transparencia",
+    "fecha": "2017-11-01",
+    "url": "http://yucatan.com.mx/mexico/empresas-busca-la-transparencia"
+  }
+},
+{
+  "model": "mxvscorrupcion.entradas_recientes",
+  "pk": 12,
+  "fields": {
+    "titulo": "Empresas pugnan por su integridad corporativa",
+    "fecha": "2017-11-05",
+    "url": "http://m.milenio.com/negocios/emprender-en-mexico/mexicanos_contra_la_corrupcion-ohl_reconocido-empresas_evaludas-infraestructura_0_1058894276.html"
+  }
+},
+{
+  "model": "mxvscorrupcion.entradas_recientes",
+  "pk": 13,
+  "fields": {
+    "titulo": "Mayor transparencia para aumentar la rentabilidad de las empresas",
+    "fecha": "2017-11-05",
+    "url": "http://m.excelsior.com.mx/nacional/2017/11/01/1198520"
+  }
+},
+{
+  "model": "mxvscorrupcion.entradas_recientes",
+  "pk": 14,
+  "fields": {
+    "titulo": "Ya hablaron AMLO y Monreal",
+    "fecha": "2017-11-06",
+    "url": "http://www.elarsenal.net/2017/11/02/ya-hablaron-amlo-y-monreal/"
+  }
+},
+{
+  "model": "mxvscorrupcion.entradas_recientes",
+  "pk": 15,
+  "fields": {
+    "titulo": "500 empresas frente a la corrupci\u00f3n",
+    "fecha": "2017-11-02",
+    "url": "http://m.excelsior.com.mx/opinion/maria-marvan-laborde/2017/11/02/1198685"
+  }
+},
+{
+  "model": "mxvscorrupcion.entradas_recientes",
+  "pk": 16,
+  "fields": {
+    "titulo": "Empresarios: \u00bfv\u00edctimas o victimarios?",
+    "fecha": "2017-11-01",
+    "url": "http://m.excelsior.com.mx/opinion/maria-amparo-casar/2017/11/01/1198426"
+  }
+}
+]
