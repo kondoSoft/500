@@ -131,3 +131,15 @@ class Corte(models.Model):
     cuestionario = models.ForeignKey(Cuestionario)
     fecha_de_corte = models.DateTimeField(null=True)
     aprovado = models.NullBooleanField(blank=True, null=True)
+
+class Entradas_Recientes(models.Model):
+    titulo = models.CharField(max_length=255)
+    fecha = models.DateField(auto_now=False, auto_now_add=False)
+    url = models.URLField(max_length=500, blank=True, default='')
+
+    class Meta:
+        verbose_name = "Entrada_Reciente"
+        verbose_name_plural = "Entradas_Recientes"
+
+    def __str__(self):
+        return self.titulo

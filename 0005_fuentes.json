@@ -1,0 +1,56 @@
+[
+{
+  "model": "mxvscorrupcion.fuentes",
+  "pk": 1,
+  "fields": {
+    "titulo": "C\u00f3digo Penal Federal,",
+    "libro": "DOF 26-06-2017.",
+    "url": " http://www.diputados.gob.mx/LeyesBiblio/pdf/9_260617.pdf"
+  }
+},
+{
+  "model": "mxvscorrupcion.fuentes",
+  "pk": 2,
+  "fields": {
+    "titulo": "Ernst & Young,",
+    "libro": "2011. Siete pasos para crear un programa anticorrupci\u00f3n s\u00f3lido.",
+    "url": "http://www.ey.com/mx/es/services/assurance/fraud-investigation---dispute-services/siete-pasos-para-crear-un-programa-anticorrupcion-solido--disenar-e-implementar-el-programa"
+  }
+},
+{
+  "model": "mxvscorrupcion.fuentes",
+  "pk": 3,
+  "fields": {
+    "titulo": "Ley General de Responsabilidades Administrativas, ",
+    "libro": "DOF 18-07-2016.",
+    "url": "http://www.diputados.gob.mx/LeyesBiblio/pdf/LGRA.pdf"
+  }
+},
+{
+  "model": "mxvscorrupcion.fuentes",
+  "pk": 4,
+  "fields": {
+    "titulo": "Secretar\u00eda de la Funci\u00f3n P\u00fablica, ",
+    "libro": "Definici\u00f3n de Corrupci\u00f3n.",
+    "url": "https://www.gob.mx/sfp/documentos/definicion-de-corrupcion"
+  }
+},
+{
+  "model": "mxvscorrupcion.fuentes",
+  "pk": 5,
+  "fields": {
+    "titulo": "Transparencia Internacional 2008, ",
+    "libro": "Principios Empresariales para Contrarrestar el Soborno-Edici\u00f3n para peque\u00f1as y medianas empresas.",
+    "url": "https://www.transparency.org/whatwedo/publication/principios_empresariales_para_contrarrestar_el_soborno_edicion_para_pequena"
+  }
+},
+{
+  "model": "mxvscorrupcion.fuentes",
+  "pk": 6,
+  "fields": {
+    "titulo": "Transparencia Internacional 2009, ",
+    "libro": "Gu\u00eda de lenguaje claro sobre lucha contra la corrupci\u00f3n.",
+    "url": "https://www.transparency.org/whatwedo/publication/guia_de_lenguaje_claro_sobre_lucha_contra_la_corrupcion"
+  }
+}
+]

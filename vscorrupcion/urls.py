@@ -37,5 +37,6 @@ urlpatterns = [
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^glosario/', views.glosario, name='glosario'),
     url(r'^fuentes/', views.fuentes, name='fuentes'),
-    url(r'^send-mail/', views.send_email, name='send_email')
+    url(r'^send-mail/', views.send_email, name='send_email'),
+    url(r'recientes/', views.entradasRecientes, name='entradas-recientes')
 ]

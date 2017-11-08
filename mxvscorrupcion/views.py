@@ -7,10 +7,9 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_exempt
 
-
 from openpyxl import Workbook, load_workbook
 
-from .models import Empresa, Cuestionario, Pregunta, Articulo, Catalogo_Preguntas, Respuestas, Sectores, Paises, Fuentes
+from .models import Empresa, Cuestionario, Pregunta, Articulo, Catalogo_Preguntas, Respuestas, Sectores, Paises, Fuentes, Glosario, Entradas_Recientes
 
 
 # Create your views here.
@@ -114,11 +113,16 @@ def validate(request):
 def glosario(request):
 	if request.method == 'GET':
 		data = serializers.serialize("json", Glosario.objects.all())
-		return HttpResponse(data)
+		return HttpResponse(data, content_type="application/json")
 
 def fuentes(request):
 	if request.method == 'GET':
 		data = serializers.serialize("json", Fuentes.objects.all())
+		return HttpResponse(data, content_type="application/json")
+
+def entradasRecientes(request):
+	if request.method == 'GET':
+		data = serializers.serialize("json", Entradas_Recientes.objects.all())
 		return HttpResponse(data, content_type="application/json")
 
 def import_empresas(request):

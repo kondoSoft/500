@@ -1,0 +1,138 @@
+[
+{
+  "model": "mxvscorrupcion.glosario",
+  "pk": 1,
+  "fields": {
+    "titulo": "500 Frente a la Corrupci\u00f3n: Integridad Corporativa (IC500)",
+    "descripcion": "Mecanismo de revisi\u00f3n que utiliza un cuestionario dise\u00f1ado e implementado por Mexicanos Contra la Corrupci\u00f3n y la Impunidad y Transparencia Mexicana para identificar la publicidad de una pol\u00edtica de integridad o de sus elementos, y hacer una valoraci\u00f3n de sobre el nivel de detalle de \u00e9sta. Su metodolog\u00eda est\u00e1 basada en el componente de publicidad de las pol\u00edticas anticorrupci\u00f3n del estudio Transparencia de la Informaci\u00f3n Corporativa (TRAC, por sus siglas en ingl\u00e9s) de Transparencia Internacional. Las preguntas a evaluar se agrupan en cuatro ejes: (1) Publicidad de los elementos de una pol\u00edtica anticorrupci\u00f3n integral; (2) Alcance y socializaci\u00f3n de la pol\u00edtica anticorrupci\u00f3n; (3) Sistema de monitoreo, denuncia y sanciones; y (4) Accesibilidad de la informaci\u00f3n."
+  }
+},
+{
+  "model": "mxvscorrupcion.glosario",
+  "pk": 2,
+  "fields": {
+    "titulo": "C\u00f3digo de \u00e9tica o de conducta",
+    "descripcion": "Declaraci\u00f3n de principios y valores que establece un conjunto de expectativas y est\u00e1ndares de c\u00f3mo se comportar\u00e1 una organizaci\u00f3n, cuerpo gubernamental, compa\u00f1\u00eda, grupo afiliado, directivo, empleado o socio, teniendo en cuenta niveles m\u00ednimos de integridad y acciones disciplinarias para la organizaci\u00f3n y su personal (Transparencia Internacional, 2009, p\u00e1g. 8)."
+  }
+},
+{
+  "model": "mxvscorrupcion.glosario",
+  "pk": 3,
+  "fields": {
+    "titulo": "Confidencialidad o anonimidad del denunciante",
+    "descripcion": "Imposibilidad de que el denunciado rastree el origen de la denuncia. Las empresas y organizaciones deben establecer los procedimientos y medidas para facilitar e incentivar la denuncia para que, en caso de experimentar o presenciar sobornos u otros actos de corrupci\u00f3n, cuenten con los medios necesarios para denunciar a trav\u00e9s de mecanismos que garanticen la confidencialidad y anonimidad del denunciante. Adicionalmente, es deseable que la empresa u organizaci\u00f3n establezca un mecanismo para el acompa\u00f1amiento del denunciante ante la autoridad si as\u00ed procede, sobre todo cuando sea necesario solicitar medidas de protecci\u00f3n."
+  }
+},
+{
+  "model": "mxvscorrupcion.glosario",
+  "pk": 4,
+  "fields": {
+    "titulo": "Fraude",
+    "descripcion": "Delito que comete quien, enga\u00f1ando a uno o aprovech\u00e1ndose del error de alguien, se hace il\u00edcitamente de alg\u00fan beneficio o alcanza un lucro indebido (C\u00f3digo Penal Federal, art. 386). Los gobiernos, las empresas y las organizaciones de la sociedad civil deben contar con canales eficaces de notificaci\u00f3n interna y mecanismos de seguimiento para detectar el fraude, la corrupci\u00f3n y la mala gesti\u00f3n en el seno de una organizaci\u00f3n."
+  }
+},
+{
+  "model": "mxvscorrupcion.glosario",
+  "pk": 5,
+  "fields": {
+    "titulo": "Lavado de dinero",
+    "descripcion": "Proceso de ocultar el origen, la propiedad o el destino del dinero obtenido de manera ilegal o deshonesta, ocult\u00e1ndolo en actividades econ\u00f3micas leg\u00edtimas para hacerlo parecer legal. Las pol\u00edticas espec\u00edficas para prevenirlo deben establecer acciones o requisitos necesarios para asegurarse, en la medida de lo posible, que los recursos recibidos de alg\u00fan tercero no son de procedencia il\u00edcita. Estas acciones ayudan a proteger a la empresa en caso de necesitar explicar alguna transacci\u00f3n ante las autoridades (Transparencia Internacional, 2009, p\u00e1g. 26)."
+  }
+},
+{
+  "model": "mxvscorrupcion.glosario",
+  "pk": 6,
+  "fields": {
+    "titulo": "Monitoreo de la pol\u00edtica anticorrupci\u00f3n",
+    "descripcion": "Mecanismos que permiten identificar las fortalezas y debilidades de una pol\u00edtica anticorrupci\u00f3n o de integridad, de manera que pueda mejorar y que forme parte de la gesti\u00f3n de una organizaci\u00f3n. Dependiendo del tama\u00f1o y recursos de la empresa, estas funciones de monitoreo recaen en un oficial de cumplimiento o alg\u00fan \u00f3rgano de gobierno, como un comit\u00e9 de \u00e9tica o de auditor\u00eda."
+  }
+},
+{
+  "model": "mxvscorrupcion.glosario",
+  "pk": 7,
+  "fields": {
+    "titulo": "Pagos facilitadores",
+    "descripcion": "Son montos relativamente peque\u00f1os pagados a funcionarios o proveedores de servicios que garantizan, facilitan o agilizan la ejecuci\u00f3n de una acci\u00f3n gubernamental rutinaria a la que el ordenante tiene derecho (Transparencia Internacional, 2008, p\u00e1g. 9), y constituyen una forma de soborno. Estas prohibiciones deben contemplarse en el c\u00f3digo de conducta o de \u00e9tica de la empresa o, en su defecto, en su pol\u00edtica anticorrupci\u00f3n."
+  }
+},
+{
+  "model": "mxvscorrupcion.glosario",
+  "pk": 8,
+  "fields": {
+    "titulo": "Pol\u00edtica anticorrupci\u00f3n",
+    "descripcion": "Manifiesta el compromiso anticorrupci\u00f3n/cero tolerancia a la corrupci\u00f3n de la empresa, as\u00ed como directrices espec\u00edficas para prevenir el soborno, pagos facilitadores, fraudes, lavado de dinero, y conflicto de intereses, entre otros. Tambi\u00e9n incorpora pol\u00edticas de hospitalidad y vi\u00e1ticos, regalos y agradecimientos, donaciones y contribuciones pol\u00edticas, y habilita mecanismos de denuncia que faciliten el reporte an\u00f3nimo de cualquier comportamiento indebido o ilegal ante la propia empresa. Esta pol\u00edtica puede estar o no incluida en el c\u00f3digo de \u00e9tica o conducta."
+  }
+},
+{
+  "model": "mxvscorrupcion.glosario",
+  "pk": 9,
+  "fields": {
+    "titulo": "Pol\u00edtica de donaciones y contribuciones pol\u00edticas",
+    "descripcion": "Define qu\u00e9 tipo de donaciones o contribuciones est\u00e1n permitidas, ya sea en efectivo o en especie, para apoyar una causa pol\u00edtica. Incluye donaciones y contribuciones tales como regalos de propiedades o servicios, publicidad o actividades promocionales que respalden a un partido o personaje pol\u00edtico, o la compra de boletos para eventos de recaudaci\u00f3n de fondos (Transparencia Internacional, 2009, p\u00e1g. 34). La Ley General de Instituciones y Procedimientos Electorales (art. 41) proh\u00edbe expl\u00edcitamente que las empresas realicen aportaciones a partidos pol\u00edticos o sus candidatos."
+  }
+},
+{
+  "model": "mxvscorrupcion.glosario",
+  "pk": 10,
+  "fields": {
+    "titulo": "Pol\u00edtica de donaciones y/o contribuciones sociales",
+    "descripcion": "Define en qu\u00e9 casos puede realizarse una donaci\u00f3n o contribuci\u00f3n en efectivo o en especie, para apoyar una causa social, as\u00ed como asegurar el destino de la contribuci\u00f3n y que no se utilice para encubrir un soborno (Transparencia Internacional, 2008, p\u00e1g. 9)."
+  }
+},
+{
+  "model": "mxvscorrupcion.glosario",
+  "pk": 11,
+  "fields": {
+    "titulo": "Pol\u00edtica de hospitalidad y vi\u00e1ticos",
+    "descripcion": "Define qu\u00e9 atenciones y/o invitaciones pueden darse o aceptarse en eventos y actividades vinculadas al trabajo, as\u00ed como los gastos de viaje. Incluye lineamientos sobre la cantidad de invitados, el tipo de viaje, el nivel del alojamiento y la duraci\u00f3n de la estancia permitida. Es importante diferenciar una atenci\u00f3n o invitaci\u00f3n razonable a una suntuosa o excesiva que pueda dar lugar a sobornos o conflictos de intereses, aparentes o reales (Transparencia Internacional, 2008, p\u00e1g. 21)."
+  }
+},
+{
+  "model": "mxvscorrupcion.glosario",
+  "pk": 12,
+  "fields": {
+    "titulo": "Pol\u00edtica de regalos y agradecimientos",
+    "descripcion": "Define los casos en los que pueden darse o aceptarse regalos de o a terceros, ya sean clientes, proveedores, socios comerciales o accionistas, as\u00ed como los registros que deben hacerse de \u00e9stos con el fin de proteger a la empresa y a sus empleados. Es importante que los socios conozcan dicha pol\u00edtica a fin de evitar sanciones para la empresa (Transparencia Internacional, 2008, p\u00e1g. 21)."
+  }
+},
+{
+  "model": "mxvscorrupcion.glosario",
+  "pk": 13,
+  "fields": {
+    "titulo": "Programa de capacitaci\u00f3n",
+    "descripcion": "Proceso de socializaci\u00f3n de la pol\u00edtica anticorrupci\u00f3n, del c\u00f3digo de conducta o de cualquier otra medida de integridad, que incorpora la discusi\u00f3n y convencimiento de su contenido por parte todos los empleados, directivos, proveedores, contratistas y dem\u00e1s socios comerciales dentro de la organizaci\u00f3n, as\u00ed como por quienes se incorporen al negocio en el futuro. (Transparencia Internacional, 2008, p\u00e1g. 10)."
+  }
+},
+{
+  "model": "mxvscorrupcion.glosario",
+  "pk": 14,
+  "fields": {
+    "titulo": "Represalias a los denunciantes",
+    "descripcion": "Acciones de reprimenda de \u00edndole institucional o personal, que pueden ser tomadas en contra de las personas que muestren una preocupaci\u00f3n de legal o \u00e9tica, informen una conducta contraria a los valores de la empresa, o que participen en una investigaci\u00f3n. Dentro de las pol\u00edticas y procedimientos de denuncia se deben prohibir expresamente, e incluso deben destinar recursos para la protecci\u00f3n de los denunciantes (Transparencia Internacional, 2008, p\u00e1g. 11)."
+  }
+},
+{
+  "model": "mxvscorrupcion.glosario",
+  "pk": 15,
+  "fields": {
+    "titulo": "Sistema de denuncia",
+    "descripcion": "Mecanismo por el cual los empleados, directivos, socios y otros terceros relacionados pueden: (i) denunciar cualquier violaci\u00f3n al c\u00f3digo de conducta o \u00e9tica de la empresa, (ii) denunciar violaciones a la pol\u00edtica anticorrupci\u00f3n o de integridad, o (iii) solicitar ayuda y realizar consultas respecto de la pol\u00edtica anticorrupci\u00f3n o al c\u00f3digo de conducta o \u00e9tica de la empresa."
+  }
+},
+{
+  "model": "mxvscorrupcion.glosario",
+  "pk": 16,
+  "fields": {
+    "titulo": "Soborno",
+    "descripcion": "Promesa, oferta o entrega de cualquier beneficio indebido a uno o varios particulares o servidores p\u00fablicos, directamente o a trav\u00e9s de terceros, a cambio de que realicen o se abstengan de realizar un acto relacionado con sus funciones o con las de otro particular o servidor p\u00fablico, o bien, abusen de su influencia real o supuesta, con el prop\u00f3sito de obtener o mantener, para s\u00ed mismo o para un tercero, un beneficio o ventaja, con independencia de la aceptaci\u00f3n o recepci\u00f3n del beneficio o del resultado obtenido (Ley General de Responsabilidades Administrativas, art. 66 y C\u00f3digo Penal Federal, art. 11bis, 218, 222 y 222bis, entre otros)."
+  }
+},
+{
+  "model": "mxvscorrupcion.glosario",
+  "pk": 17,
+  "fields": {
+    "titulo": "Socios comerciales",
+    "descripcion": "Terceros que no guardan estrictamente una relaci\u00f3n laboral con la empresa pero que directa o indirectamente prestan sus servicios para que la empresa pueda realizar sus objetivos."
+  }
+}
+]
