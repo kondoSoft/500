@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'corsheaders'
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -143,13 +144,19 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #Login options
-LOGIN_REDIRECT_URL ='/edit/'
+LOGIN_REDIRECT_URL ='/empresa/'
 LOGIN_URL = '/login/'
 LOGOUT_REDIRECT_URL = '/login/'
+
+# Email Settings
 
 EMAIL_HOST = 'mail.integridadcorporativa500.mx'
 EMAIL_HOST_USER = 'contacto@integridadcorporativa500.mx'
 EMAIL_HOST_PASSWORD = 'integridad500..'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# SERVER_EMAIL = EMAIL_HOST_USER
 
+# Add Profile for users
+AUTH_PROFILE_MODULE = 'mxvscorrupcion.Perfil'

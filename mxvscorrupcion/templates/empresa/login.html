@@ -2,16 +2,19 @@
 {% block mainContent %}
 <div class="cajaLogin">
   <div>
-    <h3 class="loginTitle">INICIO DE SESIÓN</h3>
+    <h3 class="loginTitle uppercase">inicio de sesión</h3>
     <hr class="hrClass" />
     <hr class="hrClass2" />
   </div>
   <div class="login">
-    <form class="login-form">
+    <form class="login-form" action="{% url 'login' %}" method="POST">
+      {% csrf_token %}
+      {% if error %}
+        <p style="color: #ED4630;">Usuario y/o contraseña incorrectos.</p>
+      {% endif %}
       <div class="form-group">
-
         <div class="input-group">
-          <input type="usuario" class="form-control" id="usuarioInput"  placeholder="Usuario" />
+          <input type="text" name="username" class="form-control" placeholder="Usuario" />
             <span class="input-group-addon">
               <i class="fa fa-user" aria-hidden="true"></i>
             </span>
@@ -20,16 +23,15 @@
 
       <div class="form-group">
         <div class="input-group">
-          <input type="password" class="form-control" id="passwordInput" placeholder="Contraseña" />
+          <input type="password" class="form-control" placeholder="Contraseña" name="password" />
           <span class="input-group-addon">
             <i class="fa fa-unlock-alt" aria-hidden="true"></i>
           </span>
         </div>
       </div>
-      <button type="submit" class="btn btn-danger">ACEPTAR</button>
-      <a href="#xxx" class="loginA">Olvide mi contraseña</a>
-      <a href="#xxx" class="question-answer-left-a">Registrar una nueva empresa</a>
-
+      <button type="submit">Iniciar Sesión</button>
+      <a href="" class="recover-password">Olvide mi contraseña</a>
+      <a href="{% url 'register' %}" class="question-answer-left-a">Registrar una nueva empresa</a>
     </form>
   </div>
 

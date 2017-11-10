@@ -2,6 +2,7 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from tinymce.models import HTMLField
 from django.utils.text import slugify
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Glosario(models.Model):
@@ -131,3 +132,18 @@ class Corte(models.Model):
     cuestionario = models.ForeignKey(Cuestionario)
     fecha_de_corte = models.DateTimeField(null=True)
     aprovado = models.NullBooleanField(blank=True, null=True)
+
+
+
+class Perfil(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='perfil', primary_key=True)
+    telefono_fijo = models.CharField(max_length=12)
+    telefono_celular = models.CharField(max_length=12)
+    empresa = models.OneToOneField(Empresa, null=True)
+
+    class Meta:
+        verbose_name='Perfil'
+        verbose_name_plural='Perfiles'
+
+    def __str__(self):
+        return str(self.user.username)
