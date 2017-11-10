@@ -7,10 +7,10 @@
     <hr class="hrClass2" />
   </div>
   <div class="sign-up">
-    <form class="" action="{% url 'register' %}" method="POST">
+    <form class="formRegistration" action="{% url 'register' %}" method="POST">
       {% csrf_token %}
-      {{userForm}}
-      {{perfilForm}}
+      {{userForm.as_p}}
+      <!-- {{perfilForm.as_p}} -->
       <!--div class="form-group">
         <div class="input-group">
           <input type="text" name="username" class="form-control" id="usuarioInput"  placeholder="Usuario" />
