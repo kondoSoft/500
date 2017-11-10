@@ -45,7 +45,8 @@ li{
   margin: 20px;
 }
 .cajaLogin{
-  height: 500px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 .login-form{
@@ -256,5 +257,25 @@ footer hr{
 }
 /*Footer Cerre*/
 
-
 .table-hover tbody tr{transition: 0.3s}
+
+/*Form Registration*/
+.formRegistration{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin:30px auto;
+}
+.formRegistration p {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.formRegistration p .helptext {
+  font-size: 10px;
+  margin: 10px auto;
+  color: gray;
+}
+.formRegistration p label, .formRegistration p input, .formRegistration p span {
+  flex: 1 1;
+}
