@@ -40,200 +40,51 @@
             <p class="title-p">RESPUESTA</p>
         </div>
     </div>
-    <div class="row question-answer-container">
-        <div class="col-lg-6 question-answer-left">
-          <a href="#modal1" class="question-answer-left-a" data-toggle="modal" > 1. ¿La empresa publica en su página web un código de ética o de conducta para empleados?</a>
-        </div>
+{% for dato in datos %}
+
+<div class="row question-answer-container">
+    <div class="col-lg-6 question-answer-left">
+      <a href="#modal1" class="question-answer-left-a" data-toggle="modal" >{{dato.reactivo.descripcion}}</a>
+    </div>
 <!-- Modal -->
-        <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title-p" id="modal1Label">EDITAR RESPUESTA</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p>1. ¿La empresa publica en su página web un código de ética o de conducta para empleados?</p>
-                <select class="form-control" name="transporte">
-                  <option>Option 1</option>
-                  <option>Option 2</option>
-                  <option>Option 3</option>
-                </select>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger">Guardar</button>
-                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
-              </div>
-            </div>
+    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title-p" id="modal1Label">EDITAR RESPUESTA</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>{{dato.reactivo.descripcion}}</p>
+            <select class="form-control" name="transporte">
+
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger">Guardar</button>
+            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
           </div>
         </div>
-  <!--fin de la modal  -->
-        <div class="col-lg-6 align-self-center question-answer-right">
-            <p class="question-answer-right-p">Sí</p>
-        </div>
+      </div>
     </div>
-    <div class="row question-answer-container">
-        <div class="col-lg-6 question-answer-left">
-            <a href="#modal2" class="question-answer-left-a" data-toggle="modal" >2. ¿La empresa publica en su página web una declaración o compromiso anticorrupción / cero tolerancia a la corrupción?</a>
-        </div>
-        <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title-p" id="modal2Label">EDITAR RESPUESTA</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p>2. ¿La empresa publica en su página web una declaración o compromiso anticorrupción / cero tolerancia a la corrupción?</p>
-                <select class="form-control" name="transporte">
-                  <option>Option 1</option>
-                  <option>Option 2</option>
-                  <option>Option 3</option>
-                </select>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger">Guardar</button>
-                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 align-self-center question-answer-right">
-            <p class="question-answer-right-p">Sí</p>
-        </div>
+<!--fin de la modal  -->
+    <div class="col-lg-6 align-self-center question-answer-right">
+        <p class="question-answer-right-p">{{dato.respuesta.opcion}}</p>
     </div>
-    <div class="row question-answer-container">
-        <div class="col-lg-6 question-answer-left">
-            <a href="#modal3" class="question-answer-left-a" data-toggle="modal" >3. ¿La empresa publica en su página web un compromiso publico con la legalidad y el respeto a las leyes nacionales e internacionales?</a>
-        </div>
-        <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title-p" id="modal3Label">EDITAR RESPUESTA</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p>3. ¿La empresa publica en su página web un compromiso publico con la legalidad y el respeto a las leyes nacionales e internacionales?</p>
-                <select class="form-control" name="transporte">
-                  <option>Option 1</option>
-                  <option>Option 2</option>
-                  <option>Option 3</option>
-                </select>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger">Guardar</button>
-                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 align-self-center question-answer-right">
-            <p class="question-answer-right-p">Sí</p>
-        </div>
-    </div>
-    <div class="row question-answer-container">
-        <div class="col-lg-6 question-answer-left">
-            <a href="#modal4" class="question-answer-left-a" data-toggle="modal" >4. ¿La empresa publica en su página web una prohibición explícita de sobornos y pagos facilitadores?</a>
-        </div>
-        <div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title-p" id="modal4Label">EDITAR RESPUESTA</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p>4. ¿La empresa publica en su página web una prohibición explícita de sobornos y pagos facilitadores?</p>
-                <select class="form-control" name="transporte">
-                  <option>Option 1</option>
-                  <option>Option 2</option>
-                  <option>Option 3</option>
-                </select>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger">Guardar</button>
-                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 align-self-center question-answer-right">
-            <p class="question-answer-right-p">Sí</p>
-        </div>
-    </div>
-    <div class="row question-answer-container">
-        <div class="col-lg-6 question-answer-left">
-            <a href="#modal5" class="question-answer-left-a" data-toggle="modal" >5. ¿La empresa publica en su página web una política de hospitalidad y viáticos?</a>
-        </div>
-        <div class="modal fade" id="modal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title-p" id="modal5Label">EDITAR RESPUESTA</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p>5. ¿La empresa publica en su página web una política de hospitalidad y viáticos?</p>
-                <select class="form-control" name="transporte">
-                  <option>Option 1</option>
-                  <option>Option 2</option>
-                  <option>Option 3</option>
-                </select>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger">Guardar</button>
-                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 align-self-center question-answer-right">
-            <p class="question-answer-right-p">0.5</p>
-        </div>
-    </div>
-    <div class="row question-answer-last">
-        <div class="col-lg-6 question-answer-left">
-            <a href="#modal6" class="question-answer-left-a" data-toggle="modal" >6. ¿La empresa publica en su página web una política de regalos y agradecimientos?</a>
-        </div>
-        <div class="modal fade" id="modal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title-p" id="modal6Label">EDITAR RESPUESTA</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p>6. ¿La empresa publica en su página web una política de regalos y agradecimientos?</p>
-                <select class="form-control" name="transporte">
-                  <option>Option 1</option>
-                  <option>Option 2</option>
-                  <option>Option 3</option>
-                </select>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger">Guardar</button>
-                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 align-self-center question-answer-right">
-            <p class="question-answer-right-p">0.5</p>
-        </div>
-    </div>
+</div>
+
+
+{% endfor %}
+
+
+
+
 </div>
 <div class="row button-group">
     <div class="col-lg-6">
