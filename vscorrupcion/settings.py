@@ -87,10 +87,16 @@ WSGI_APPLICATION = 'vscorrupcion.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'django',
+        'USER': 'django',
+        'PASSWORD': '43541d8e1caf2fdc6694f3b58729f9f7',
+        'HOST': '165.227.53.250',
+        'PORT': '5432'
     }
 }
+
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
