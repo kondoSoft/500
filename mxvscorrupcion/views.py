@@ -125,6 +125,16 @@ def entradasRecientes(request):
 		data = serializers.serialize("json", Entradas_Recientes.objects.all())
 		return HttpResponse(data, content_type="application/json")
 
+def blog_articulos(request):
+	if request.method == 'GET':
+		data = serializers.serialize("json", Articulo.objects.all())
+		return HttpResponse(data, content_type="application/json")
+
+def getArticleSlug(request,slug):
+	if request.method == 'GET':
+		article = serializers.serialize("json", Articulo.objects.filter(slug=slug))
+		return HttpResponse(article, content_type="application/json")
+
 def import_empresas(request):
 	wb = load_workbook('mxvscorrupcion/501.xlsx')
 	sheet = wb.get_sheet_by_name('Códigos')
