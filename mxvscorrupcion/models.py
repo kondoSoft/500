@@ -15,7 +15,7 @@ class Glosario(models.Model):
         ordering = ['titulo']
 
     def __str__(self):
-        return self.titulo
+        return self.titulor
 
 class Fuentes(models.Model):
     titulo = models.CharField(max_length=255)
@@ -104,9 +104,14 @@ class Cuestionario(models.Model):
         return 'Pregunta: %s, created: %s' %(self.preguntas, self.created)
 
 class Articulo(models.Model):
+    imagen = models.ImageField(upload_to='media/',null=True, blank=True)
     titulo = models.CharField(max_length=255)
     contenido = HTMLField()
+    revista = HTMLField()
+    autor = models.CharField(max_length=255)
     slug =models.SlugField(max_length=255, unique=True, null=True, blank=True)
+    url = models.URLField(max_length=500, blank=True, default='')
+    fecha = models.DateField(auto_now=False, auto_now_add=False) 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -133,7 +138,18 @@ class Corte(models.Model):
     fecha_de_corte = models.DateTimeField(null=True)
     aprovado = models.NullBooleanField(blank=True, null=True)
 
+class Entradas_Recientes(models.Model):
+    titulo = models.CharField(max_length=255)
+    imagen = models.ImageField(upload_to='media/',null=True, blank=True)
+    fecha = models.DateField(auto_now=False, auto_now_add=False)
+    url = models.URLField(max_length=500, blank=True, default='')
 
+    class Meta:
+        verbose_name = "Entrada_Reciente"
+        verbose_name_plural = "Entradas_Recientes"
+
+    def __str__(self):
+        return self.titulo
 
 class Perfil(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='perfil', primary_key=True)

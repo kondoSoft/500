@@ -81,6 +81,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'vscorrupcion.wsgi.application'
 
+# TinyMCE Configuration...
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,spellchecker,paste,searchreplace",
+    'theme': "advanced",
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 10,
+    'format': 'code',
+}
+
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
@@ -137,12 +146,16 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+
+MEDIA_ROOT = BASE_DIR
+MEDIA_URL = '/'
+
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = [
-    os.path.join(PROJECT_ROOT, 'static'),
+   os.path.join(PROJECT_ROOT, 'static'),
 ]
 
 # Simplified static file serving.

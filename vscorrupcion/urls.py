@@ -18,8 +18,8 @@ from django.contrib import admin
 from django.conf import settings
 from django.contrib.auth.views import logout
 from mxvscorrupcion import views
+from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
-
 
 urlpatterns = [
     url(r'^$', views.loginUser, name='index'),
@@ -44,4 +44,7 @@ urlpatterns = [
     url(r'^fuentes/', views.fuentes, name='fuentes'),
     url(r'^send-mail/', views.send_email, name='send_email'),
     url(r'^admin-users/', views.usersAdmin, name='admin-users')
-]
+    url(r'recientes/', views.entradasRecientes, name='entradas-recientes'),
+    url(r'articulos/', views.blog_articulos, name='blog_articulos'),
+    url(r'articulo/(?P<slug>[-\w]+)/$', views.getArticleSlug, name='article-slug')
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -8,10 +8,8 @@ from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_exempt
 from openpyxl import Workbook, load_workbook
 from .forms import SignUpForm, PerfilForm
-
+from .models import Empresa, Cuestionario, Pregunta, Articulo, Catalogo_Preguntas, Respuestas, Sectores, Paises, Fuentes, Glosario, Entradas_Recientes, Perfil
 from django.contrib.auth.models import User, Group
-
-from .models import Empresa, Cuestionario, Pregunta, Articulo, Catalogo_Preguntas, Respuestas, Sectores, Paises, Fuentes, Perfil
 
 def index(request):
   return redirect('/login/')
@@ -147,14 +145,29 @@ def validate(request):
   return render(request, template)
 
 def glosario(request):
-  if request.method == 'GET':
-    data = serializers.serialize("json", Glosario.objects.all())
-    return HttpResponse(data)
+	if request.method == 'GET':
+		data = serializers.serialize("json", Glosario.objects.all())
+		return HttpResponse(data, content_type="application/json")
 
 def fuentes(request):
   if request.method == 'GET':
     data = serializers.serialize("json", Fuentes.objects.all())
     return HttpResponse(data, content_type="application/json")
+
+def entradasRecientes(request):
+	if request.method == 'GET':
+		data = serializers.serialize("json", Entradas_Recientes.objects.all())
+		return HttpResponse(data, content_type="application/json")
+
+def blog_articulos(request):
+	if request.method == 'GET':
+		data = serializers.serialize("json", Articulo.objects.all())
+		return HttpResponse(data, content_type="application/json")
+
+def getArticleSlug(request,slug):
+	if request.method == 'GET':
+		article = serializers.serialize("json", Articulo.objects.filter(slug=slug))
+		return HttpResponse(article, content_type="application/json")
 
 def import_empresas(request):
   wb = load_workbook('mxvscorrupcion/501.xlsx')
