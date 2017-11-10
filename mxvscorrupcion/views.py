@@ -17,8 +17,13 @@ def index(request):
 def empresa(request):
   user = request.user
   if user.is_authenticated:
+    usuario= Perfil.objects.get(user=request.user.pk)
+    datosEmpresa= Empresa.objects.get(nombre=usuario.empresa)
+    datosCuestionario= Cuestionario.objects.get(Empresa=datosEmpresa.id)
+    datosPreguntas= datosCuestionario.preguntas.all()
+    print('<<<<<<<<>>>>><<<<<<<<<',datosPreguntas)
     template = 'empresa/index.html'
-    return render(request, template)
+    return render(request, template, { 'datos':datosPreguntas})
   else:
     return redirect('/login/')
 
@@ -317,7 +322,7 @@ def send_email(request):
     )
     if result:
       return JsonResponse({'ok': True})
-      
+
   # elif method == 'GET':
   #   return HttpResponse('Listo')
 
@@ -345,5 +350,3 @@ def usersAdmin(request):
             'profiles': profiles
         }
         return render(request, template, context)
-        
-
