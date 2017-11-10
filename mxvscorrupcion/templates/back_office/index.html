@@ -1,0 +1,69 @@
+{% extends "back_office/base.html" %}
+
+
+
+{% block mainContent %}
+  <div>
+    <h3 class="loginTitle uppercase">Solicitudes de Usuarios</h3>
+    <hr class="hrClass" />
+    <hr class="hrClass2" />
+  </div>
+  <table class="table table-hover" style="margin:100px 0px;">
+    <thead style="background:#ED462F; color: #FFF;">
+      <tr>
+        <th scope="col">Nombre Completo</th>
+        <th scope="col">Correo Electrónico</th>
+        <th scope="col">Empresa</th>
+        <th scope="col">Telefono Fijo</th>
+        <th scope="col">Telefono Celular</th>
+        <th scope="col">Estatus</th>
+        <th scope="col">Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for profile in profiles %}
+        {% if profile.user.is_active == False %}
+          <tr>
+            <td scope="row" style="text-transform: capitalize;">
+              {{profile.user.first_name}} {{profile.user.last_name}}
+            </td>
+            <td>{{profile.user.email}}</td>
+            <td>{{profile.empresa.nombre}}</td>
+            <td>{{profile.telefono_fijo}}</td>
+            <td>{{profile.telefono_celular}}</td>
+            <td>Inactivo</td>
+            <td>
+              <button class="btn btn-danger activate" data-user-id="{{profile.user.pk}}" data-user-email="{{profile.user.email}}">activar</button>
+            </td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- Modal -->
+  <div class="modal fade" id="accept-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Aviso</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Esta seguro de desea activar el usuario?
+          <form action="{% url 'admin-users' %}" method="POST" id="update-user-status">
+            {% csrf_token %}
+            <input type="hidden" name="user-id" id="user-id">
+            <input type="hidden" name="email" id="user-email">
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-danger" id="update-user">Acceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock mainContent %}
