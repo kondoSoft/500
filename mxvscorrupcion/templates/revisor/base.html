@@ -31,6 +31,13 @@
       
     {% endblock mainContent %}
   </main>
+  <div class="row disclaimer align-items-center no-margin">
+    <div class="col-sm-12">
+      <h4 class="text-center">Descargo de responsabilidad</h4>
+      <i class="fa fa-caret-down fa-2x" aria-hidden="true"></i>
+      <p class="text-center">La información se actualiza con una periodicidad bimestral. Una vez actualizada por el usuario, se reflejan cambios en los primeros días del mes calendario.</p>
+    </div>
+  </div>
   <footer>
     <div class="container">
       <div class="row align-items-center">
@@ -72,5 +79,28 @@
       <p class="no-margin">Copyright &copy; 2017, Todos los Derechos Reservados</p>
     </div>
   </footer>
+  <div id="modal-background">
+    <div id="modal-content">
+      <p class="uppercase no-margin">seleccione un motivo de rechazo</p>
+      <select name="" id="" class="form-control">
+        <option value="">---------</option>
+        <option value="">opcion 1</option>
+        <option value="">opcion 2</option>
+        <option value="">opcion 3</option>
+      </select>
+      <p class="uppercase no-margin">respuesta personalizada</p>
+      <input type="text" class="form-control">
+      <p class="uppercase no-margin">comentarios</p>
+      <textarea name="" id="" cols="52" rows="5"></textarea>
+      <div class="row justify-content-end buttons">
+        <button>guardar</button>
+        <button id="close-modal" class="invert">cerrar</button>
+      </div>
+    </div>
+  </div>
+  <script src="{% static 'revisor/js/modal.js' %}"></script>
+  {% block javascript %}
+    
+  {% endblock javascript %}
 </body>
 </html>

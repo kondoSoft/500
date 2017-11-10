@@ -84,14 +84,14 @@ footer hr{
 	text-align: center;
 	margin-top: 20px;
 }
-/*Footer Cerre*/
+/*Footer CLSD*/
 
 /*Clases genericas*/
 .uppercase{text-transform: uppercase;}
 .no-margin{margin: 0px;}
 .no-padding{padding: 0px;}
 
-/* Contenido */
+/* Contenido Home */
 .title{margin: 20px 0px;}
 .title h3{
 	font-weight: 600;
@@ -134,8 +134,14 @@ footer hr{
 	border: 2px solid #CBCCCB;
 	padding: 20px;
 }
-.update h3{
-	color: #D9483D;	font-weight: 600;
+.update h3, .update a{
+	color: #D9483D;	
+	font-weight: 600;
+	transition: 0.3s;
+}
+.update a:hover{
+	color: #000;
+	text-decoration: none;
 }
 .time-left{
 	background: #EAEBEA;
@@ -149,8 +155,10 @@ footer hr{
 .disclaimer h4{
 	font-weight: 400;
 	border-bottom: 3px solid #868786;
-	width: 330px;
+	width: 400px;
   margin: 0 auto;
+  text-transform: uppercase;
+  color: #ED4636;
 }
 .disclaimer i {
 	display: block;
@@ -158,7 +166,207 @@ footer hr{
 	position: relative;
 	bottom: 13px;
 	color: #868786;
+	height: 10px;
 }
 .disclaimer{
 	background: #EAEBEA;
+	width: 100%;
+	padding: 10px 0px;
+	margin-bottom: 50px;
+}
+.disclaimer p {
+	font-size: 14px;
+	width: 45%;
+	margin: 0 auto;
+}
+
+/* Contenido Validate*/
+.company-data{
+	margin: 20px 0px;
+}
+.company-data h3{
+	color: #ED462F;
+}
+
+.company-data .col-sm-9>p{
+  font-size: 22px;
+  font-weight: 100;
+}
+
+.title-table{
+	background: #731D11;
+	color: #FFF;
+	padding: 10px 0px;
+	margin-bottom: 20px;
+}
+
+.title-table div{
+	border-right: 1px solid #FFF;
+	text-transform: uppercase;
+}
+.title-table div:nth-child(3){
+	border-right: none;
+}
+
+.box-question{
+	border: 3px solid #EAEBEA;
+	margin: 40px 0px;
+}
+
+.question{
+	background: #EAEBEA;
+}
+.status-info{
+	position: relative;
+}
+.status-info p:nth-child(2){
+	font-size: 14px;
+}
+.status-info .fa-pencil{
+	position: absolute;
+	left: 90%;
+	top: 10%;
+	color: #ED462F;
+	cursor: pointer;
+}
+.status-info .fa-times{
+	position: absolute;
+	left: 90%;
+	top: 40%;
+	color: #ED462F;
+	cursor: pointer;
+}
+.status{
+	font-size: 20px;
+	color: #ED462F;
+}
+
+.buttons{
+	margin: 30px 0px;
+}
+
+.buttons button{
+	background: #ED462F;
+	color: #FFF;
+	font-weight: 100;
+	border: 3px solid #ED462F;
+	box-sizing: border-box;
+	padding: 5px 20px;
+	transition: 0.3s;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+.buttons button:focus{
+	outline: none;
+}
+
+.buttons button:hover{
+	background: #FFF;
+	color: #ED462F;
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+}
+.buttons button:active{
+	box-shadow: none;
+}
+
+.buttons .invert{
+	border: 3px solid #ED462F;
+	background: #FFF;
+	color: #ED462F;
+}
+.buttons .invert:hover{
+	background: #ED462F;
+	color: #FFF;
+}
+#update{
+	padding: 5px 50px;
+	position: relative;
+	right: 30px;
+}
+#cancel{
+	position: relative;
+	left: 20px;
+}
+.return{
+	display: inline-block;
+	color: #ED462F;
+	transition: 0.3s;
+	margin: 50px auto;
+	font-size: 1.6em;
+}
+.return:hover{
+	text-decoration: none;
+	color: #A62F21;
+	text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
+}
+html{
+    min-height:100%;/* make sure it is at least as tall as the viewport */
+    position:relative;
+}
+body{
+    height:100%; /* force the BODY element to match the height of the HTML element */
+}
+
+#modal-background{
+	background: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	height: 100%;
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  overflow:hidden;
+	opacity: 0;
+	visibility: hidden;
+}
+#modal-content{
+	background: #FFF;
+	width: 35%;
+	margin: 0px auto;
+	position: relative;
+	top: 25%;
+	padding: 30px;
+}
+#close-modal{
+	margin-left: 40px;
+}
+#modal-content select,
+#modal-content input {
+	margin-bottom: 30px;
+}
+@keyframes closeModal{
+	from{
+		opacity: 1;
+		visibility: initial;
+	}
+	to{
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+@keyframes openModal{
+	from{
+		opacity: 0;
+		visibility: hidden;
+	}
+	to{
+		opacity: 1;
+		visibility: initial;
+	}
+}
+
+.close-modal{
+	animation-name: closeModal;
+	animation-duration: 0.5s;
+	opacity: 0;
+	visibility: hidden;
+}
+
+.open-modal{
+	animation-name: openModal;
+	animation-duration: 0.5s;
+	opacity: 1 !important;
+	visibility: initial !important;
 }

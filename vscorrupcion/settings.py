@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'corsheaders'
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -95,10 +96,16 @@ TINYMCE_DEFAULT_CONFIG = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'django',
+        'USER': 'django',
+        'PASSWORD': '43541d8e1caf2fdc6694f3b58729f9f7',
+        'HOST': '165.227.53.250',
+        'PORT': '5432'
     }
 }
+
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -156,13 +163,19 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #Login options
-LOGIN_REDIRECT_URL ='/edit/'
+LOGIN_REDIRECT_URL ='/empresa/'
 LOGIN_URL = '/login/'
 LOGOUT_REDIRECT_URL = '/login/'
+
+# Email Settings
 
 EMAIL_HOST = 'mail.integridadcorporativa500.mx'
 EMAIL_HOST_USER = 'contacto@integridadcorporativa500.mx'
 EMAIL_HOST_PASSWORD = 'integridad500..'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+# SERVER_EMAIL = EMAIL_HOST_USER
 
+# Add Profile for users
+AUTH_PROFILE_MODULE = 'mxvscorrupcion.Perfil'
