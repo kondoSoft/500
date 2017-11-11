@@ -57,7 +57,7 @@ class Catalogo_Preguntas(models.Model):
     bloque = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.id_reactivo + ' ' +self.descripcion
+        return str(self.pk)+ ' '+ self.id_reactivo + ' ' +self.descripcion
     class Meta:
         verbose_name = 'Catalogo_Preguntas'
         verbose_name_plural = 'Catalogo_Preguntas'
@@ -75,8 +75,6 @@ class Pregunta(models.Model):
 
     def __str__(self):
         return 'Pregunta: %s || Respuesta: %s' %(self.reactivo, self.respuesta)
-
-
 
 class Empresa(models.Model):
     nombre = models.CharField(max_length=255)
@@ -101,7 +99,7 @@ class Cuestionario(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     Empresa = models.ForeignKey(Empresa)
     def __str__(self):
-        return 'Pregunta: %s, created: %s' %(self.preguntas, self.created)
+        return 'Pregunta: %s, created: %s, id %s' %(self.preguntas, self.created, str(self.pk))
 
 class Articulo(models.Model):
     imagen = models.ImageField(upload_to='media/',null=True, blank=True)
@@ -111,7 +109,7 @@ class Articulo(models.Model):
     autor = models.CharField(max_length=255)
     slug =models.SlugField(max_length=255, unique=True, null=True, blank=True)
     url = models.URLField(max_length=500, blank=True, default='')
-    fecha = models.DateField(auto_now=False, auto_now_add=False) 
+    fecha = models.DateField(auto_now=False, auto_now_add=False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 

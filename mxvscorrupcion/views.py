@@ -11,19 +11,31 @@ from .forms import SignUpForm, PerfilForm
 from .models import Empresa, Cuestionario, Pregunta, Articulo, Catalogo_Preguntas, Respuestas, Sectores, Paises, Fuentes, Glosario, Entradas_Recientes, Perfil
 from django.contrib.auth.models import User, Group
 
+import json
+from django.core.serializers.json import DjangoJSONEncoder
+
 def index(request):
   return redirect('/login/')
 
 def empresa(request):
   user = request.user
+  user_group = user.groups.all()[0]
   if user.is_authenticated:
-    usuario= Perfil.objects.get(user=request.user.pk)
-    datosEmpresa= Empresa.objects.get(nombre=usuario.empresa)
-    datosCuestionario= Cuestionario.objects.get(Empresa=datosEmpresa.id)
-    datosPreguntas= datosCuestionario.preguntas.all()
-    print('<<<<<<<<>>>>><<<<<<<<<',datosPreguntas)
+    usuario = Perfil.objects.get(user=user.pk)
+    cuestionario = Cuestionario.objects.get(Empresa=usuario.empresa.pk)
+    preguntas = cuestionario.preguntas.all()
+    preguntasCTX = {}
+
+    for pregunta in preguntas:
+        respuestas = Respuestas.objects.all().filter(catalogo_pregunta=pregunta.reactivo).values_list('opcion', 'valor')
+        preguntasCTX[pregunta.reactivo.id_reactivo] = dict(respuestas)
+
     template = 'empresa/index.html'
-    return render(request, template, { 'datos':datosPreguntas})
+    context = {
+        'preguntas': preguntas,
+        'preguntas_respuestas': json.dumps(preguntasCTX, cls=DjangoJSONEncoder)
+    }
+    return render(request, template, context)
   else:
     return redirect('/login/')
 
