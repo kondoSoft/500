@@ -156,6 +156,8 @@ li{
   color: #D22B39;
   font-size: 14px;
   margin-bottom: 0px;
+  cursor: pointer;
+  transition: 0.3;
 }
 .question-answer-left-a:hover {
   text-decoration: none;
