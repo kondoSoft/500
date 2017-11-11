@@ -18,26 +18,36 @@ def index(request):
   return redirect('/login/')
 
 def empresa(request):
+  method = request.method
   user = request.user
-  user_group = user.groups.all()[0]
-  if user.is_authenticated:
-    usuario = Perfil.objects.get(user=user.pk)
-    cuestionario = Cuestionario.objects.get(Empresa=usuario.empresa.pk)
-    preguntas = cuestionario.preguntas.all()
-    preguntasCTX = {}
+  # user_group = user.groups.all()[0]
+  if method == 'GET':
+    if user.is_authenticated():
+      usuario = Perfil.objects.get(user=user.pk)
+      cuestionario = Cuestionario.objects.get(Empresa=usuario.empresa.pk)
+      preguntas = cuestionario.preguntas.all()
+      preguntasCTX = {}
+      for pregunta in preguntas:
+          respuestas = Respuestas.objects.all().filter(catalogo_pregunta=pregunta.reactivo).values_list('opcion','pk')
+          preguntasCTX[pregunta.reactivo.id_reactivo] = dict(respuestas)
 
-    for pregunta in preguntas:
-        respuestas = Respuestas.objects.all().filter(catalogo_pregunta=pregunta.reactivo).values_list('opcion', 'valor')
-        preguntasCTX[pregunta.reactivo.id_reactivo] = dict(respuestas)
-
-    template = 'empresa/index.html'
-    context = {
-        'preguntas': preguntas,
-        'preguntas_respuestas': json.dumps(preguntasCTX, cls=DjangoJSONEncoder)
-    }
-    return render(request, template, context)
+      template = 'empresa/index.html'
+      context = {
+          'preguntas': preguntas,
+          'preguntas_respuestas': json.dumps(preguntasCTX, cls=DjangoJSONEncoder)
+      }
+      return render(request, template, context)
+    else:
+      return redirect('/login/')
   else:
-    return redirect('/login/')
+    pregunta_pk = request.POST.get('pregunta-pk')
+    pregunta = Pregunta.objects.get(pk=pregunta_pk)
+    respuesta_pk = request.POST.get('respuesta-pk')
+    respuesta = Respuestas.objects.get(pk=respuesta_pk)
+    pregunta.respuesta = respuesta
+    pregunta.save()
+    return redirect('/empresa/')
+
 
 # def editInfo(request):
 #   user = request.user
@@ -113,7 +123,6 @@ def register(request):
             user = user_form.save()
             user.is_active = False
             user.save()
-            print('USER>>>>', user)
             group = Group.objects.get(name='empresa')
             group.user_set.add(user)
             group.save()
