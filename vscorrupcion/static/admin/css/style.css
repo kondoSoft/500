@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.admin{
+  width: 50%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  margin: 10px 0 10px 0;
+  background-color: #790218;
+  justify-content: center;
+}
+
+.link-admin{
+  color: #fff !important;
+}
