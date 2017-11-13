@@ -172,9 +172,16 @@ def revisor(request):
     return redirect(settings.LOGIN_URL)
 
 
-def validate(request):
+def validate(request, pk):
   template = 'revisor/validate.html'
-  return render(request, template)
+  cuestionario = Cuestionario.objects.get(pk=pk)
+  empresa = cuestionario.Empresa
+  preguntas = cuestionario.preguntas.all()
+  context = {
+    'preguntas': preguntas,
+    'empresa': empresa
+  }
+  return render(request, template, context)
 
 def glosario(request):
 	if request.method == 'GET':
@@ -354,41 +361,65 @@ def send_email(request):
   #   return HttpResponse('Listo')
 
 def usersAdmin(request):
-    method =  request.method
-    if method == 'POST':
-        user_id = request.POST.get('user-id')
-        user_email = request.POST.get('email')
-        user = User.objects.get(pk=user_id)
-        user.is_active = True
-        user.save()
-        result = send_mail(
-            'Contacto Integridad Corporativa',
-            'Mensaje de prueba',
-            'contacto@integridadcorporativa500.mx',
-            [user_email],
-            fail_silently=False
-        )
-        return redirect('/admin-users/')
-    else:
-        print(request.get_host())
-        template = 'back_office/index.html'
-        profiles = Perfil.objects.all()
-        context = {
-            'profiles': profiles
-        }
-        return render(request, template, context)
+  method =  request.method
+  if method == 'POST':
+    user_id = request.POST.get('user-id')
+    user_email = request.POST.get('email')
+    user = User.objects.get(pk=user_id)
+    user.is_active = True
+    user.save()
+    result = send_mail(
+        'Contacto Integridad Corporativa',
+        'Mensaje de prueba',
+        'contacto@integridadcorporativa500.mx',
+        [user_email],
+        fail_silently=False
+    )
+    return redirect('/admin-users/')
+  else:
+    print(request.get_host())
+    template = 'back_office/index.html'
+    profiles = Perfil.objects.all()
+    context = {
+        'profiles': profiles
+    }
+    return render(request, template, context)
 
 class Kondo_Admin(ListView):
   model = Corte
 
 class Corte_Detail(ListView):
-  # model = Corte
   paginate_by = 50
 
   def get_queryset(self):
-    print('>>>>>', self.kwargs['pk'])
     self.corte = Corte.objects.get(pk=self.kwargs['pk'])
     return Cuestionario.objects.filter(Corte=self.corte)
+
+def new_corte(request):
+  method = request.method
+  # fecha = request.POST.get('fecha')
+  # corte = Corte(fecha_de_corte=fecha, aprovado=False)
+  cuestionarios = Cuestionario.objects.all()
+  for cuestionario in cuestionarios:
+    cuestionario.pk = None
+    cuestionario.save()
+    for pregunta in cuestionario.preguntas.all():
+      print(pregunta.pk)
+      pregunta.pk = None
+      respuesta = Respuestas.objects.get(pk=pregunta.respuesta.pk)
+      pregunta.save()
+      respuesta.pk = None
+      respuesta.save()
+      pregunta.respuesta = respuesta
+      pregunta.save()
+    print('primary_key', cuestionario.pk)
+    empresa = cuestionario.Empresa
+    preguntas = cuestionario.preguntas.all()
+    print('Empresa',cuestionario.Empresa)
+    print('Preguntas',cuestionario.preguntas.all())
+  # corte.save()
+
+  return HttpResponse('kondo-admin')
 
   # def get_queryset(self):
   #   corte = Corte.objects.get(pk=1)

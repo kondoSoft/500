@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class Corte(models.Model):
     # cuestionario = models.ForeignKey(Cuestionario)
-    fecha_de_corte = models.DateTimeField(null=True)
+    fecha_de_corte = models.DateField(null=True)
     aprovado = models.NullBooleanField(blank=True, null=True)
 
     def __str__(self):
@@ -107,7 +107,7 @@ class Empresa(models.Model):
 
 class Cuestionario(models.Model):
     preguntas = models.ManyToManyField(Pregunta)
-    created = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now=True)
     Empresa = models.ForeignKey(Empresa)
     Corte = models.ForeignKey(Corte)
     updated = models.DateTimeField(auto_now_add=True)
