@@ -1,100 +1,91 @@
 {% extends "empresa/base.html" %}
 {% block mainContent %}
 <div class="col-lg-12">
-    <div class="row route" >
-        <div class="col-lg-12">
-            <p class="route-paragraph">
-                HOME > INFORMACIÓN ACTUALIZADA > EMPRESA
-            </p>
-        </div>
-        <hr class="route-hr">
+  <div class="row route" >
+    <div class="col-lg-12">
+      <p class="route-paragraph">
+        HOME > INFORMACIÓN ACTUALIZADA > EMPRESA
+      </p>
     </div>
-    <div class="row">
-        <div class="col-lg-12 info">
-            <p>AQUÍ VERAS TU INFORMACIÓN ACTUALIZADA UNA VEZ ACEPTADO LOS CAMBIOS</p>
-            <p class="info-p">
-                Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer
-            </p>
-        </div>
+    <hr class="route-hr">
+  </div>
+  <div class="row">
+    <div class="col-lg-12 info">
+      <p>AQUÍ VERAS TU INFORMACIÓN ACTUALIZADA UNA VEZ ACEPTADO LOS CAMBIOS</p>
+      <p class="info-p">
+        Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer
+      </p>
     </div>
-    <!--div class="col-lg-12 col-button">
-        <button type="button" class="btn btn-danger">
-            EDITAR INFORMACIÓN
-        </button>
-    </div-->
-    <!-- <div class="row align-items-center justify-content-around" style="background-color: red; padding: 25px 0px; text-align: center;">
-        <div class="col-lg-5" style="background-color: #EAEBEA; padding: 20px;">
-            hello world
-        </div>
-        <div class="col-lg-5" style="background-color: #EAEBEA; padding: 20px;">
-            hello world
-        </div>
-    </div> -->
+  </div>
 </div>
 <div class="col-lg-12 container-questions">
-    <div class="row titles">
-        <div class="col-lg-6 text-align-center title-container">
-            <p class="title-p-border">PREGUNTA</p>
-        </div>
-        <div class="col-lg-6 text-align-center title-container">
-            <p class="title-p">RESPUESTA</p>
-        </div>
+  <div class="row titles">
+    <div class="col-lg-6 text-align-center title-container">
+      <p class="title-p-border">PREGUNTA</p>
     </div>
+    <div class="col-lg-6 text-align-center title-container">
+      <p class="title-p">RESPUESTA</p>
+    </div>
+  </div>
   {% for pregunta in preguntas %}
     <div class="row question-answer-container">
-        <div class="col-lg-6 question-answer-left">
-          <p class="question-answer-left-a" id="{{pregunta.reactivo.id_reactivo}}">{{pregunta.reactivo.descripcion}}</p>
-        </div>
-        <div class="col-lg-6 align-self-center question-answer-right">
-            <p class="question-answer-right-p">{{pregunta.respuesta.opcion}}</p>
-        </div>
+      <div class="col-lg-6 question-answer-left">
+        <p class="question-answer-left-a" id="{{pregunta.reactivo.id_reactivo}}" pk="{{pregunta.pk}}" current-answer="{{pregunta.respuesta.opcion}}">{{pregunta.reactivo.descripcion}}</p>
+      </div>
+      <div class="col-lg-6 align-self-center question-answer-right">
+        <p class="question-answer-right-p">{{pregunta.respuesta.opcion}}</p>
+      </div>
     </div>
   {% endfor %}
 </div>
 <input type="hidden" name="" value="{{preguntas_respuestas}}" id="respuestas-preguntas">
 <div class="row button-group">
-    <div class="col-lg-6">
+  <div class="col-lg-6">
+    <button type="button" class="btn btn-danger" disabled>
+      VER RESUMEN
+    </button>
+  </div>
+  <div class="col-lg-6">
+    <div class="row">
+      <div class="col-lg-9 text-right">
         <button type="button" class="btn btn-danger">
-            VER RESUMEN
+          GUARDAR CAMBIOS
         </button>
+      </div>
+      <div class="col-lg-3 text-right">
+        <button type="button" class="btn btn-danger">
+          CANCELAR
+        </button>
+      </div>
     </div>
-    <div class="col-lg-6">
-        <div class="row">
-            <div class="col-lg-9 text-right">
-                <button type="button" class="btn btn-danger">
-                    GUARDAR CAMBIOS
-                </button>
-            </div>
-            <div class="col-lg-3 text-right">
-                <button type="button" class="btn btn-danger">
-                    CANCELAR
-                </button>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>
 
 <!-- Modal -->
-    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title-p" id="modal1Label">EDITAR RESPUESTA</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <p id="pregunta-modal"></p>
-            <select id="respuestasSelect" class="form-control" name="transporte">
-            </select>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger">Guardar</button>
-            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
-          </div>
-        </div>
+<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title-p" id="modal1Label">EDITAR RESPUESTA</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="pregunta-modal"></p>
+        <form action="{% url 'empresa' %}" method="POST" id="change-answer">
+          {% csrf_token %}
+          <select id="respuestasSelect" class="form-control" name="respuesta-pk">
+          </select>
+          <input type="hidden" name="pregunta-pk" id="pregunta-pk">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="submit">Guardar</button>
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
+  </div>
+</div>
 <!--fin de la modal  -->
 {% endblock mainContent %}

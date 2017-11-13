@@ -10,7 +10,7 @@
     <form class="formRegistration" action="{% url 'register' %}" method="POST">
       {% csrf_token %}
       {{userForm.as_p}}
-      <!-- {{perfilForm.as_p}} -->
+      {{perfilForm}}
       <!--div class="form-group">
         <div class="input-group">
           <input type="text" name="username" class="form-control" id="usuarioInput"  placeholder="Usuario" />

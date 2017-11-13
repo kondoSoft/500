@@ -36,6 +36,7 @@ li{
   padding: 35px 0px;
   margin: 0 auto;
   margin-top: 50px;
+  margin-bottom: 100px;
   box-sizing: border-box;
 }
 .login .form-group{
@@ -287,4 +288,8 @@ footer hr{
 }
 .formRegistration p label, .formRegistration p input, .formRegistration p span {
   flex: 1 1;
+}
+
+#id_empresa{
+  margin-bottom: 30px;
 }
