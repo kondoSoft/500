@@ -4,6 +4,13 @@ from tinymce.models import HTMLField
 from django.utils.text import slugify
 from django.contrib.auth.models import User
 
+class Corte(models.Model):
+    # cuestionario = models.ForeignKey(Cuestionario)
+    fecha_de_corte = models.DateTimeField(null=True)
+    aprovado = models.NullBooleanField(blank=True, null=True)
+
+    def __str__(self):
+        return str(self.fecha_de_corte)
 # Create your models here.
 class Glosario(models.Model):
     titulo = models.CharField(max_length=255)
@@ -65,14 +72,18 @@ class Catalogo_Preguntas(models.Model):
 class Respuestas(models.Model):
     valor = models.CharField(max_length=3)
     opcion = models.CharField(max_length=200)
-    catalogo_pregunta = models.ForeignKey(Catalogo_Preguntas)
     def __str__(self):
         return self.opcion + ' ' + self.valor
 
 class Pregunta(models.Model):
     reactivo = models.ForeignKey(Catalogo_Preguntas)
     respuesta = models.ForeignKey(Respuestas)
+    def __str__(self):
+        return 'Pregunta: %s || Respuesta: %s' %(self.reactivo, self.respuesta)
 
+class Pregunta_temporal(models.Model):
+    reactivo = models.ForeignKey(Catalogo_Preguntas)
+    respuesta = models.ForeignKey(Respuestas)
     def __str__(self):
         return 'Pregunta: %s || Respuesta: %s' %(self.reactivo, self.respuesta)
 
@@ -98,6 +109,8 @@ class Cuestionario(models.Model):
     preguntas = models.ManyToManyField(Pregunta)
     created = models.DateTimeField(auto_now_add=True)
     Empresa = models.ForeignKey(Empresa)
+    Corte = models.ForeignKey(Corte)
+    updated = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return 'Pregunta: %s, created: %s, id %s' %(self.preguntas, self.created, str(self.pk))
 
@@ -131,10 +144,6 @@ class Articulo(models.Model):
     def __str__(self):
         return self.titulo
 
-class Corte(models.Model):
-    cuestionario = models.ForeignKey(Cuestionario)
-    fecha_de_corte = models.DateTimeField(null=True)
-    aprovado = models.NullBooleanField(blank=True, null=True)
 
 class Entradas_Recientes(models.Model):
     titulo = models.CharField(max_length=255)

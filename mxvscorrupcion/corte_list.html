@@ -1,0 +1,59 @@
+{% extends "revisor/base.html" %}
+
+{% block mainContent %}
+<div class="row">
+  <div class="col-sm-12">
+    <div class="instructions">
+      <div class="box-header with-border">
+        <h3 class="box-title text-center uppercase">instrucciones para validar información</h3>
+        <!-- /.box-tools -->
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <p class="text-center no-margin">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat et magnam veniam aperiam nostrum consequatur iusto ipsa enim rerum, omnis sit quam eveniet provident praesentium. Vel non tenetur eos ullam.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio architecto maiores porro veniam officiis, eum iste repudiandae neque ut odio vitae deserunt sed, debitis sunt inventore assumenda fugiat. Similique, soluta!
+        </p>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+</div>  
+<div class="row">
+  <div class="col title">
+    <h3 class="text-center uppercase">últimas actualizaciones</h3>
+    <hr>
+    <hr>
+  </div>
+</div>
+<div class="row updates">
+  <div class="col-sm-12">
+    <div class="row align-items-center update">
+      <div class="col-sm-9">
+        <h3 class="no-margin"><a href="{% url 'validate' %}">Petroleos Mexicanos</a></h3>
+        <p>actualizó su información, el 17 de Septiembre de 2017 a las 20:00</p>
+      </div>
+      <div class="col-sm-3">
+        <div class="time-left">
+          <p class="text-center no-margin">Quedan 00 hr y 00 min</p>
+          <p class="no-margin text-center">para que finalize el plazo de validación.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row align-items-center update">
+      <div class="col-sm-9">
+        <h3 class="no-margin"><a href="{% url 'validate' %}">Petroleos Mexicanos</a></h3>
+        <p>actualizó su información, el 17 de Septiembre de 2017 a las 20:00</p>
+      </div>
+      <div class="col-sm-3">
+        <div class="time-left">
+          <p class="no-margin text-center">Quedan 00 hr y 00 min</p>
+          <p class="no-margin text-center">para que finalize el plazo de validación.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock mainContent %}

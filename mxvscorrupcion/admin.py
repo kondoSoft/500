@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Sectores, Paises, Empresa, Cuestionario, Pregunta, Articulo, Catalogo_Preguntas, Glosario, Fuentes, Respuestas, Entradas_Recientes, Perfil
+from .models import Sectores, Corte, Paises, Empresa, Cuestionario, Pregunta, Articulo, Catalogo_Preguntas, Glosario, Fuentes, Respuestas, Entradas_Recientes, Perfil
 
 class MyModelAdmin(admin.ModelAdmin):
     class Media:
@@ -23,6 +23,7 @@ admin.site.register(Glosario)
 admin.site.register(Fuentes)
 admin.site.register(Entradas_Recientes)
 admin.site.register(Perfil)
+# admin.site.register(Corte)
 
 class PreguntasInline(admin.TabularInline):
   model = Respuestas
@@ -32,7 +33,7 @@ class PreguntasAdmin(admin.ModelAdmin):
     PreguntasInline
   ]
 
-admin.site.register(Catalogo_Preguntas, PreguntasAdmin)
+# admin.site.register(Catalogo_Preguntas, PreguntasAdmin)
 
 class CuestionarioInline(admin.TabularInline):
   model = Cuestionario
@@ -41,6 +42,7 @@ class CuestionarioAdmin(admin.ModelAdmin):
   inlines = [
     CuestionarioInline
   ]
+
 
 admin.site.register(Empresa, CuestionarioAdmin)
 
@@ -52,5 +54,14 @@ class CuestionarioAdmin(admin.ModelAdmin):
     CuestionarioInline
   ]
   # exclude=('respuestas',)
-
 admin.site.register(Cuestionario, CuestionarioAdmin)
+
+class EmpresaInline(admin.TabularInline):
+  model = Empresa
+
+class CorteAdmin(admin.ModelAdmin):
+  inlines = [
+    EmpresaInline
+  ]
+
+admin.site.register(Corte)

@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.contrib.auth.views import logout
 from mxvscorrupcion import views
+from mxvscorrupcion.views import Kondo_Admin
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 
@@ -46,5 +47,10 @@ urlpatterns = [
     url(r'^admin-users/', views.usersAdmin, name='admin-users'),
     url(r'recientes/', views.entradasRecientes, name='entradas-recientes'),
     url(r'articulos/', views.blog_articulos, name='blog_articulos'),
-    url(r'articulo/(?P<slug>[-\w]+)/$', views.getArticleSlug, name='article-slug')
+    url(r'articulo/(?P<slug>[-\w]+)/$', views.getArticleSlug, name='article-slug'),
+    # kondo-admin
+    url(r'^kondo-admin/corte/(?P<pk>[0-9]+)/$', views.Corte_Detail.as_view(), name='corte'),
+    url(r'^kondo-admin/$', Kondo_Admin.as_view(), name='kondo_admin'),
+    
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

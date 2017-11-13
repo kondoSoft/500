@@ -9,7 +9,12 @@ from django.views.decorators.csrf import csrf_exempt
 from openpyxl import Workbook, load_workbook
 from .forms import SignUpForm, PerfilForm
 from .models import Empresa, Cuestionario, Pregunta, Articulo, Catalogo_Preguntas, Respuestas, Sectores, Paises, Fuentes, Glosario, Entradas_Recientes, Perfil
+from .models import Corte
 from django.contrib.auth.models import User, Group
+
+
+from django.views.generic import ListView
+from django.views.generic import DetailView
 
 import json
 from django.core.serializers.json import DjangoJSONEncoder
@@ -72,7 +77,8 @@ def loginUser(request):
         return redirect('/revisor/', user)
       else :
         login(request, user)
-        return redirect('/admin/', user)
+        # return redirect('/admin/', user)
+        return redirect('/kondo-admin/', user)
     else:
       return render(request, 'empresa/login.html', {'error': True})
   else:
@@ -362,3 +368,23 @@ def usersAdmin(request):
             'profiles': profiles
         }
         return render(request, template, context)
+
+class Kondo_Admin(ListView):
+  model = Corte
+
+class Corte_Detail(ListView):
+  # model = Corte
+  paginate_by = 50
+
+  def get_queryset(self):
+    print('>>>>>', self.kwargs['pk'])
+    self.corte = Corte.objects.get(pk=self.kwargs['pk'])
+    return Cuestionario.objects.filter(Corte=self.corte)
+
+  # def get_queryset(self):
+  #   corte = Corte.objects.get(pk=1)
+  #   print(corte)
+    
+  # print('corte', request)
+  # print('corte', corte)
+  # queryset = Cuestionario.objects.all().filter(Corte=corte)
