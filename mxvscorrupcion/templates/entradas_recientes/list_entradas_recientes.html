@@ -1,0 +1,36 @@
+{% extends "entradas_recientes/base.html" %}
+{% block mainContent %}
+<div class="row align-items-center">
+  <div class="col lg-6">
+    <h2>Entradas Recientes</h2>
+  </div>
+  <div class="col-lg-6 end">
+    <a href="{% url 'create_entradas_recientes' %}" class="btn btn-warning new-entry">Nueva Entrada</a>
+  </div>
+</div>
+<div class="col-lg-12 content">
+  {% for entradas_recientes in object_list %}
+    <div class="view">
+      <div class="col-lg-12 content title">
+        <p>{{ entradas_recientes.titulo }}</p>
+      </div>
+      <div class="col-lg-8 content">
+        <img src= "{{entradas_recientes.imagen}}" alt="">
+      </div>
+      <div class="col-lg-4 date">
+        <p>{{ entradas_recientes.fecha }}</p>
+        <p id="url">{{ entradas_recientes.url }}</p>
+      </div>
+      <div class="col-lg-8"></div>
+      <div class="col-lg-4 buttonsContainer">
+        <a href="{% url 'update_entradas_recientes' entradas_recientes.pk %}" class="btn btn-info">Editar</a>
+        <form action="{% url 'delete_entradas_recientes' entradas_recientes.pk %}" method="POST">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
+      </div>
+
+    </div>
+  {% endfor %}
+</div>
+{% endblock mainContent %}
