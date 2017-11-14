@@ -21,6 +21,36 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 import json
 from django.core.serializers.json import DjangoJSONEncoder
 
+#### CRUD EMPRESA
+
+class CreateEmpresa(CreateView):
+    model = Empresa
+    fields = ['nombre','sector','pais','website_corporativo','website_integridad','tot100','tot',]
+    template_name = 'empresa/create_empresa.html'
+
+    def get_success_url(self):
+        return reverse('list_empresa')
+
+
+class UpdateEmpresa(UpdateView):
+    model = Empresa
+    fields = ['nombre','sector','pais','website_corporativo','website_integridad','tot100','tot',]
+    template_name = 'empresa/edit_empresa.html'
+
+    def get_success_url(self):
+        return reverse('list_empresa')
+
+class ListEmpresa(ListView):
+    model = Empresa
+    fields = ['nombre','sector','pais','website_corporativo','website_integridad','tot100','tot',]
+    template_name = 'empresa/list_empresa.html'
+
+class DeleteEmpresa(DeleteView):
+    model = Empresa
+    success_url = reverse_lazy('list_empresa')
+
+#### END CRUD EMPRESA
+
 #### CRUD GLOSARIO
 
 class CreateGlosario(CreateView):
