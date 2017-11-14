@@ -15,6 +15,7 @@ from django.contrib.auth.models import User, Group
 
 from django.views.generic import ListView
 from django.views.generic import DetailView
+from django.views.generic import UpdateView
 
 import json
 from django.core.serializers.json import DjangoJSONEncoder
@@ -33,6 +34,7 @@ def empresa(request):
       preguntas = cuestionario.preguntas.all()
       preguntasCTX = {}
       for pregunta in preguntas:
+          print('pregunta', pregunta)
           respuestas = Respuestas.objects.all().filter(catalogo_pregunta=pregunta.reactivo).values_list('opcion','pk')
           preguntasCTX[pregunta.reactivo.id_reactivo] = dict(respuestas)
 
@@ -386,14 +388,11 @@ class Corte_Detail(ListView):
   paginate_by = 50
 
   def get_queryset(self):
-    print('>>>>>', self.kwargs['pk'])
     self.corte = Corte.objects.get(pk=self.kwargs['pk'])
     return Cuestionario.objects.filter(Corte=self.corte)
 
-  # def get_queryset(self):
-  #   corte = Corte.objects.get(pk=1)
-  #   print(corte)
-    
-  # print('corte', request)
-  # print('corte', corte)
-  # queryset = Cuestionario.objects.all().filter(Corte=corte)
+class Articulo_List(ListView):
+  model = Articulo
+
+class Articulo_Update(UpdateView):
+  model = Articulo

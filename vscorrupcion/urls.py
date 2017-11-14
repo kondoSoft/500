@@ -46,11 +46,16 @@ urlpatterns = [
     url(r'^send-mail/', views.send_email, name='send_email'),
     url(r'^admin-users/', views.usersAdmin, name='admin-users'),
     url(r'recientes/', views.entradasRecientes, name='entradas-recientes'),
-    url(r'articulos/', views.blog_articulos, name='blog_articulos'),
-    url(r'articulo/(?P<slug>[-\w]+)/$', views.getArticleSlug, name='article-slug'),
     # kondo-admin
     url(r'^kondo-admin/corte/(?P<pk>[0-9]+)/$', views.Corte_Detail.as_view(), name='corte'),
     url(r'^kondo-admin/$', Kondo_Admin.as_view(), name='kondo_admin'),
-    
+    # crud-articulos
+    url(r'^kondo-admin/articulos/$', views.Articulo_List.as_view(), name='articulo_list'),
+    url(r'^kondo-admin/articulos/(?P<pk>[0-9]+)/$', views.Articulo_Update.as_view(), name='articulo_edit'),
+    # url(r'^kondo-admin/articulos/(?P<pk>[0-9]+)/$', views.Articulo_Edit.as_view(), name='articulo_edit'),
+
+    url(r'articulos/', views.blog_articulos, name='blog_articulos'),
+    url(r'articulo/(?P<slug>[-\w]+)/$', views.getArticleSlug, name='article-slug'),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
