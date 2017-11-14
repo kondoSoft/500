@@ -3,7 +3,7 @@
 {% block mainContent %}
 <div class="row company-data">
   <div class="col-sm-9">
-    <h3 class="no-margin">Petroleos Mexicanos</h3>
+    <h3 class="no-margin">{{empresa.nombre}}</h3>
     <p class="no-margin">actualizó su información, el 17 de Septiembre de 2017 a las 20:00</p>
   </div>
   <div class="col-sm-3">
@@ -38,6 +38,30 @@
   <div class="col-sm-4 text-center">información actualizada</div>
   <div class="col-sm-4 text-center">validación</div>
 </div>
+{# Question OPEN #}
+{% for pregunta in preguntas %}
+  <div class="col box-question">
+    <div class="row question">
+      <div class="col-sm-12">
+        <p>
+          {{pregunta.reactivo.descripcion}}
+        </p>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-sm-4">{{pregunta.respuesta.opcion}}</div>
+      <div class="col-sm-4">Sí</div>
+      <div class="col-sm-4 status-info">
+        <p class="status no-margin uppercase">respuesta aceptada</p>
+        <p class="no-margin">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias vel, iste maiores excepturi quam quod!</p>
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+{# Question CLSD #}
+
 <div class="col box-question">
   <div class="row question">
     <div class="col-sm-12">
@@ -57,25 +81,8 @@
     </div>
   </div>
 </div>
-<div class="col box-question">
-  <div class="row question">
-    <div class="col-sm-12">
-      <p>
-        1. ¿La empresa publica en su página web un código de ética o de conducta para empleados?
-      </p>
-    </div>
-  </div>
-  <div class="row align-items-center">
-    <div class="col-sm-4">No</div>
-    <div class="col-sm-4">Sí</div>
-    <div class="col-sm-4 status-info">
-      <p class="status no-margin uppercase">respuesta aceptada</p>
-      <p class="no-margin">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias vel, iste maiores excepturi quam quod!</p>
-      <i class="fa fa-pencil" aria-hidden="true"></i>
-      <i class="fa fa-times" aria-hidden="true"></i>
-    </div>
-  </div>
-</div>
+
+
 <div class="col box-question">
   <div class="row question">
     <div class="col-sm-12">
@@ -101,6 +108,7 @@
     </div>
   </div>
 </div>
+
 <div class="col box-question">
   <div class="row question">
     <div class="col-sm-12">
@@ -126,6 +134,7 @@
     </div>
   </div>
 </div>
+
 <div class="row buttons">
   <div class="col-sm-8">
     <button id="summary" class="invert">ver resumen</button>
