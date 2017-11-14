@@ -37,7 +37,7 @@ urlpatterns = [
     url(r'^modify-answer/(?P<pk>[0-9 a-z]+)/$', views.modifyAnswer, name='modify-answer'),
     url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
     url(r'^revisor/', views.revisor, name='revisor'),
-    url(r'^validate/', views.validate, name='validate'),
+    url(r'^validate/(?P<pk>[0-9]+)/', views.validate, name='validate'),
     # url(r'^empresas/', views.import_empresas, name='validate'),
     # url(r'^empresas_final/', views.import_empresas_final, name='empresas_final'),
     url(r'^tinymce/', include('tinymce.urls')),
@@ -56,11 +56,13 @@ urlpatterns = [
     url(r'^glosario/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteGlosario.as_view(), name='delete_glosario'),
     url(r'^glosario/list/$', views.ListGlosario.as_view(), name='list_glosario'),
     url(r'^glosario/', views.glosario, name='glosario'),
+    #END CRUD GLOSARIO
     #CRUD FUENTES
     url(r'^fuentes/create/$', views.CreateFuente.as_view(), name='create_fuente'),
     url(r'^fuentes/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateFuente.as_view(), name='update_fuente'),
     url(r'^fuentes/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteFuente.as_view(), name='delete_fuente'),
     url(r'^fuentes/list/$', views.ListFuente.as_view(), name='list_fuente'),
     url(r'^fuentes/', views.fuentes, name='fuentes'),
-
+    #END CRUD FUENTES
+    url(r'^new-corte/', views.new_corte, name='new-corte'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
