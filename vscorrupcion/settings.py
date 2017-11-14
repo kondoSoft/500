@@ -169,9 +169,10 @@ LOGOUT_REDIRECT_URL = '/login/'
 
 # Email Settings
 
-EMAIL_HOST = 'mail.integridadcorporativa500.mx'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'contacto@integridadcorporativa500.mx'
-EMAIL_HOST_PASSWORD = 'integridad500..'
+EMAIL_HOST_PASSWORD = 'IC500MCCI'
+# oldpassword = integridad500..
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 # DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
