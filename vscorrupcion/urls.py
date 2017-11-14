@@ -72,4 +72,10 @@ urlpatterns = [
     url(r'^paises/delete/(?P<pk>[0-9 a-z]+)/$', views.DeletePaises.as_view(), name='delete_paises'),
     url(r'^paises/$', views.ListPaises.as_view(), name='list_paises'),
 
+    #CRUD CUESTIONARIO
+    url(r'^cuestionario/create/$', views.CreateCuestionario.as_view(), name='create_cuestionario'),
+    url(r'^cuestionario/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateCuestionario.as_view(), name='update_cuestionario'),
+    url(r'^cuestionario/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteCuestionario.as_view(), name='delete_cuestionario'),
+    url(r'^cuestionario/list/$', views.ListCuestionario.as_view(), name='list_cuestionario'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

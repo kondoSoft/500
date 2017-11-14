@@ -109,6 +109,35 @@ class DeletePaises(DeleteView):
 
 #### END CRUD PAISES
 
+#### CRUD CUESTIONARIO
+
+class CreateCuestionario(CreateView):
+    model = Cuestionario
+    fields = ['preguntas','Empresa',]
+    template_name = 'cuestionario/create_cuestionario.html'
+
+    def get_success_url(self):
+        return reverse('list_cuestionario')
+
+class UpdateCuestionario(UpdateView):
+    model = Cuestionario
+    fields = ['preguntas','Empresa',]
+    template_name = 'cuestionario/edit_cuestionario.html'
+
+    def get_success_url(self):
+        return reverse('list_cuestionario')
+
+class ListCuestionario(ListView):
+    model = Cuestionario
+    fields = ['preguntas','Empresa',]
+    template_name = 'cuestionario/list_cuestionario.html'
+
+class DeleteCuestionario(DeleteView):
+    model = Cuestionario
+    success_url = reverse_lazy('list_cuestionario')
+
+#### END CRUD CUESTIONARIO
+
 def index(request):
   return redirect('/login/')
 
