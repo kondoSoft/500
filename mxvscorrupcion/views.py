@@ -21,6 +21,35 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 import json
 from django.core.serializers.json import DjangoJSONEncoder
 
+#### CRUD Perfiles
+class CreatePerfil(CreateView):
+    model = Perfil
+    fields = ['user','telefono_fijo','telefono_celular','empresa',]
+    template_name = 'perfiles/create_perfiles.html'
+
+    def get_success_url(self):
+        return reverse('list_perfiles')
+
+
+class UpdatePerfil(UpdateView):
+    model = Perfil
+    fields = ['user','telefono_fijo','telefono_celular','empresa',]
+    template_name = 'perfiles/edit_perfiles.html'
+
+    def get_success_url(self):
+        return reverse('list_perfiles')
+
+class ListPerfil(ListView):
+    model = Perfil
+    fields = ['user','telefono_fijo','telefono_celular','empresa',]
+    template_name = 'perfiles/list_perfiles.html'
+
+class DeletePerfil(DeleteView):
+    model = Perfil
+    success_url = reverse_lazy('list_perfiles')
+
+### end Perfiles
+
 #### CRUD GLOSARIO
 
 class CreateGlosario(CreateView):
@@ -51,6 +80,33 @@ class DeleteGlosario(DeleteView):
 
 #### END CRUD GLOSARIO
 
+
+class CreateEntradasRecientes(CreateView):
+    model = Entradas_Recientes
+    fields = ['titulo','imagen', 'fecha', 'url']
+    template_name = 'entradas_recientes/create_entradas_recientes.html'
+
+    def get_success_url(self):
+        return reverse('list_entradas_recientes')
+
+class UpdateEntradasRecientes(UpdateView):
+    model = Entradas_Recientes
+    fields = ['titulo','imagen', 'fecha' , 'url']
+    template_name = 'entradas_recientes/edit_entradas_recientes.html'
+
+    def get_success_url(self):
+        return reverse('list_entradas_recientes')
+
+class ListEntradasRecientes(ListView):
+    model = Entradas_Recientes
+    fields = ['titulo','imagen', 'fecha', 'url']
+    template_name = 'entradas_recientes/list_entradas_recientes.html'
+
+class DeleteEntradasRecientes(DeleteView):
+    model = Entradas_Recientes
+    success_url = reverse_lazy('list_entradas_recientes')
+
+
 #### CRUD FUENTES
 
 class CreateFuente(CreateView):
@@ -80,6 +136,7 @@ class DeleteFuente(DeleteView):
 
 #### END CRUD FUENTES
 
+
 #### CRUD PAISES
 
 class CreatePaises(CreateView):
@@ -107,10 +164,7 @@ class DeletePaises(DeleteView):
     model = Paises
     success_url = reverse_lazy('list_paises')
 
-#### END CRUD PAISES
-
 #### CRUD CUESTIONARIO
-
 class CreateCuestionario(CreateView):
     model = Cuestionario
     fields = ['preguntas','Empresa',]
@@ -137,6 +191,35 @@ class DeleteCuestionario(DeleteView):
     success_url = reverse_lazy('list_cuestionario')
 
 #### END CRUD CUESTIONARIO
+
+#### CRUD RESPUESTAS
+
+class CreateRespuesta(CreateView):
+    model = Respuestas
+    fields = ['valor','opcion','catalogo_pregunta',]
+    template_name = 'respuestas/create_respuestas.html'
+
+    def get_success_url(self):
+        return reverse('list_respuestas')
+
+class UpdateRespuesta(UpdateView):
+    model = Respuestas
+    fields = ['valor','opcion','catalogo_pregunta',]
+    template_name = 'respuestas/edit_respuestas.html'
+
+    def get_success_url(self):
+        return reverse('list_respuestas')
+
+class ListRespuesta(ListView):
+    model = Respuestas
+    fields = ['valor','opcion','catalogo_pregunta',]
+    template_name = 'respuestas/list_respuestas.html'
+
+class DeleteRespuesta(DeleteView):
+    model = Respuestas
+    success_url = reverse_lazy('list_cuestionario')
+
+#### END CRUD RESPUESTAS
 
 def index(request):
   return redirect('/login/')
@@ -582,4 +665,3 @@ def new_corte(request):
       nuevo_cuestionario.Corte = corte
       nuevo_cuestionario.save()
   return redirect('kondo-admin')
-

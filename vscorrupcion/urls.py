@@ -43,7 +43,6 @@ urlpatterns = [
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^send-mail/', views.send_email, name='send_email'),
     url(r'^admin-users/', views.usersAdmin, name='admin-users'),
-    url(r'recientes/', views.entradasRecientes, name='entradas-recientes'),
     url(r'articulos/', views.blog_articulos, name='blog_articulos'),
     url(r'articulo/(?P<slug>[-\w]+)/$', views.getArticleSlug, name='article-slug'),
 
@@ -58,6 +57,19 @@ urlpatterns = [
     url(r'^glosario/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteGlosario.as_view(), name='delete_glosario'),
     url(r'^glosario/list/$', views.ListGlosario.as_view(), name='list_glosario'),
     url(r'^glosario/', views.glosario, name='glosario'),
+  
+    #CRUD Perfiles
+    url(r'^Perfiles/create/$', views.CreatePerfil.as_view(), name='create_perfil'),
+    url(r'^Perfiles/update/(?P<pk>[0-9 a-z]+)/$', views.UpdatePerfil.as_view(), name='update_perfil'),
+    url(r'^Perfiles/delete/(?P<pk>[0-9 a-z]+)/$', views.DeletePerfil.as_view(), name='delete_perfil'),
+    url(r'^Perfiles/list/$', views.ListPerfil.as_view(), name='list_perfiles'),
+
+    #CRUD ENTRADAS RECIENTES
+    url(r'^entradas_recientes/create/$', views.CreateEntradasRecientes.as_view(), name='create_entradas_recientes'),
+    url(r'^entradas_recientes/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateEntradasRecientes.as_view(), name='update_entradas_recientes'),
+    url(r'^entradas_recientes/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteEntradasRecientes.as_view(), name='delete_entradas_recientes'),
+    url(r'^entradas_recientes/list/$', views.ListEntradasRecientes.as_view(), name='list_entradas_recientes'),
+    url(r'recientes/', views.entradasRecientes, name='entradas-recientes'),
 
     #CRUD FUENTES
     url(r'^fuentes/create/$', views.CreateFuente.as_view(), name='create_fuente'),
@@ -77,7 +89,13 @@ urlpatterns = [
     url(r'^cuestionario/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateCuestionario.as_view(), name='update_cuestionario'),
     url(r'^cuestionario/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteCuestionario.as_view(), name='delete_cuestionario'),
     url(r'^cuestionario/list/$', views.ListCuestionario.as_view(), name='list_cuestionario'),
+
+    #CRUD RESPUESTAS
+    url(r'^respuestas/create/$', views.CreateRespuesta.as_view(), name='create_respuestas'),
+    url(r'^respuestas/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateRespuesta.as_view(), name='update_respuestas'),
+    url(r'^respuestas/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteRespuesta.as_view(), name='delete_respuestas'),
+    url(r'^respuestas/list/$', views.ListRespuesta.as_view(), name='list_respuestas'),
   
     url(r'^new-corte/', views.new_corte, name='new-corte'),
-  
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
