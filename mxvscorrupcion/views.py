@@ -149,6 +149,12 @@ def loginUser(request):
     else:
       return render(request, 'empresa/login.html', {'error': True})
   else:
+    ctx = {}
+    try:
+      if request.GET['message']:
+        ctx['message'] = '<p>Estimado usuario, Usted creó una cuenta en integridadcorporativa500.mx.</p>  <p>En breve recibira un correo con instrucciones.</p>'
+    except:
+      pass
     user = request.user
     if user.is_authenticated:
       group = user.groups.all()[0].name
@@ -162,7 +168,7 @@ def loginUser(request):
         login(request, user)
         return redirect('/admin/', user)
     else:
-      return render(request,'empresa/login.html' )
+      return render(request,'empresa/login.html', ctx )
 
 
 def register(request):
@@ -193,7 +199,7 @@ def register(request):
             profile.save()
         else:
             print(user_form.errors)
-        return redirect('/login/')
+        return redirect('/login/?message=true')
 
 def rejectQuestion(request):
     if request.method == 'POST':
