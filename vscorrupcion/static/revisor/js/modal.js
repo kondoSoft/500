@@ -18,14 +18,13 @@ function onAccept (e) {
   console.log('height>>', height)
   modal.classList.add('open-modal')
   console.log(e)
-  modalContent.style.top = (e.pageY - height)+'px'
-  window.scrollTo(0, (e.pageY/2) + 100)
-  document.getElementsByTagName('body')[0].style.overflow = 'hidden'
+  modalContent.style.top = (e.pageY - height) + 'px'
+  // window.scrollTo(0, (e.pageY/2) + 100)
+  // document.getElementsByTagName('body')[0].style.overflow = 'hidden'
 }
 
 function onClose (e) {
   modal.classList.remove('open-modal')
   modal.classList.add('close-modal')
   document.getElementsByTagName('body')[0].style.overflow = 'initial'
-
 }
