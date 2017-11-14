@@ -38,7 +38,7 @@
     
     <div class="row align-items-center update">
       <div class="col-sm-9">
-        <h3 class="no-margin"><a href="{% url 'validate' pk=cuestionario.pk %}">{{cuestionario.Empresa}}</a></h3>
+        <h3 class="no-margin"><a href="{% url 'validate' pk=cuestionario.pk empresa_pk=cuestionario.Empresa.pk %}">{{cuestionario.Empresa}}</a></h3>
         <p>actualizó su información, {{cuestionario.updated}}</p>
       </div>
       <div class="col-sm-3">

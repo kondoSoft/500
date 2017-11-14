@@ -174,16 +174,18 @@ def revisor(request):
     return redirect(settings.LOGIN_URL)
 
 
-def validate(request, pk, pk_corte = None):
+def validate(request, pk, empresa_pk):
   template = 'revisor/validate.html'
-  corte_actual = Corte.objects.get(aprovado=True)
-  print(corte_actual)
-  cuestionario = Cuestionario.objects.get(pk=pk)
-  empresa = cuestionario.Empresa
-  preguntas = cuestionario.preguntas.all()
+  corte_anterior = Corte.objects.get(aprovado=True)
+  cuestionario_anterior = Cuestionario.objects.get(Corte=corte_anterior, Empresa=empresa_pk)
+  preguntas_anteriores = cuestionario_anterior.preguntas.all()
+  cuestionario_actual = Cuestionario.objects.get(pk=pk)
+  preguntas_actuales = cuestionario_actual.preguntas.all()
+  empresa = cuestionario_actual.Empresa
+  preguntas = zip(preguntas_anteriores, preguntas_actuales)
   context = {
     'preguntas': preguntas,
-    'empresa': empresa
+    'empresa': empresa,
   }
   return render(request, template, context)
 
