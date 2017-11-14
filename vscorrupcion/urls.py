@@ -41,7 +41,6 @@ urlpatterns = [
     # url(r'^empresas/', views.import_empresas, name='validate'),
     # url(r'^empresas_final/', views.import_empresas_final, name='empresas_final'),
     url(r'^tinymce/', include('tinymce.urls')),
-    url(r'^fuentes/', views.fuentes, name='fuentes'),
     url(r'^send-mail/', views.send_email, name='send_email'),
     url(r'^admin-users/', views.usersAdmin, name='admin-users'),
     url(r'recientes/', views.entradasRecientes, name='entradas-recientes'),
@@ -57,5 +56,11 @@ urlpatterns = [
     url(r'^glosario/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteGlosario.as_view(), name='delete_glosario'),
     url(r'^glosario/list/$', views.ListGlosario.as_view(), name='list_glosario'),
     url(r'^glosario/', views.glosario, name='glosario'),
+    #CRUD FUENTES
+    url(r'^fuentes/create/$', views.CreateFuente.as_view(), name='create_fuente'),
+    url(r'^fuentes/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateFuente.as_view(), name='update_fuente'),
+    url(r'^fuentes/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteFuente.as_view(), name='delete_fuente'),
+    url(r'^fuentes/list/$', views.ListFuente.as_view(), name='list_fuente'),
+    url(r'^fuentes/', views.fuentes, name='fuentes'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
