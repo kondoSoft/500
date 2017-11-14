@@ -24,6 +24,34 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.mixins import PermissionRequiredMixin
 
+#### CRUD EMPRESA
+
+class CreateEmpresa(CreateView):
+    model = Empresa
+    fields = ['nombre','sector','pais','website_corporativo','website_integridad','tot100','tot',]
+    template_name = 'empresa/create_empresa.html'
+
+    def get_success_url(self):
+        return reverse('list_empresa')
+
+
+class UpdateEmpresa(UpdateView):
+    model = Empresa
+    fields = ['nombre','sector','pais','website_corporativo','website_integridad','tot100','tot',]
+    template_name = 'empresa/edit_empresa.html'
+
+    def get_success_url(self):
+        return reverse('list_empresa')
+
+class ListEmpresa(ListView):
+    model = Empresa
+    fields = ['nombre','sector','pais','website_corporativo','website_integridad','tot100','tot',]
+    template_name = 'empresa/list_empresa.html'
+
+class DeleteEmpresa(DeleteView):
+    model = Empresa
+    success_url = reverse_lazy('list_empresa')
+
 #### CRUD Articulo
 class CreateArticulo(CreateView):
     model = Articulo
@@ -55,9 +83,6 @@ class DeleteArticulo(DeleteView):
     model = Articulo
     success_url = reverse_lazy('list_articulo')
 
-### end Articulos
-
-
 #### CRUD Perfiles
 class CreatePerfil(CreateView):
     model = Perfil
@@ -84,8 +109,6 @@ class ListPerfil(ListView):
 class DeletePerfil(DeleteView):
     model = Perfil
     success_url = reverse_lazy('list_perfiles')
-
-### end Perfiles
 
 #### CRUD GLOSARIO
 
@@ -258,6 +281,34 @@ class DeleteRespuesta(DeleteView):
 
 #### END CRUD RESPUESTAS
 
+#CRUD SECTOR
+class CreateSector(CreateView):
+    model = Sectores
+    fields = ['nombre']
+    template_name = 'sector/create_sector.html'
+
+    def get_success_url(self):
+        return reverse('list_sector')
+
+class UpdateSector(UpdateView):
+    model = Sectores
+    fields = ['nombre']
+    template_name = 'sector/edit_sector.html'
+
+    def get_success_url(self):
+        return reverse('list_sector')
+
+class ListSector(ListView):
+    model = Sectores
+    fields = ['nombre']
+    template_name = 'sector/list_sector.html'
+
+class DeleteSector(DeleteView):
+    model = Sectores
+    success_url = reverse_lazy('list_sector')
+
+##END CRUD SECTOR
+
 def index(request):
   return redirect('/login/')
 
@@ -387,16 +438,20 @@ def register(request):
 
 def rejectQuestion(request):
     if request.method == 'POST':
+      pregunta_pk = request.POST.get('pregunta-pk')
+      cuestionario_pk = request.POST.get('cuestionario-pk')
+      empresa_pk = request.POST.get('empresa-pk')
       reject_form = Pregunta_Rechazada_Form(request.POST)
       if reject_form.is_valid():
-        pregunta = Pregunta.objects.get(pk=4)
+        pregunta = Pregunta.objects.get(pk=pregunta_pk)
         form = reject_form.save()
         form.save()
         comentario_pk = form.pk
         comentario = Pregunta_Rechazada.objects.get(pk=comentario_pk)
         pregunta.comentarios = comentario
-        # pregunta.save()
-        return redirect('/validate/')
+        pregunta.status = 2
+        pregunta.save()
+        return redirect('/validate/%s/%s/' %(cuestionario_pk, empresa_pk))
 
 def modifyAnswer(request, pk):
   if request.method == 'GET' :
@@ -423,33 +478,41 @@ def articulos(request, slug):
 
 def revisor(request):
   user = request.user
-  if user.is_authenticated:
-    template = 'revisor/index.html'
-    return render(request, template)
-  else:
-    return redirect(settings.LOGIN_URL)
+  template = 'revisor/index.html'
+  return render(request, template)
+  # if user.is_authenticated:
+  # else:
+  #   return redirect(settings.LOGIN_URL)
 
 
 def validate(request, pk, empresa_pk):
-  template = 'revisor/validate.html'
-  corte_anterior = Corte.objects.get(aprovado=True)
-  cuestionario_anterior = Cuestionario.objects.get(Corte=corte_anterior, Empresa=empresa_pk)
-  preguntas_anteriores = cuestionario_anterior.preguntas.all()
-  cuestionario_actual = Cuestionario.objects.get(pk=pk)
-  preguntas_actuales = cuestionario_actual.preguntas.all()
-  empresa = cuestionario_actual.Empresa
-  preguntas = zip(preguntas_anteriores, preguntas_actuales)
-  modalForm = Pregunta_Rechazada_Form()
-  corte_actual = Corte.objects.get(aprovado=True)
-  cuestionario = Cuestionario.objects.get(pk=pk)
-  empresa = cuestionario.Empresa
-  preguntas = cuestionario.preguntas.all()
-  context = {
-    'preguntas': preguntas,
-    'empresa': empresa,
-    'form': modalForm
-  }
-  return render(request, template, context)
+  method = request.method
+  if method == 'POST':
+    pregunta_pk = request.POST.get('pregunta-pk')
+    status = request.POST.get('status')
+    if status == '1':
+      pregunta = Pregunta.objects.get(pk=pregunta_pk)
+      pregunta.status = status
+      pregunta.save()
+      return redirect('/validate/%s/%s/' %(pk, empresa_pk))
+  else:
+    template = 'revisor/validate.html'
+    modalForm = Pregunta_Rechazada_Form()
+    corte_anterior = Corte.objects.get(aprovado=True)
+    cuestionario_anterior = Cuestionario.objects.get(Corte=corte_anterior, Empresa=empresa_pk)
+    preguntas_anteriores = cuestionario_anterior.preguntas.all()
+    cuestionario_actual = Cuestionario.objects.get(pk=pk)
+    empresa = cuestionario_actual.Empresa
+    preguntas_actuales = cuestionario_actual.preguntas.all()
+    preguntas = zip(preguntas_anteriores, preguntas_actuales)
+    context = {
+      'preguntas': preguntas,
+      'empresa': empresa,
+      'form': modalForm,
+      'pk': pk,
+      'empresa_pk':empresa_pk
+    }
+    return render(request, template, context)
 
 def glosario(request):
 	if request.method == 'GET':
@@ -679,22 +742,17 @@ def new_corte(request):
       cuestionario.save()
       nuevo_cuestionario = cuestionario
       for pregunta in preguntas:
-        print(pregunta.pk)
         reactivo = pregunta.reactivo
         respuesta = Respuestas.objects.get(pk=pregunta.respuesta.pk)
         catalogo_pregunta = respuesta.catalogo_pregunta
-        print('catalogo_pregunta ', catalogo_pregunta)
         respuesta.pk = None
         respuesta.save()
         nueva_respuesta = respuesta
-        print('nueva_respuesta', nueva_respuesta)
         nueva_respuesta.catalogo_pregunta = catalogo_pregunta
         nueva_respuesta.save()
         pregunta.pk = None
         pregunta.save()
-        print('pregunta ', pregunta)
         nueva_pregunta = pregunta
-        print('nueva_pregunta ', nueva_pregunta)
         nueva_pregunta.respuesta = nueva_respuesta
         nueva_pregunta.reactivo = reactivo
         nueva_pregunta.save()
