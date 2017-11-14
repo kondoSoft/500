@@ -78,4 +78,10 @@ urlpatterns = [
     url(r'^cuestionario/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteCuestionario.as_view(), name='delete_cuestionario'),
     url(r'^cuestionario/list/$', views.ListCuestionario.as_view(), name='list_cuestionario'),
 
+    #CRUD RESPUESTAS
+    url(r'^respuestas/create/$', views.CreateRespuesta.as_view(), name='create_respuestas'),
+    url(r'^respuestas/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateRespuesta.as_view(), name='update_respuestas'),
+    url(r'^respuestas/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteRespuesta.as_view(), name='delete_respuestas'),
+    url(r'^respuestas/list/$', views.ListRespuesta.as_view(), name='list_respuestas'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

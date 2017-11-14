@@ -469,7 +469,7 @@ h3 {
     border-radius: .25rem;
     border-bottom: 3px solid #F24437;
 }
-#id_url{
+#id_url,#id_valor,#id_opcion,#id_catalogo_pregunta{
     width: 80%;
     padding: .5rem .3rem;
     font-size: 14px;
@@ -497,4 +497,7 @@ h3 {
     border-radius: .25rem;
     border-bottom: 3px solid #F24437;
     margin-bottom: 27px;
+}
+.w25{
+    width: 25%;
 }

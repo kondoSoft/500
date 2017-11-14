@@ -72,6 +72,7 @@ class Catalogo_Preguntas(models.Model):
 class Respuestas(models.Model):
     valor = models.CharField(max_length=3)
     opcion = models.CharField(max_length=200)
+    catalogo_pregunta = models.ForeignKey(Catalogo_Preguntas)
     def __str__(self):
         return self.opcion + ' ' + self.valor
 
