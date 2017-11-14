@@ -22,7 +22,7 @@ class Glosario(models.Model):
         ordering = ['titulo']
 
     def __str__(self):
-        return self.titulor
+        return self.titulo
 
 class Fuentes(models.Model):
     titulo = models.CharField(max_length=255)
@@ -67,7 +67,7 @@ class Catalogo_Preguntas(models.Model):
         return str(self.pk)+ ' '+ self.id_reactivo + ' ' +self.descripcion
     class Meta:
         verbose_name = 'Catalogo_Preguntas'
-        verbose_name_plural = 'Catalogo_Preguntas'
+        verbose_name_plural = 'Catalogo_Preguntas' 
 
 class Respuestas(models.Model):
     valor = models.CharField(max_length=3)
@@ -76,11 +76,25 @@ class Respuestas(models.Model):
     def __str__(self):
         return self.opcion + ' ' + self.valor
 
+class Pregunta_Rechazada(models.Model):
+    MOTIVO_CHOICES = (
+        ('1', 'La información es insuficiente'),
+        ('2', 'El enlace está roto/ no hay enlace'),
+        ('3', 'La información no corresponde al apartado'),
+    )
+    motivo = models.CharField(max_length=3, choices= MOTIVO_CHOICES, default='1')
+    respuestaPersonalizada = models.CharField(max_length=300)
+    comentarios = models.TextField(null=True)
+
+    def __str__(self):
+        return self.comentarios
+
 class Pregunta(models.Model):
     reactivo = models.ForeignKey(Catalogo_Preguntas)
     respuesta = models.ForeignKey(Respuestas)
+    comentarios = models.ForeignKey(Pregunta_Rechazada, null=True)
     def __str__(self):
-        return 'Pregunta: %s || Respuesta: %s' %(self.reactivo, self.respuesta)
+        return 'Pregunta: %s || Respuesta: %s || Comentarios %s' %(self.reactivo, self.respuesta, self.comentarios)
 
 class Pregunta_temporal(models.Model):
     reactivo = models.ForeignKey(Catalogo_Preguntas)

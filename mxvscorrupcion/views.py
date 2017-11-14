@@ -1,5 +1,5 @@
 from django.core import serializers
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.http import Http404, HttpResponse, JsonResponse
 from django.template import loader
 from django.contrib.auth import authenticate, login
@@ -7,17 +7,72 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_exempt
 from openpyxl import Workbook, load_workbook
-from .forms import SignUpForm, PerfilForm
-from .models import Empresa, Cuestionario, Pregunta, Articulo, Catalogo_Preguntas, Respuestas, Sectores, Paises, Fuentes, Glosario, Entradas_Recientes, Perfil
+from .forms import SignUpForm, PerfilForm, Pregunta_Rechazada_Form
+from .models import Empresa, Cuestionario, Pregunta, Articulo, Catalogo_Preguntas, Respuestas, Sectores, Paises, Fuentes, Glosario, Entradas_Recientes, Perfil,Pregunta_Rechazada
 from .models import Corte
 from django.contrib.auth.models import User, Group
+from django.urls import reverse_lazy
 
 
-from django.views.generic import ListView
-from django.views.generic import DetailView
+from django.views.generic import ListView, DetailView
+
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 import json
 from django.core.serializers.json import DjangoJSONEncoder
+
+#### CRUD GLOSARIO
+
+class CreateGlosario(CreateView):
+    model = Glosario
+    fields = ['titulo','descripcion',]
+    template_name = 'glosario/create_glosario.html'
+
+    def get_success_url(self):
+        return reverse('list_glosario')
+
+
+class UpdateGlosario(UpdateView):
+    model = Glosario
+    fields = ['titulo','descripcion',]
+    template_name = 'glosario/edit_glosario.html'
+
+    def get_success_url(self):
+        return reverse('list_glosario')
+
+class ListGlosario(ListView):
+    model = Glosario
+    fields = ['titulo','descripcion',]
+    template_name = 'glosario/list_glosario.html'
+
+class DeleteGlosario(DeleteView):
+    model = Glosario
+    success_url = reverse_lazy('list_glosario')
+
+#### END CRUD GLOSARIO
+
+#### CRUD FUENTES
+
+# class CreateGlosario(CreateView):
+#     model = Fuentes
+#     fields = ['titulo','descripcion']
+#     template_name = 'Fuentes/create_fuente.html'
+
+# class UpdateFuente(UpdateView):
+#     model = Fuentes
+#     fields = ['titulo','descripcion']
+#     template_name = 'Fuentes/update_fuente.html'
+
+# class ListFuente(ListView):
+#     model = Fuentes
+#     fields = ['titulo','descripcion']
+#     template_name = 'Fuentes/list_fuente.html'
+
+# class DeleteFuente(DeleteView):
+#     model = Fuentes
+#     success_url = reverse_lazy('Fuentes/delete_fuente.html')
+
+#### END CRUD FUENTES
 
 def index(request):
   return redirect('/login/')
@@ -94,6 +149,12 @@ def loginUser(request):
     else:
       return render(request, 'empresa/login.html', {'error': True})
   else:
+    ctx = {}
+    try:
+      if request.GET['message']:
+        ctx['message'] = '<p>Estimado usuario, Usted creó una cuenta en integridadcorporativa500.mx.</p>  <p>En breve recibira un correo con instrucciones.</p>'
+    except:
+      pass
     user = request.user
     if user.is_authenticated:
       group = user.groups.all()[0].name
@@ -107,7 +168,7 @@ def loginUser(request):
         login(request, user)
         return redirect('/admin/', user)
     else:
-      return render(request,'empresa/login.html' )
+      return render(request,'empresa/login.html', ctx )
 
 
 def register(request):
@@ -138,9 +199,20 @@ def register(request):
             profile.save()
         else:
             print(user_form.errors)
-        return redirect('/login/')
+        return redirect('/login/?message=true')
 
-
+def rejectQuestion(request):
+    if request.method == 'POST':
+      reject_form = Pregunta_Rechazada_Form(request.POST)
+      if reject_form.is_valid():
+        pregunta = Pregunta.objects.get(pk=4)
+        form = reject_form.save()
+        form.save()
+        comentario_pk = form.pk
+        comentario = Pregunta_Rechazada.objects.get(pk=comentario_pk)
+        pregunta.comentarios = comentario
+        # pregunta.save()
+        return redirect('/validate/')
 
 def modifyAnswer(request, pk):
   if request.method == 'GET' :
@@ -183,9 +255,15 @@ def validate(request, pk, empresa_pk):
   preguntas_actuales = cuestionario_actual.preguntas.all()
   empresa = cuestionario_actual.Empresa
   preguntas = zip(preguntas_anteriores, preguntas_actuales)
+  modalForm = Pregunta_Rechazada_Form()
+  corte_actual = Corte.objects.get(aprovado=True)
+  cuestionario = Cuestionario.objects.get(pk=pk)
+  empresa = cuestionario.Empresa
+  preguntas = cuestionario.preguntas.all()
   context = {
     'preguntas': preguntas,
     'empresa': empresa,
+    'form': modalForm
   }
   return render(request, template, context)
 
@@ -201,7 +279,7 @@ def fuentes(request):
 
 def entradasRecientes(request):
 	if request.method == 'GET':
-		data = serializers.serialize("json", Entradas_Recientes.objects.all())
+		data = serializers.serialize("json", Entradas_Recientes.objects.all().order_by('-fecha')[:3])
 		return HttpResponse(data, content_type="application/json")
 
 def blog_articulos(request):

@@ -1,0 +1,18 @@
+{% extends "glosario/base.html" %}
+{% block mainContent %}
+<div class="col-lg-12">
+  <div class="row">
+    <h3>Crear un glosario</h3>
+  </div>
+  <div class="col-lg-12 form">
+    <form action="{% url 'create_glosario'%}" method="POST">
+      {% csrf_token %}
+      {{form.as_p}}
+      <div class="col-lg-12 buttons">
+        <input value="Guardar" type="submit" class="btn btn-success"></input>
+        <a href="{% url 'list_glosario' %}" class="btn btn-danger cancel">Cancelar</a>
+      </div>
+    </form>
+  </div>
+</div>      
+{% endblock mainContent %}
