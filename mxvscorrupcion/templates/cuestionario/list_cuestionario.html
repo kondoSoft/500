@@ -1,0 +1,40 @@
+{% extends "cuestionario/base.html" %}
+{% block mainContent %}
+<div class="row align-items-center">
+  <div class="col lg-6">
+    <h2>Cuestionarios</h2>
+  </div>
+  <div class="col-lg-6 end">
+    <a href="{% url 'create_cuestionario' %}" class="btn btn-warning new-entry">Nueva Entrada</a>
+  </div>  
+</div>
+<div class="col-lg-12 content">
+  <table class="table">
+    <thead class="tHEAD">
+      <tr>
+        <th scope="col">Preguntas</th>
+        <th scope="col">Empresa</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cuestionario in object_list %}
+        <tr>
+          <td class="td">{{ cuestionario.preguntas }}</td>
+          <td class="tdDescription">{{ cuestionario.Empresa }}</td>
+          <td>
+            <a href="{% url 'update_cuestionario' cuestionario.pk %}" class="btn btn-info">Editar</a>
+          </td>
+          <td>
+            <form action="{% url 'delete_cuestionario' cuestionario.pk %}" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Eliminar</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>      
+{% endblock mainContent %}

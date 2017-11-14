@@ -164,8 +164,62 @@ class DeletePaises(DeleteView):
     model = Paises
     success_url = reverse_lazy('list_paises')
 
-#### END CRUD PAISES
+#### CRUD CUESTIONARIO
+class CreateCuestionario(CreateView):
+    model = Cuestionario
+    fields = ['preguntas','Empresa',]
+    template_name = 'cuestionario/create_cuestionario.html'
 
+    def get_success_url(self):
+        return reverse('list_cuestionario')
+
+class UpdateCuestionario(UpdateView):
+    model = Cuestionario
+    fields = ['preguntas','Empresa',]
+    template_name = 'cuestionario/edit_cuestionario.html'
+
+    def get_success_url(self):
+        return reverse('list_cuestionario')
+
+class ListCuestionario(ListView):
+    model = Cuestionario
+    fields = ['preguntas','Empresa',]
+    template_name = 'cuestionario/list_cuestionario.html'
+
+class DeleteCuestionario(DeleteView):
+    model = Cuestionario
+    success_url = reverse_lazy('list_cuestionario')
+
+#### END CRUD CUESTIONARIO
+
+#### CRUD RESPUESTAS
+
+class CreateRespuesta(CreateView):
+    model = Respuestas
+    fields = ['valor','opcion','catalogo_pregunta',]
+    template_name = 'respuestas/create_respuestas.html'
+
+    def get_success_url(self):
+        return reverse('list_respuestas')
+
+class UpdateRespuesta(UpdateView):
+    model = Respuestas
+    fields = ['valor','opcion','catalogo_pregunta',]
+    template_name = 'respuestas/edit_respuestas.html'
+
+    def get_success_url(self):
+        return reverse('list_respuestas')
+
+class ListRespuesta(ListView):
+    model = Respuestas
+    fields = ['valor','opcion','catalogo_pregunta',]
+    template_name = 'respuestas/list_respuestas.html'
+
+class DeleteRespuesta(DeleteView):
+    model = Respuestas
+    success_url = reverse_lazy('list_cuestionario')
+
+#### END CRUD RESPUESTAS
 
 def index(request):
   return redirect('/login/')
