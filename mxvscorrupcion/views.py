@@ -51,6 +51,33 @@ class DeleteGlosario(DeleteView):
 
 #### END CRUD GLOSARIO
 
+
+class CreateEntradasRecientes(CreateView):
+    model = Entradas_Recientes
+    fields = ['titulo','imagen', 'fecha', 'url']
+    template_name = 'entradas_recientes/create_entradas_recientes.html'
+
+    def get_success_url(self):
+        return reverse('list_entradas_recientes')
+
+class UpdateEntradasRecientes(UpdateView):
+    model = Entradas_Recientes
+    fields = ['titulo','imagen', 'fecha' , 'url']
+    template_name = 'entradas_recientes/edit_entradas_recientes.html'
+
+    def get_success_url(self):
+        return reverse('list_entradas_recientes')
+
+class ListEntradasRecientes(ListView):
+    model = Entradas_Recientes
+    fields = ['titulo','imagen', 'fecha', 'url']
+    template_name = 'entradas_recientes/list_entradas_recientes.html'
+
+class DeleteEntradasRecientes(DeleteView):
+    model = Entradas_Recientes
+    success_url = reverse_lazy('list_entradas_recientes')
+
+
 #### CRUD FUENTES
 
 # class CreateGlosario(CreateView):
@@ -73,6 +100,8 @@ class DeleteGlosario(DeleteView):
 #     success_url = reverse_lazy('Fuentes/delete_fuente.html')
 
 #### END CRUD FUENTES
+
+
 
 def index(request):
   return redirect('/login/')
@@ -512,4 +541,3 @@ def new_corte(request):
       nuevo_cuestionario.Corte = corte
       nuevo_cuestionario.save()
   return redirect('kondo-admin')
-
