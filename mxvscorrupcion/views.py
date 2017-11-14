@@ -53,26 +53,61 @@ class DeleteGlosario(DeleteView):
 
 #### CRUD FUENTES
 
-# class CreateGlosario(CreateView):
-#     model = Fuentes
-#     fields = ['titulo','descripcion']
-#     template_name = 'Fuentes/create_fuente.html'
+class CreateFuente(CreateView):
+    model = Fuentes
+    fields = ['titulo','libro','url',]
+    template_name = 'fuentes/create_fuente.html'
 
-# class UpdateFuente(UpdateView):
-#     model = Fuentes
-#     fields = ['titulo','descripcion']
-#     template_name = 'Fuentes/update_fuente.html'
+    def get_success_url(self):
+        return reverse('list_fuente')
 
-# class ListFuente(ListView):
-#     model = Fuentes
-#     fields = ['titulo','descripcion']
-#     template_name = 'Fuentes/list_fuente.html'
+class UpdateFuente(UpdateView):
+    model = Fuentes
+    fields = ['titulo','libro','url',]
+    template_name = 'fuentes/edit_fuente.html'
 
-# class DeleteFuente(DeleteView):
-#     model = Fuentes
-#     success_url = reverse_lazy('Fuentes/delete_fuente.html')
+    def get_success_url(self):
+        return reverse('list_fuente')
+
+class ListFuente(ListView):
+    model = Fuentes
+    fields = ['titulo','libro','url',]
+    template_name = 'fuentes/list_fuente.html'
+
+class DeleteFuente(DeleteView):
+    model = Fuentes
+    success_url = reverse_lazy('list_fuente')
 
 #### END CRUD FUENTES
+
+#### CRUD PAISES
+
+class CreatePaises(CreateView):
+    model = Paises
+    fields = ['pais',]
+    template_name = 'pais/create_pais.html'
+
+    def get_success_url(self):
+        return reverse('list_paises')
+
+class UpdatePaises(UpdateView):
+    model = Paises
+    fields = ['pais',]
+    template_name = 'pais/edit_pais.html'
+
+    def get_success_url(self):
+        return reverse('list_paises')
+
+class ListPaises(ListView):
+    model = Paises
+    fields = ['pais',]
+    template_name = 'pais/list_pais.html'
+
+class DeletePaises(DeleteView):
+    model = Paises
+    success_url = reverse_lazy('list_paises')
+
+#### END CRUD PAISES
 
 def index(request):
   return redirect('/login/')

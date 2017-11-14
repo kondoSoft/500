@@ -455,3 +455,46 @@ h3 {
 .cancel{
     color: #FFF !important;
 }
+#id_libro{
+    width: 80%;
+    padding: .5rem .3rem;
+    font-size: 14px;
+    line-height: 1.25;
+    color: #464a4c;
+    background-color: #fff;
+    background-image: none;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    border-bottom: 3px solid #F24437;
+}
+#id_url{
+    width: 80%;
+    padding: .5rem .3rem;
+    font-size: 14px;
+    line-height: 1.25;
+    color: #464a4c;
+    background-color: #fff;
+    background-image: none;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    border-bottom: 3px solid #F24437;
+}
+#id_pais{
+    width: 80%;
+    padding: .5rem .3rem;
+    font-size: 14px;
+    line-height: 1.25;
+    color: #464a4c;
+    background-color: #fff;
+    background-image: none;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    border-bottom: 3px solid #F24437;
+    margin-bottom: 27px;
+}
