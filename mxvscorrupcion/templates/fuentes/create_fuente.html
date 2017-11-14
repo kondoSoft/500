@@ -1,0 +1,16 @@
+{% extends "fuentes/base.html" %}
+{% block mainContent %}
+<h3>Crear Fuente</h3>
+<div class="col-lg-12 content">
+  <div class="col-lg-12 form">
+    <form action="" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div class="col-lg-12 buttons">
+        <input type="submit" value="Guardar"  class="btn btn-success" />
+        <a href="{% url 'list_fuente' %}" class="btn btn-danger cancel">Cancelar</a>
+      </div>
+    </form>
+  </div>
+</div>      
+{% endblock mainContent %}
