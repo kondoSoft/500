@@ -199,7 +199,7 @@ def fuentes(request):
 
 def entradasRecientes(request):
 	if request.method == 'GET':
-		data = serializers.serialize("json", Entradas_Recientes.objects.all())
+		data = serializers.serialize("json", Entradas_Recientes.objects.all().order_by('-fecha')[:3])
 		return HttpResponse(data, content_type="application/json")
 
 def blog_articulos(request):
