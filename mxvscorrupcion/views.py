@@ -21,6 +21,9 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 import json
 from django.core.serializers.json import DjangoJSONEncoder
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin
+
 #### CRUD EMPRESA
 
 class CreateEmpresa(CreateView):
@@ -67,10 +70,14 @@ class UpdateArticulo(UpdateView):
     def get_success_url(self):
         return reverse('list_articulo')
 
-class ListArticulo(ListView):
+
+class ListArticulo(LoginRequiredMixin,PermissionRequiredMixin,ListView):
     model = Articulo
     fields = ['imagen','titulo','contenido','revista','autor','slug', 'url', 'fecha', ]
     template_name = 'articulo/list_articulo.html'
+    login_url = '/kondo-admin/'
+    permission_required = 'is_admin'
+    # redirect_field_name = 'redirect_to'
 
 class DeleteArticulo(DeleteView):
     model = Articulo
