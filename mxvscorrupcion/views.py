@@ -21,6 +21,36 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 import json
 from django.core.serializers.json import DjangoJSONEncoder
 
+#### CRUD Articulo
+class CreateArticulo(CreateView):
+    model = Articulo
+    fields = ['imagen','titulo','contenido','revista','autor','slug', 'url', 'fecha', ]
+    template_name = 'articulo/create_articulo.html'
+
+    def get_success_url(self):
+        return reverse('list_articulo')
+
+
+class UpdateArticulo(UpdateView):
+    model = Articulo
+    fields = ['imagen','titulo','contenido','revista','autor','slug', 'url', 'fecha', ]
+    template_name = 'articulo/edit_articulo.html'
+
+    def get_success_url(self):
+        return reverse('list_articulo')
+
+class ListArticulo(ListView):
+    model = Articulo
+    fields = ['imagen','titulo','contenido','revista','autor','slug', 'url', 'fecha', ]
+    template_name = 'articulo/list_articulo.html'
+
+class DeleteArticulo(DeleteView):
+    model = Articulo
+    success_url = reverse_lazy('list_articulo')
+
+### end Articulos
+
+
 #### CRUD Perfiles
 class CreatePerfil(CreateView):
     model = Perfil

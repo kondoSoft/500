@@ -1,0 +1,18 @@
+{% extends "entradas_recientes/base.html" %}
+{% block mainContent %}
+<div class="col-lg-12">
+  <div class="row">
+    <h3>Crear un Artuculo Nuevo</h3>
+  </div>
+  <div class="col-lg-12 form">
+    <form action="{% url 'create_articulo' %}" method="POST">
+      {%  csrf_token %}
+      {{form.as_p}}
+      <div class="col-lg-12 buttons">
+        <input type="submit" class="btn btn-success" value="Guardar"> </input>
+        <a href="{% url 'list_articulo' %}" class="btn btn-danger cancel">Cancelar</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock mainContent %}

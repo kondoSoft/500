@@ -64,6 +64,13 @@ urlpatterns = [
     url(r'^Perfiles/delete/(?P<pk>[0-9 a-z]+)/$', views.DeletePerfil.as_view(), name='delete_perfil'),
     url(r'^Perfiles/list/$', views.ListPerfil.as_view(), name='list_perfiles'),
 
+    #CRUD Articulos
+    url(r'^producto/create/$', views.CreateArticulo.as_view(), name='create_articulo'),
+    url(r'^producto/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateArticulo.as_view(), name='update_articulo'),
+    url(r'^producto/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteArticulo.as_view(), name='delete_articulo'),
+    url(r'^producto/list/$', views.ListArticulo.as_view(), name='list_articulo'),
+
+
     #CRUD ENTRADAS RECIENTES
     url(r'^entradas_recientes/create/$', views.CreateEntradasRecientes.as_view(), name='create_entradas_recientes'),
     url(r'^entradas_recientes/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateEntradasRecientes.as_view(), name='update_entradas_recientes'),
