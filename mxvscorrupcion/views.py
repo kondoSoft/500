@@ -321,6 +321,7 @@ def empresa(request):
       corte = Corte.objects.all().order_by('-fecha_de_corte')
       corte = corte[0]
       usuario = Perfil.objects.get(user=user.pk)
+      empresa = usuario.empresa
       cuestionario = Cuestionario.objects.get(Empresa=usuario.empresa.pk, Corte=corte.pk)
       preguntas = cuestionario.preguntas.all()
       preguntasCTX = {}
@@ -331,7 +332,8 @@ def empresa(request):
       template = 'empresa/index.html'
       context = {
           'preguntas': preguntas,
-          'preguntas_respuestas': json.dumps(preguntasCTX, cls=DjangoJSONEncoder)
+          'preguntas_respuestas': json.dumps(preguntasCTX, cls=DjangoJSONEncoder),
+          'empresa':empresa
       }
       return render(request, template, context)
     else:
@@ -342,6 +344,7 @@ def empresa(request):
     respuesta_pk = request.POST.get('respuesta-pk')
     respuesta = Respuestas.objects.get(pk=respuesta_pk)
     pregunta.respuesta = respuesta
+    pregunta.status = '0'
     pregunta.save()
     return redirect('/empresa/')
 
@@ -760,3 +763,20 @@ def new_corte(request):
       nuevo_cuestionario.Corte = corte
       nuevo_cuestionario.save()
   return redirect('kondo-admin')
+
+
+def aprobar_corte(request):
+  corte_pk = request.POST.get('corte-pk')
+  corte_anterior = Corte.objects.get(aprovado=True)
+  corte_anterior.aprovado = False
+  corte_anterior.save()
+  corte = Corte.objects.get(pk=corte_pk)
+  corte.aprovado = True
+  corte.save()
+  return redirect('/kondo-admin/')
+
+
+
+
+
+
