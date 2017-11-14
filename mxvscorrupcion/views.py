@@ -80,6 +80,35 @@ class DeleteFuente(DeleteView):
 
 #### END CRUD FUENTES
 
+#### CRUD PAISES
+
+class CreatePaises(CreateView):
+    model = Paises
+    fields = ['pais',]
+    template_name = 'pais/create_pais.html'
+
+    def get_success_url(self):
+        return reverse('list_paises')
+
+class UpdatePaises(UpdateView):
+    model = Paises
+    fields = ['pais',]
+    template_name = 'pais/edit_pais.html'
+
+    def get_success_url(self):
+        return reverse('list_paises')
+
+class ListPaises(ListView):
+    model = Paises
+    fields = ['pais',]
+    template_name = 'pais/list_pais.html'
+
+class DeletePaises(DeleteView):
+    model = Paises
+    success_url = reverse_lazy('list_paises')
+
+#### END CRUD PAISES
+
 def index(request):
   return redirect('/login/')
 
