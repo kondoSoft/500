@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class Corte(models.Model):
     # cuestionario = models.ForeignKey(Cuestionario)
-    fecha_de_corte = models.DateField(null=True)
+    fecha_de_corte = models.DateField(null=True, unique_for_date=True)
     aprovado = models.NullBooleanField(blank=True, null=True)
 
     def __str__(self):
@@ -72,6 +72,7 @@ class Catalogo_Preguntas(models.Model):
 class Respuestas(models.Model):
     valor = models.CharField(max_length=3)
     opcion = models.CharField(max_length=200)
+    catalogo_pregunta = models.ForeignKey(Catalogo_Preguntas)
     def __str__(self):
         return self.opcion + ' ' + self.valor
 
@@ -169,4 +170,4 @@ class Perfil(models.Model):
         verbose_name_plural='Perfiles'
 
     def __str__(self):
-        return str(self.user.username)
+        return str(self.empresa.nombre)

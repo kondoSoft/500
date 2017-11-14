@@ -28,8 +28,10 @@ def empresa(request):
   # user_group = user.groups.all()[0]
   if method == 'GET':
     if user.is_authenticated():
+      corte = Corte.objects.all().order_by('-fecha_de_corte')
+      corte = corte[0]
       usuario = Perfil.objects.get(user=user.pk)
-      cuestionario = Cuestionario.objects.get(Empresa=usuario.empresa.pk)
+      cuestionario = Cuestionario.objects.get(Empresa=usuario.empresa.pk, Corte=corte.pk)
       preguntas = cuestionario.preguntas.all()
       preguntasCTX = {}
       for pregunta in preguntas:
@@ -172,8 +174,10 @@ def revisor(request):
     return redirect(settings.LOGIN_URL)
 
 
-def validate(request, pk):
+def validate(request, pk, pk_corte = None):
   template = 'revisor/validate.html'
+  corte_actual = Corte.objects.get(aprovado=True)
+  print(corte_actual)
   cuestionario = Cuestionario.objects.get(pk=pk)
   empresa = cuestionario.Empresa
   preguntas = cuestionario.preguntas.all()
@@ -386,7 +390,10 @@ def usersAdmin(request):
     return render(request, template, context)
 
 class Kondo_Admin(ListView):
-  model = Corte
+  paginate_by = 5
+
+  def get_queryset(self):
+    return Corte.objects.all().order_by('-aprovado', 'fecha_de_corte')
 
 class Corte_Detail(ListView):
   paginate_by = 50
@@ -397,34 +404,38 @@ class Corte_Detail(ListView):
 
 def new_corte(request):
   method = request.method
-  # fecha = request.POST.get('fecha')
-  # corte = Corte(fecha_de_corte=fecha, aprovado=False)
-  cuestionarios = Cuestionario.objects.all()
-  for cuestionario in cuestionarios:
-    cuestionario.pk = None
-    cuestionario.save()
-    for pregunta in cuestionario.preguntas.all():
-      print(pregunta.pk)
-      pregunta.pk = None
-      respuesta = Respuestas.objects.get(pk=pregunta.respuesta.pk)
-      pregunta.save()
-      respuesta.pk = None
-      respuesta.save()
-      pregunta.respuesta = respuesta
-      pregunta.save()
-    print('primary_key', cuestionario.pk)
-    empresa = cuestionario.Empresa
-    preguntas = cuestionario.preguntas.all()
-    print('Empresa',cuestionario.Empresa)
-    print('Preguntas',cuestionario.preguntas.all())
-  # corte.save()
+  if method == 'POST':
+    fecha = request.POST.get('fecha')
+    corte = Corte(fecha_de_corte=fecha, aprovado=False)
+    corte.save()
+    cuestionarios = Cuestionario.objects.all()
+    for cuestionario in cuestionarios:
+      preguntas = cuestionario.preguntas.all()
+      cuestionario.pk = None
+      cuestionario.save()
+      nuevo_cuestionario = cuestionario
+      for pregunta in preguntas:
+        print(pregunta.pk)
+        reactivo = pregunta.reactivo
+        respuesta = Respuestas.objects.get(pk=pregunta.respuesta.pk)
+        catalogo_pregunta = respuesta.catalogo_pregunta
+        print('catalogo_pregunta ', catalogo_pregunta)
+        respuesta.pk = None
+        respuesta.save()
+        nueva_respuesta = respuesta
+        print('nueva_respuesta', nueva_respuesta)
+        nueva_respuesta.catalogo_pregunta = catalogo_pregunta
+        nueva_respuesta.save()
+        pregunta.pk = None
+        pregunta.save()
+        print('pregunta ', pregunta)
+        nueva_pregunta = pregunta
+        print('nueva_pregunta ', nueva_pregunta)
+        nueva_pregunta.respuesta = nueva_respuesta
+        nueva_pregunta.reactivo = reactivo
+        nueva_pregunta.save()
+        nuevo_cuestionario.preguntas.add(nueva_pregunta)
+      nuevo_cuestionario.Corte = corte
+      nuevo_cuestionario.save()
+  return redirect('kondo-admin')
 
-  return HttpResponse('kondo-admin')
-
-  # def get_queryset(self):
-  #   corte = Corte.objects.get(pk=1)
-  #   print(corte)
-    
-  # print('corte', request)
-  # print('corte', corte)
-  # queryset = Cuestionario.objects.all().filter(Corte=corte)
