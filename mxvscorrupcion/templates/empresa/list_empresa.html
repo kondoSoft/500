@@ -1,0 +1,48 @@
+{% extends "empresa/base_crud.html" %}
+{% block mainContent %}
+<div class="row align-items-center">
+  <div class="col lg-6">
+    <h2>Empresas</h2>
+  </div>
+  <div class="col-lg-6 end">
+    <a href="{% url 'create_empresa' %}" class="btn btn-warning new-entry">Nueva Empresa</a>
+  </div>  
+</div>
+<div class="row content">
+  {% for empresa in object_list %}
+  <div class="col-lg-12" style="margin-bottom: 40px;">
+    <div class="col-lg-12" style="padding: 10px; background: brown; color: #FFF;
+    margin-bottom: 15px;">
+      <h4>Titulo de la empresa</h4>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <ul style="display: flex; justify-content: space-between;">
+          <li><h5>Sector:</h5>{{ empresa.sector }}</li>
+          <li><h5>Pais:</h5>{{ empresa.pais }}</li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <div class="col-lg-12" style="margin-bottom: 25px;">
+          <a href="{{ empresa.website_corporativo}}">WebSite Corporativo</a>
+        </div>
+        <div class="col-lg-12">
+          <a href="{{ empresa.website_integridad}}">WebSite Integridad</a>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="col-lg-12" style="margin-bottom: 25px;">
+          <a href="{% url 'update_empresa' empresa.pk %}" class="btn btn-info">Editar</a>
+        </div>
+        <div class="col-lg-12" style="margin-bottom: 15px;">
+          <form action="{% url 'delete_empresa' empresa.pk %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>      
+{% endblock mainContent %}

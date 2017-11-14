@@ -103,6 +103,12 @@ urlpatterns = [
     url(r'^respuestas/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteRespuesta.as_view(), name='delete_respuestas'),
     url(r'^respuestas/list/$', views.ListRespuesta.as_view(), name='list_respuestas'),
 
+    #CRUD EMPRESA
+    url(r'^empresa/create/$', views.CreateEmpresa.as_view(), name='create_empresa'),
+    url(r'^empresa/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateEmpresa.as_view(), name='update_empresa'),
+    url(r'^empresa/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteEmpresa.as_view(), name='delete_empresa'),
+    url(r'^empresas/$', views.ListEmpresa.as_view(), name='list_empresa'),
+
     #CRUD SECTORES
     url(r'^sector/create/$', views.CreateSector.as_view(), name='create_sector'),
     url(r'^sector/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateSector.as_view(), name='update_sector'),

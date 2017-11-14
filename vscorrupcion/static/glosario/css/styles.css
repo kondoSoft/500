@@ -501,6 +501,16 @@ h3 {
 .w25{
     width: 25%;
 }
+#id_website_corporativo{
+    width: 10%;
+}
+.empresa{
+    background-color: whitesmoke;
+    padding: 10px 10px 10px 10px;
+}
+h4{
+    margin-bottom: 0px;
+}
 #id_user{
   width: 80%;
   padding: .5rem .3rem;
