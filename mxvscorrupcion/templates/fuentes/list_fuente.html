@@ -1,0 +1,40 @@
+{% extends "fuentes/base.html" %}
+{% block mainContent %}
+<div class="row align-items-center">
+  <div class="col lg-6">
+    <h2>Fuentes</h2>
+  </div>
+  <div class="col-lg-6 end">
+    <a href="{% url 'create_fuente' %}" class="btn btn-warning new-entry">Nueva Entrada</a>
+  </div>  
+</div>
+<div class="col-lg-12 content">
+  <table class="table">
+    <thead class="tHEAD">
+      <tr>
+        <th scope="col">Titulo</th>
+        <th scope="col">Libro</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for fuente in object_list %}
+        <tr>
+          <td class="td">{{ fuente.titulo }}</td>
+          <td class="tdDescription">{{ fuente.libro }}</td>
+          <td>
+            <a href="{% url 'update_fuente' fuente.pk %}" class="btn btn-info">Editar</a>
+          </td>
+          <td>
+            <form action="{% url 'delete_fuente' fuente.pk %}" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Eliminar</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>      
+{% endblock mainContent %}

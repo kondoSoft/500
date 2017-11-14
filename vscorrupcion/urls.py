@@ -37,26 +37,27 @@ urlpatterns = [
     url(r'^modify-answer/(?P<pk>[0-9 a-z]+)/$', views.modifyAnswer, name='modify-answer'),
     url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
     url(r'^revisor/', views.revisor, name='revisor'),
-    url(r'^validate/(?P<pk>[0-9]+)/', views.validate, name='validate'),
+    url(r'^validate/(?P<pk>[0-9]+)/(?P<empresa_pk>[0-9]+)/', views.validate, name='validate'),
     # url(r'^empresas/', views.import_empresas, name='validate'),
     # url(r'^empresas_final/', views.import_empresas_final, name='empresas_final'),
     url(r'^tinymce/', include('tinymce.urls')),
-    url(r'^fuentes/', views.fuentes, name='fuentes'),
     url(r'^send-mail/', views.send_email, name='send_email'),
     url(r'^admin-users/', views.usersAdmin, name='admin-users'),
     url(r'articulos/', views.blog_articulos, name='blog_articulos'),
     url(r'articulo/(?P<slug>[-\w]+)/$', views.getArticleSlug, name='article-slug'),
+
     # kondo-admin
     url(r'^kondo-admin/corte/(?P<pk>[0-9]+)/$', views.Corte_Detail.as_view(), name='corte'),
     url(r'^kondo-admin/$', Kondo_Admin.as_view(), name='kondo_admin'),
     url(r'^reject-question/$', views.rejectQuestion, name='pregunta-rechazada'),
+
     #CRUD GLOSARIO
     url(r'^glosario/create/$', views.CreateGlosario.as_view(), name='create_glosario'),
     url(r'^glosario/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateGlosario.as_view(), name='update_glosario'),
     url(r'^glosario/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteGlosario.as_view(), name='delete_glosario'),
     url(r'^glosario/list/$', views.ListGlosario.as_view(), name='list_glosario'),
     url(r'^glosario/', views.glosario, name='glosario'),
-    #END CRUD GLOSARIO
+
     #CRUD ENTRADAS RECIENTES
     url(r'^entradas_recientes/create/$', views.CreateEntradasRecientes.as_view(), name='create_entradas_recientes'),
     url(r'^entradas_recientes/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateEntradasRecientes.as_view(), name='update_entradas_recientes'),
@@ -64,6 +65,20 @@ urlpatterns = [
     url(r'^entradas_recientes/list/$', views.ListEntradasRecientes.as_view(), name='list_entradas_recientes'),
     url(r'recientes/', views.entradasRecientes, name='entradas-recientes'),
     #END CRUD ENTRADAS RECIENTES
+
+    #CRUD FUENTES
+    url(r'^fuentes/create/$', views.CreateFuente.as_view(), name='create_fuente'),
+    url(r'^fuentes/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateFuente.as_view(), name='update_fuente'),
+    url(r'^fuentes/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteFuente.as_view(), name='delete_fuente'),
+    url(r'^fuentes/list/$', views.ListFuente.as_view(), name='list_fuente'),
+    url(r'^fuentes/', views.fuentes, name='fuentes'),
+
+    #CRUD PAISES
+    url(r'^paises/create/$', views.CreatePaises.as_view(), name='create_paises'),
+    url(r'^paises/update/(?P<pk>[0-9 a-z]+)/$', views.UpdatePaises.as_view(), name='update_paises'),
+    url(r'^paises/delete/(?P<pk>[0-9 a-z]+)/$', views.DeletePaises.as_view(), name='delete_paises'),
+    url(r'^paises/$', views.ListPaises.as_view(), name='list_paises'),
+  
     url(r'^new-corte/', views.new_corte, name='new-corte'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

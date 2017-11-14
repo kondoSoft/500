@@ -80,27 +80,62 @@ class DeleteEntradasRecientes(DeleteView):
 
 #### CRUD FUENTES
 
-# class CreateGlosario(CreateView):
-#     model = Fuentes
-#     fields = ['titulo','descripcion']
-#     template_name = 'Fuentes/create_fuente.html'
+class CreateFuente(CreateView):
+    model = Fuentes
+    fields = ['titulo','libro','url',]
+    template_name = 'fuentes/create_fuente.html'
 
-# class UpdateFuente(UpdateView):
-#     model = Fuentes
-#     fields = ['titulo','descripcion']
-#     template_name = 'Fuentes/update_fuente.html'
+    def get_success_url(self):
+        return reverse('list_fuente')
 
-# class ListFuente(ListView):
-#     model = Fuentes
-#     fields = ['titulo','descripcion']
-#     template_name = 'Fuentes/list_fuente.html'
+class UpdateFuente(UpdateView):
+    model = Fuentes
+    fields = ['titulo','libro','url',]
+    template_name = 'fuentes/edit_fuente.html'
 
-# class DeleteFuente(DeleteView):
-#     model = Fuentes
-#     success_url = reverse_lazy('Fuentes/delete_fuente.html')
+    def get_success_url(self):
+        return reverse('list_fuente')
+
+class ListFuente(ListView):
+    model = Fuentes
+    fields = ['titulo','libro','url',]
+    template_name = 'fuentes/list_fuente.html'
+
+class DeleteFuente(DeleteView):
+    model = Fuentes
+    success_url = reverse_lazy('list_fuente')
 
 #### END CRUD FUENTES
 
+
+#### CRUD PAISES
+
+class CreatePaises(CreateView):
+    model = Paises
+    fields = ['pais',]
+    template_name = 'pais/create_pais.html'
+
+    def get_success_url(self):
+        return reverse('list_paises')
+
+class UpdatePaises(UpdateView):
+    model = Paises
+    fields = ['pais',]
+    template_name = 'pais/edit_pais.html'
+
+    def get_success_url(self):
+        return reverse('list_paises')
+
+class ListPaises(ListView):
+    model = Paises
+    fields = ['pais',]
+    template_name = 'pais/list_pais.html'
+
+class DeletePaises(DeleteView):
+    model = Paises
+    success_url = reverse_lazy('list_paises')
+
+#### END CRUD PAISES
 
 
 def index(request):
@@ -275,18 +310,24 @@ def revisor(request):
     return redirect(settings.LOGIN_URL)
 
 
-def validate(request, pk, pk_corte = None):
+def validate(request, pk, empresa_pk):
   template = 'revisor/validate.html'
-#   modalForm = Pregunta_Rechazada_Form()
-#   return render(request, template, {'form': modalForm })
+  corte_anterior = Corte.objects.get(aprovado=True)
+  cuestionario_anterior = Cuestionario.objects.get(Corte=corte_anterior, Empresa=empresa_pk)
+  preguntas_anteriores = cuestionario_anterior.preguntas.all()
+  cuestionario_actual = Cuestionario.objects.get(pk=pk)
+  preguntas_actuales = cuestionario_actual.preguntas.all()
+  empresa = cuestionario_actual.Empresa
+  preguntas = zip(preguntas_anteriores, preguntas_actuales)
+  modalForm = Pregunta_Rechazada_Form()
   corte_actual = Corte.objects.get(aprovado=True)
-  print(corte_actual)
   cuestionario = Cuestionario.objects.get(pk=pk)
   empresa = cuestionario.Empresa
   preguntas = cuestionario.preguntas.all()
   context = {
     'preguntas': preguntas,
-    'empresa': empresa
+    'empresa': empresa,
+    'form': modalForm
   }
   return render(request, template, context)
 

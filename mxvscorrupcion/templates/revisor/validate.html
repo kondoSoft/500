@@ -39,23 +39,29 @@
   <div class="col-sm-4 text-center">validación</div>
 </div>
 {# Question OPEN #}
-{% for pregunta in preguntas %}
+{% for anteriores, actuales in preguntas %}
   <div class="col box-question">
     <div class="row question">
       <div class="col-sm-12">
         <p>
-          {{pregunta.reactivo.descripcion}}
+          {{anteriores.reactivo.descripcion}}
         </p>
       </div>
     </div>
-    <div class="row align-items-center">
-      <div class="col-sm-4">{{pregunta.respuesta.opcion}}</div>
-      <div class="col-sm-4">Sí</div>
-      <div class="col-sm-4 status-info">
-        <p class="status no-margin uppercase">respuesta aceptada</p>
-        <p class="no-margin">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias vel, iste maiores excepturi quam quod!</p>
-        <i class="fa fa-pencil" aria-hidden="true"></i>
-        <i class="fa fa-times" aria-hidden="true"></i>
+    <div class="row align-items-center p-t-15  p-b-15">
+      <div class="col-sm-4">{{anteriores.respuesta.opcion}}</div>
+      <div class="col-sm-4">{{actuales.respuesta.opcion}}</div>
+      <div class="col-sm-4 buttons">
+        <div class="row justify-content-around">
+          <button class="accept">
+            <i class="fa fa-check" aria-hidden="true"></i>
+            aceptar
+          </button>
+          <button class="invert reject">
+            <i class="fa fa-times" aria-hidden="true"></i>
+            rechazar
+          </button>
+        </div>
       </div>
     </div>
   </div>
