@@ -37,6 +37,7 @@ urlpatterns = [
     url(r'^modify-answer/(?P<pk>[0-9 a-z]+)/$', views.modifyAnswer, name='modify-answer'),
     url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
     url(r'^revisor/', views.revisor, name='revisor'),
+    url(r'^aprobar-corte/', views.aprobar_corte, name='aprobar-corte'),
     url(r'^validate/(?P<pk>[0-9]+)/(?P<empresa_pk>[0-9]+)/', views.validate, name='validate'),
     # url(r'^empresas/', views.import_empresas, name='validate'),
     # url(r'^empresas_final/', views.import_empresas_final, name='empresas_final'),

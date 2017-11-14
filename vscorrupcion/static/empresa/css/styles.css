@@ -76,6 +76,7 @@ li{
 
 /*Clases Genericas*/
 .uppercase{text-transform: uppercase;}
+.no-margin{margin: 0px;}
 
 .route{
   margin-top: 30px;

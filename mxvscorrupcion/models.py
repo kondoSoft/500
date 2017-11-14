@@ -82,6 +82,7 @@ class Pregunta_Rechazada(models.Model):
         ('1', 'La información es insuficiente'),
         ('2', 'El enlace está roto/ no hay enlace'),
         ('3', 'La información no corresponde al apartado'),
+        ('4', 'Otro (especificar)'),
     )
     motivo = models.CharField(max_length=3, choices= MOTIVO_CHOICES, default='0')
     respuestaPersonalizada = models.CharField(max_length=300)
