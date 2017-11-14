@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Sectores, Corte, Paises, Empresa, Cuestionario, Pregunta, Articulo, Catalogo_Preguntas, Glosario, Fuentes, Respuestas, Entradas_Recientes, Perfil
+from .models import Sectores, Corte, Paises, Empresa, Cuestionario, Pregunta, Articulo, Catalogo_Preguntas, Glosario, Fuentes, Respuestas, Entradas_Recientes, Perfil, Pregunta_Rechazada
 
 class MyModelAdmin(admin.ModelAdmin):
     class Media:
@@ -22,6 +22,7 @@ admin.site.register(Respuestas)
 admin.site.register(Glosario)
 admin.site.register(Fuentes)
 admin.site.register(Entradas_Recientes)
+admin.site.register(Pregunta_Rechazada)
 admin.site.register(Perfil)
 # admin.site.register(Corte)
 

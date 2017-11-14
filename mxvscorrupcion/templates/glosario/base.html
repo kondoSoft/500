@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="{% static 'revisor/css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'glosario/css/styles.css' %}">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,8 +18,7 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
   <!-- Google Font -->
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body>
   <header>
@@ -28,16 +27,9 @@
   </header>
   <main class="container">
     {% block mainContent %}
-
+      
     {% endblock mainContent %}
   </main>
-  <div class="row disclaimer align-items-center no-margin">
-    <div class="col-sm-12">
-      <h4 class="text-center">Descargo de responsabilidad</h4>
-      <i class="fa fa-caret-down fa-2x" aria-hidden="true"></i>
-      <p class="text-center">La información se actualiza con una periodicidad bimestral. Una vez actualizada por el usuario, se reflejan cambios en los primeros días del mes calendario.</p>
-    </div>
-  </div>
   <footer>
     <div class="container">
       <div class="row align-items-center">
@@ -47,7 +39,7 @@
         <div class="col-sm-6">
           <p>
             Transparencia Mexicana y Mexicanos contra la corrupción y la impunidad, en alianza con la Revista
-            Expansión, presenta "500 frente a la corrupción. Integridad Corporativa", el primer diagnóstico sobre
+            Expansión, presenta "500 frente a la corrupción. Integridad Corporativa", el primer diagnóstico sobre 
             políticas anticorrupción o de integridad de las 500 empresas mas importantes de México.
           </p>
         </div>
@@ -60,7 +52,7 @@
               <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
             </a>
             <a href="#">
-              <i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
+              <i class="fa fa-instagram fa-2x" aria-hidden="true"></i>            
             </a>
             <a href="#">
               <i class="fa fa-youtube-play fa-2x" aria-hidden="true"></i>
@@ -79,39 +71,8 @@
       <p class="no-margin">Copyright &copy; 2017, Todos los Derechos Reservados</p>
     </div>
   </footer>
-  <div id="modal-background">
-    <div id="modal-content">
-      <p class="uppercase no-margin">seleccione un motivo de rechazo</p>
-      <select name="" id="" class="form-control">
-        <option value="">---------</option>
-        <option value="">La información es insuficiente</option>
-        <option value="">El enlace está roto / no hay enlace</option>
-        <option value="">La información no corresponde al apartado</option>
-      </select>
-      <p class="uppercase no-margin">respuesta personalizada</p>
-      <input type="text" class="form-control">
-      <p class="uppercase no-margin">comentarios</p>
-      <textarea name="" id="" cols="52" rows="5"></textarea>
-      <div class="row justify-content-end buttons">
-        <button>guardar</button>
-        <button id="close-modal" class="invert">cerrar</button>
-      </div>
-      <form action="{% url 'pregunta-rechazada' %}" method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <div class="row justify-content-end buttons">
-          <button type="submit">guardar</button>
-          <button id="close-modal" class="invert">cerrar</button>
-        </div>
-      </form>
-    </div>
-  </div>
-    <!-- Bootstrap -->
-  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-  <script src="{% static 'revisor/js/modal.js' %}"></script>
   {% block javascript %}
-
+    
   {% endblock javascript %}
 </body>
 </html>
