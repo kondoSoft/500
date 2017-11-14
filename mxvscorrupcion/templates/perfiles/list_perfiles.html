@@ -2,18 +2,20 @@
 {% block mainContent %}
 <div class="row align-items-center">
   <div class="col lg-6">
-    <h2>Glosario</h2>
+    <h2>Perfiles</h2>
   </div>
   <div class="col-lg-6 end">
-    <a href="{% url 'create_glosario' %}" class="btn btn-warning new-entry">Nueva Entrada</a>
+    <a href="{% url 'create_perfil' %}" class="btn btn-warning new-entry">Nueva Entrada</a>
   </div>
 </div>
 <div class="col-lg-12 content">
   <table class="table">
     <thead class="tHEAD">
       <tr>
-        <th scope="col">Titulo</th>
-        <th scope="col">Descripcion</th>
+        <th scope="col">usuario</th>
+        <th scope="col">Telefono fijo</th>
+        <th scope="col">Telefono celular</th>
+        <th scope="col">Empresa</th>
         <th scope="col">Editar</th>
         <th scope="col">Eliminar</th>
       </tr>
@@ -25,15 +27,17 @@
         <td>Otto</td>
         <td>@mdo</td>
       </tr> -->
-      {% for glosario in object_list %}
+      {% for Perfil in object_list %}
         <tr>
-          <td class="td">{{ glosario.titulo }}</td>
-          <td class="tdDescription">{{ glosario.descripcion }}</td>
+          <td class="td">{{ Perfil.user }}</td>
+          <td class="tdDescription">{{ Perfil.telefono_fijo }}</td>
+          <td class="tdDescription">{{ Perfil.telefono_celular }}</td>
+          <td class="tdDescription">{{ Perfil.empresa }}</td>
           <td>
-            <a href="{% url 'update_glosario' glosario.pk %}" class="btn btn-info">Editar</a>
+            <a href="{% url 'update_perfil' Perfil.pk %}" class="btn btn-info">Editar</a>
           </td>
           <td>
-            <form action="{% url 'delete_glosario' glosario.pk %}" method="POST">
+            <form action="{% url 'delete_perfil' Perfil.pk %}" method="POST">
               {% csrf_token %}
               <button type="submit" class="btn btn-danger">Eliminar</button>
             </form>
