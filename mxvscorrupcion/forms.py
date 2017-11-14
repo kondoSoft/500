@@ -26,7 +26,7 @@ class PerfilForm(forms.ModelForm):
         fields = ('telefono_fijo', 'telefono_celular', 'empresa',)
 
 class Pregunta_Rechazada_Form(forms.ModelForm):
-
+    respuestaPersonalizada = forms.CharField(label='Respuesta personalizada')
     class Meta:
         model = Pregunta_Rechazada
         fields = ('motivo', 'respuestaPersonalizada','comentarios',)

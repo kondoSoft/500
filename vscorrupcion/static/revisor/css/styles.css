@@ -242,14 +242,14 @@ footer hr{
 .status-info .fa-pencil{
 	position: absolute;
 	left: 90%;
-	top: 10%;
+	top: 0px;
 	color: #ED462F;
 	cursor: pointer;
 }
 .status-info .fa-times{
 	position: absolute;
 	left: 90%;
-	top: 40%;
+	top: 20px;
 	color: #ED462F;
 	cursor: pointer;
 }
