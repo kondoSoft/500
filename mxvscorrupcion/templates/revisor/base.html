@@ -18,8 +18,7 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
   <!-- Google Font -->
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
 </head>
 <body>
   <header>
@@ -81,24 +80,12 @@
   </footer>
   <div id="modal-background">
     <div id="modal-content">
-      <p class="uppercase no-margin">seleccione un motivo de rechazo</p>
-      <select name="" id="" class="form-control">
-        <option value="">---------</option>
-        <option value="">La información es insuficiente</option>
-        <option value="">El enlace está roto / no hay enlace</option>
-        <option value="">La información no corresponde al apartado</option>
-      </select>
-      <p class="uppercase no-margin">respuesta personalizada</p>
-      <input type="text" class="form-control">
-      <p class="uppercase no-margin">comentarios</p>
-      <textarea name="" id="" cols="52" rows="5"></textarea>
-      <div class="row justify-content-end buttons">
-        <button>guardar</button>
-        <button id="close-modal" class="invert">cerrar</button>
-      </div>
       <form action="{% url 'pregunta-rechazada' %}" method="POST">
         {% csrf_token %}
         {{form.as_p}}
+        <input type="hidden" name="pregunta-pk" id="question-pk">
+        <input type="hidden" name="cuestionario-pk" value="{{pk}}">
+        <input type="hidden" name="empresa-pk" value="{{empresa_pk}}">
         <div class="row justify-content-end buttons">
           <button type="submit">guardar</button>
           <button id="close-modal" class="invert">cerrar</button>
