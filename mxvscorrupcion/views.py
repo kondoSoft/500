@@ -21,6 +21,35 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 import json
 from django.core.serializers.json import DjangoJSONEncoder
 
+#### CRUD Perfiles
+class CreatePerfil(CreateView):
+    model = Perfil
+    fields = ['user','telefono_fijo','telefono_celular','empresa',]
+    template_name = 'perfiles/create_perfiles.html'
+
+    def get_success_url(self):
+        return reverse('list_perfiles')
+
+
+class UpdatePerfil(UpdateView):
+    model = Perfil
+    fields = ['user','telefono_fijo','telefono_celular','empresa',]
+    template_name = 'perfiles/edit_perfiles.html'
+
+    def get_success_url(self):
+        return reverse('list_perfiles')
+
+class ListPerfil(ListView):
+    model = Perfil
+    fields = ['user','telefono_fijo','telefono_celular','empresa',]
+    template_name = 'perfiles/list_perfiles.html'
+
+class DeletePerfil(DeleteView):
+    model = Perfil
+    success_url = reverse_lazy('list_perfiles')
+
+### end Perfiles
+
 #### CRUD GLOSARIO
 
 class CreateGlosario(CreateView):
@@ -553,4 +582,3 @@ def new_corte(request):
       nuevo_cuestionario.Corte = corte
       nuevo_cuestionario.save()
   return redirect('kondo-admin')
-
