@@ -38,7 +38,7 @@
     
     <div class="row align-items-center update">
       <div class="col-sm-9">
-        <h3 class="no-margin"><a href="{% url 'corte' pk=cuestionario.pk %}">{{cuestionario.Empresa}}</a></h3>
+        <h3 class="no-margin"><a href="{% url 'validate' pk=cuestionario.pk empresa_pk=cuestionario.Empresa.pk %}">{{cuestionario.Empresa}}</a></h3>
         <p>actualizó su información, {{cuestionario.updated}}</p>
       </div>
       <div class="col-sm-3">
@@ -49,26 +49,7 @@
       </div>
     </div>
   {% endfor %}
-  {% if is_paginated %}
-<ul class="pagination">
-{% if page_obj.has_previous %}
-    <li>
-        <span><a href="?page={{ page_obj.previous_page_number }}">Anterior</a></span>
-    </li>
-{% endif %}
-    <li class="">
-        <span>  {{ page_obj.number }} de {{ page_obj.paginator.num_pages }} .</span>
-    </li>
-{% if page_obj.has_next %}
-    <li>
-        <span><a href="?page={{ page_obj.next_page_number }}">Siguiente</a></span>
-    </li>
-{% endif %}
-</ul>
-{% else %}
-    <h3>Your File Exam</h3>
-    <p>File not yet available</p>
-{% endif %}
+  {% include "pagination.html" %}
   </div>
 </div>
 
