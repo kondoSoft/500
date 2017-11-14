@@ -37,7 +37,7 @@ urlpatterns = [
     url(r'^modify-answer/(?P<pk>[0-9 a-z]+)/$', views.modifyAnswer, name='modify-answer'),
     url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
     url(r'^revisor/', views.revisor, name='revisor'),
-    url(r'^validate/', views.validate, name='validate'),
+    url(r'^validate/(?P<pk>[0-9]+)/(?P<empresa_pk>[0-9]+)/', views.validate, name='validate'),
     # url(r'^empresas/', views.import_empresas, name='validate'),
     # url(r'^empresas_final/', views.import_empresas_final, name='empresas_final'),
     url(r'^tinymce/', include('tinymce.urls')),
@@ -83,5 +83,7 @@ urlpatterns = [
     url(r'^respuestas/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateRespuesta.as_view(), name='update_respuestas'),
     url(r'^respuestas/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteRespuesta.as_view(), name='delete_respuestas'),
     url(r'^respuestas/list/$', views.ListRespuesta.as_view(), name='list_respuestas'),
-
+  
+    url(r'^new-corte/', views.new_corte, name='new-corte'),
+  
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
