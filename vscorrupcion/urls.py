@@ -43,8 +43,7 @@ urlpatterns = [
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^send-mail/', views.send_email, name='send_email'),
     url(r'^admin-users/', views.usersAdmin, name='admin-users'),
-    url(r'articulos/', views.blog_articulos, name='blog_articulos'),
-    url(r'articulo/(?P<slug>[-\w]+)/$', views.getArticleSlug, name='article-slug'),
+
 
     # kondo-admin
     url(r'^kondo-admin/corte/(?P<pk>[0-9]+)/$', views.Corte_Detail.as_view(), name='corte'),
@@ -65,11 +64,13 @@ urlpatterns = [
     url(r'^Perfiles/list/$', views.ListPerfil.as_view(), name='list_perfiles'),
 
     #CRUD Articulos
-    url(r'^producto/create/$', views.CreateArticulo.as_view(), name='create_articulo'),
-    url(r'^producto/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateArticulo.as_view(), name='update_articulo'),
-    url(r'^producto/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteArticulo.as_view(), name='delete_articulo'),
-    url(r'^producto/list/$', views.ListArticulo.as_view(), name='list_articulo'),
+    url(r'^articulo/create/$', views.CreateArticulo.as_view(), name='create_articulo'),
+    url(r'^articulo/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateArticulo.as_view(), name='update_articulo'),
+    url(r'^articulo/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteArticulo.as_view(), name='delete_articulo'),
+    url(r'^articulo/list/$', views.ListArticulo.as_view(), name='list_articulo'),
 
+    url(r'articulos/', views.blog_articulos, name='blog_articulos'),
+    url(r'articulo/(?P<slug>[-\w]+)/$', views.getArticleSlug, name='article-slug'),
 
     #CRUD ENTRADAS RECIENTES
     url(r'^entradas_recientes/create/$', views.CreateEntradasRecientes.as_view(), name='create_entradas_recientes'),
