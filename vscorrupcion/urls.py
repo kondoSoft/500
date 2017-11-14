@@ -57,12 +57,19 @@ urlpatterns = [
     url(r'^glosario/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteGlosario.as_view(), name='delete_glosario'),
     url(r'^glosario/list/$', views.ListGlosario.as_view(), name='list_glosario'),
     url(r'^glosario/', views.glosario, name='glosario'),
-  
+
     #CRUD Perfiles
     url(r'^Perfiles/create/$', views.CreatePerfil.as_view(), name='create_perfil'),
     url(r'^Perfiles/update/(?P<pk>[0-9 a-z]+)/$', views.UpdatePerfil.as_view(), name='update_perfil'),
     url(r'^Perfiles/delete/(?P<pk>[0-9 a-z]+)/$', views.DeletePerfil.as_view(), name='delete_perfil'),
     url(r'^Perfiles/list/$', views.ListPerfil.as_view(), name='list_perfiles'),
+
+    #CRUD Articulos
+    url(r'^producto/create/$', views.CreateArticulo.as_view(), name='create_articulo'),
+    url(r'^producto/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateArticulo.as_view(), name='update_articulo'),
+    url(r'^producto/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteArticulo.as_view(), name='delete_articulo'),
+    url(r'^producto/list/$', views.ListArticulo.as_view(), name='list_articulo'),
+
 
     #CRUD ENTRADAS RECIENTES
     url(r'^entradas_recientes/create/$', views.CreateEntradasRecientes.as_view(), name='create_entradas_recientes'),
@@ -95,7 +102,7 @@ urlpatterns = [
     url(r'^respuestas/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateRespuesta.as_view(), name='update_respuestas'),
     url(r'^respuestas/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteRespuesta.as_view(), name='delete_respuestas'),
     url(r'^respuestas/list/$', views.ListRespuesta.as_view(), name='list_respuestas'),
-  
+
     url(r'^new-corte/', views.new_corte, name='new-corte'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
