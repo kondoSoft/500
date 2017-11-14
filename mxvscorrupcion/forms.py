@@ -2,7 +2,7 @@ from django import forms
 from django.forms import Textarea, HiddenInput
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm 
-from .models import Perfil
+from .models import Perfil, Pregunta_Rechazada
 
 class SignUpForm(UserCreationForm):
     password_random = User.objects.make_random_password(length=14)
@@ -24,3 +24,9 @@ class PerfilForm(forms.ModelForm):
     class Meta:
         model = Perfil
         fields = ('telefono_fijo', 'telefono_celular', 'empresa',)
+
+class Pregunta_Rechazada_Form(forms.ModelForm):
+
+    class Meta:
+        model = Pregunta_Rechazada
+        fields = ('motivo', 'respuestaPersonalizada','comentarios',)

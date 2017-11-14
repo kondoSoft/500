@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="{% static 'revisor/css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'glosario/css/styles.css' %}">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,8 +18,7 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
   <!-- Google Font -->
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body>
   <header>
@@ -31,13 +30,6 @@
       
     {% endblock mainContent %}
   </main>
-  <div class="row disclaimer align-items-center no-margin">
-    <div class="col-sm-12">
-      <h4 class="text-center">Descargo de responsabilidad</h4>
-      <i class="fa fa-caret-down fa-2x" aria-hidden="true"></i>
-      <p class="text-center">La información se actualiza con una periodicidad bimestral. Una vez actualizada por el usuario, se reflejan cambios en los primeros días del mes calendario.</p>
-    </div>
-  </div>
   <footer>
     <div class="container">
       <div class="row align-items-center">
@@ -79,19 +71,6 @@
       <p class="no-margin">Copyright &copy; 2017, Todos los Derechos Reservados</p>
     </div>
   </footer>
-  <div id="modal-background">
-    <div id="modal-content">
-      <form action="{% url 'pregunta-rechazada' %}" method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <div class="row justify-content-end buttons">
-          <button type="submit">guardar</button>
-          <button id="close-modal" class="invert">cerrar</button>
-        </div>
-      </form>
-    </div>
-  </div>
-  <script src="{% static 'revisor/js/modal.js' %}"></script>
   {% block javascript %}
     
   {% endblock javascript %}
