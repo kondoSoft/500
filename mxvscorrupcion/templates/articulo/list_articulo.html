@@ -1,0 +1,41 @@
+{% extends "entradas_recientes/base.html" %}
+{% load staticfiles %}
+{% block mainContent %}
+<div class="row align-items-center">
+  <div class="col lg-6">
+    <h2>Listado de los Articulos</h2>
+  </div>
+  <div class="col-lg-6 end">
+    <a href="{% url 'create_articulo' %}" class="btn btn-warning new-entry">Nuevo Articulo</a>
+  </div>
+</div>
+<div class="col-lg-12 content">
+  {% for articulo in object_list %}
+    <div class="view">
+      <div class="col-lg-12 content title">
+        <p>{{ articulo.titulo }}</p>
+      </div>
+      <div class="col-lg-8 content">
+        <img src= "../../media/{{articulo.imagen}}" alt="">
+      </div>
+      <div class="col-lg-4 date">
+        <p>{{ articulo.fecha }}</p>
+        <p id="url">{{ articulo.autor }}</p>
+        <p id="url">{{ articulo.revista }}</p>
+        <p id="url">{{ articulo.contenido }}</p>
+        <p id="url">{{ articulo.url }}</p>
+        <p id="url">{{ articulo.slug }}</p>
+      </div>
+      <div class="col-lg-8"></div>
+      <div class="col-lg-4 buttonsContainer">
+        <a href="{% url 'update_articulo' articulo.pk %}" class="btn btn-info">Editar</a>
+        <form action="{% url 'delete_articulo' articulo.pk %}" method="POST">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
+      </div>
+
+    </div>
+  {% endfor %}
+</div>
+{% endblock mainContent %}

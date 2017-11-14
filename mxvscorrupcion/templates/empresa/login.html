@@ -1,5 +1,10 @@
 {% extends "empresa/base.html" %}
 {% block mainContent %}
+{% if message %}
+<div class="alert alert-success" role="alert">
+     {{message | safe}}
+</div>
+{% endif %}
 <div class="cajaLogin">
   <div>
     <h3 class="loginTitle uppercase">inicio de sesión</h3>
@@ -7,6 +12,7 @@
     <hr class="hrClass2" />
   </div>
   <div class="login">
+
     <form class="login-form" action="{% url 'login' %}" method="POST">
       {% csrf_token %}
       {% if error %}

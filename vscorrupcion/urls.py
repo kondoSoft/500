@@ -37,13 +37,12 @@ urlpatterns = [
     url(r'^modify-answer/(?P<pk>[0-9 a-z]+)/$', views.modifyAnswer, name='modify-answer'),
     url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
     url(r'^revisor/', views.revisor, name='revisor'),
-    url(r'^validate/', views.validate, name='validate'),
+    url(r'^validate/(?P<pk>[0-9]+)/(?P<empresa_pk>[0-9]+)/', views.validate, name='validate'),
     # url(r'^empresas/', views.import_empresas, name='validate'),
     # url(r'^empresas_final/', views.import_empresas_final, name='empresas_final'),
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^send-mail/', views.send_email, name='send_email'),
     url(r'^admin-users/', views.usersAdmin, name='admin-users'),
-    url(r'recientes/', views.entradasRecientes, name='entradas-recientes'),
     url(r'articulos/', views.blog_articulos, name='blog_articulos'),
     url(r'articulo/(?P<slug>[-\w]+)/$', views.getArticleSlug, name='article-slug'),
 
@@ -58,6 +57,26 @@ urlpatterns = [
     url(r'^glosario/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteGlosario.as_view(), name='delete_glosario'),
     url(r'^glosario/list/$', views.ListGlosario.as_view(), name='list_glosario'),
     url(r'^glosario/', views.glosario, name='glosario'),
+
+    #CRUD Perfiles
+    url(r'^Perfiles/create/$', views.CreatePerfil.as_view(), name='create_perfil'),
+    url(r'^Perfiles/update/(?P<pk>[0-9 a-z]+)/$', views.UpdatePerfil.as_view(), name='update_perfil'),
+    url(r'^Perfiles/delete/(?P<pk>[0-9 a-z]+)/$', views.DeletePerfil.as_view(), name='delete_perfil'),
+    url(r'^Perfiles/list/$', views.ListPerfil.as_view(), name='list_perfiles'),
+
+    #CRUD Articulos
+    url(r'^producto/create/$', views.CreateArticulo.as_view(), name='create_articulo'),
+    url(r'^producto/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateArticulo.as_view(), name='update_articulo'),
+    url(r'^producto/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteArticulo.as_view(), name='delete_articulo'),
+    url(r'^producto/list/$', views.ListArticulo.as_view(), name='list_articulo'),
+
+
+    #CRUD ENTRADAS RECIENTES
+    url(r'^entradas_recientes/create/$', views.CreateEntradasRecientes.as_view(), name='create_entradas_recientes'),
+    url(r'^entradas_recientes/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateEntradasRecientes.as_view(), name='update_entradas_recientes'),
+    url(r'^entradas_recientes/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteEntradasRecientes.as_view(), name='delete_entradas_recientes'),
+    url(r'^entradas_recientes/list/$', views.ListEntradasRecientes.as_view(), name='list_entradas_recientes'),
+    url(r'recientes/', views.entradasRecientes, name='entradas-recientes'),
 
     #CRUD FUENTES
     url(r'^fuentes/create/$', views.CreateFuente.as_view(), name='create_fuente'),
@@ -89,5 +108,13 @@ urlpatterns = [
     url(r'^empresa/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateEmpresa.as_view(), name='update_empresa'),
     url(r'^empresa/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteEmpresa.as_view(), name='delete_empresa'),
     url(r'^empresas/$', views.ListEmpresa.as_view(), name='list_empresa'),
+
+    #CRUD SECTORES
+    url(r'^sector/create/$', views.CreateSector.as_view(), name='create_sector'),
+    url(r'^sector/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateSector.as_view(), name='update_sector'),
+    url(r'^sector/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteSector.as_view(), name='delete_sector'),
+    url(r'^sector/list/$', views.ListSector.as_view(), name='list_sector'),
+
+    url(r'^new-corte/', views.new_corte, name='new-corte'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
