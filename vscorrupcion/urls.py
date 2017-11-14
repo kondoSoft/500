@@ -57,7 +57,7 @@ urlpatterns = [
     url(r'^glosario/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteGlosario.as_view(), name='delete_glosario'),
     url(r'^glosario/list/$', views.ListGlosario.as_view(), name='list_glosario'),
     url(r'^glosario/', views.glosario, name='glosario'),
-  
+
     #CRUD Perfiles
     url(r'^Perfiles/create/$', views.CreatePerfil.as_view(), name='create_perfil'),
     url(r'^Perfiles/update/(?P<pk>[0-9 a-z]+)/$', views.UpdatePerfil.as_view(), name='update_perfil'),
@@ -95,7 +95,13 @@ urlpatterns = [
     url(r'^respuestas/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateRespuesta.as_view(), name='update_respuestas'),
     url(r'^respuestas/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteRespuesta.as_view(), name='delete_respuestas'),
     url(r'^respuestas/list/$', views.ListRespuesta.as_view(), name='list_respuestas'),
-  
+
+    #CRUD SECTORES
+    url(r'^sector/create/$', views.CreateSector.as_view(), name='create_sector'),
+    url(r'^sector/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateSector.as_view(), name='update_sector'),
+    url(r'^sector/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteSector.as_view(), name='delete_sector'),
+    url(r'^sector/list/$', views.ListSector.as_view(), name='list_sector'),
+
     url(r'^new-corte/', views.new_corte, name='new-corte'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
