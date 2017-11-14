@@ -221,6 +221,34 @@ class DeleteRespuesta(DeleteView):
 
 #### END CRUD RESPUESTAS
 
+#CRUD SECTOR
+class CreateSector(CreateView):
+    model = Sectores
+    fields = ['nombre']
+    template_name = 'sector/create_sector.html'
+
+    def get_success_url(self):
+        return reverse('list_sector')
+
+class UpdateSector(UpdateView):
+    model = Sectores
+    fields = ['nombre']
+    template_name = 'sector/edit_sector.html'
+
+    def get_success_url(self):
+        return reverse('list_sector')
+
+class ListSector(ListView):
+    model = Sectores
+    fields = ['nombre']
+    template_name = 'sector/list_sector.html'
+
+class DeleteSector(DeleteView):
+    model = Sectores
+    success_url = reverse_lazy('list_sector')
+
+##END CRUD SECTOR
+
 def index(request):
   return redirect('/login/')
 
