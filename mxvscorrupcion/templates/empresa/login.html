@@ -1,7 +1,7 @@
 {% extends "empresa/base.html" %}
 {% block mainContent %}
 {% if message %}
-<div class="alert alert-success" role="alert">
+<div class="alert alert-success" role="alert" style="margin-top: 30px;">
      {{message | safe}}
 </div>
 {% endif %}
@@ -12,7 +12,6 @@
     <hr class="hrClass2" />
   </div>
   <div class="login">
-
     <form class="login-form" action="{% url 'login' %}" method="POST">
       {% csrf_token %}
       {{ form.message.errors }}
@@ -36,12 +35,11 @@
           </span>
         </div>
       </div>
-      <button type="submit">Iniciar Sesión</button>
-      <a href="{% url 'password_reset' %}" class="recover-password">Olvide mi contraseña</a>
+      <button type="submit">Iniciar sesión</button>
+      <a href="{% url 'password_reset' %}" class="recover-password">Olvidé mi contraseña</a>
       <a href="{% url 'register' %}" class="question-answer-left-a">Registrar una nueva empresa</a>
     </form>
   </div>
-
 </div>
 
 {% endblock mainContent %}
