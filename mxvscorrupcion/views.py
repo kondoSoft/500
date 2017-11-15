@@ -447,6 +447,13 @@ def register(request):
             group.save()
             profile = Perfil(user=user,telefono_fijo=telefono_fijo, telefono_celular=telefono_celular, empresa=empresa)
             profile.save()
+            send_mail(
+              'Solicitud de registro enviada | Contacto Integridad Corporativa',
+              'Gracias por tu interés, en breve será contactado.',
+              'contacto@integridadcorporativa500.mx',
+              [user.email],
+              fail_silently=False
+            )
         else:
             print(user_form.errors)
             context = {
@@ -693,6 +700,7 @@ def send_email(request):
       message,
       email,
       ['contacto@integridadcorporativa500.mx'],
+      # ['wwallass.0310@gmail.com'],
       fail_silently=False
     )
     if result:
@@ -703,6 +711,7 @@ def send_email(request):
 
 def usersAdmin(request):
   method =  request.method
+  baseUrl = request.get_host()
   if method == 'POST':
     user_id = request.POST.get('user-id')
     user_email = request.POST.get('email')
@@ -711,7 +720,7 @@ def usersAdmin(request):
     user.save()
     result = send_mail(
         'Contacto Integridad Corporativa',
-        'Mensaje de prueba',
+        'Estimado usuario,\n\nUsted creó una cuenta en integridadcorporativa500.mx\n\nHaga clic en el siguiente enlace para crear una contraseña e iniciar sesión: %s/password_reset/' %(baseUrl),
         'contacto@integridadcorporativa500.mx',
         [user_email],
         fail_silently=False
