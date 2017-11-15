@@ -9,7 +9,7 @@ class SignUpForm(UserCreationForm):
     password1 = forms.CharField(label="password", strip=False, widget=HiddenInput(attrs={'value':password_random}))
     password2 = forms.CharField(label="password", strip=False, widget=HiddenInput(attrs={'value':password_random}))
     last_name = forms.CharField(max_length=255, label='Apellidos', required=True)
-    email = forms.EmailField(max_length=255, label='Correo Electronico', required=True)
+    email = forms.EmailField(max_length=255, label='Correo Electrónico', required=True)
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'email',)
@@ -27,7 +27,8 @@ class SignUpForm(UserCreationForm):
         self.fields['password2'].required = False
 
 class PerfilForm(forms.ModelForm):
-
+    telefono_fijo = forms.CharField(max_length=10, label='Teléfono fijo:')
+    telefono_celular = forms.CharField(max_length=10, label='Teléfono celular:')
     class Meta:
         model = Perfil
         fields = ('telefono_fijo', 'telefono_celular', 'empresa',)

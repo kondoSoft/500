@@ -35,6 +35,9 @@
       <p class="no-margin">Bienvenido</p>
     {% endif %}
   </header>
+  {% if user.username|length == 0 %}
+    <a href="http://integridadcorporativa500.mx/" style="color:#ED462f; position:relative; left: 50px; top: 20px;"><i class="fa fa-chevron-left" aria-hidden="true"></i> Regresar a IC500</a>
+  {% endif %}
   <main class="container">
     {% block mainContent %}
 
