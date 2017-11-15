@@ -1,0 +1,48 @@
+{% extends "pregunta_rechazada/base.html" %}
+{% block mainContent %}
+<div class="row align-items-center">
+  <div class="col lg-6">
+    <h2>Pregunta Rechazada</h2>
+  </div>
+  <div class="col-lg-6 end">
+    <a href="{% url 'create_pregunta_rechazada' %}" class="btn btn-warning new-entry">Añadir Pregunta Rechazada</a>
+  </div>
+</div>
+<div class="col-lg-12 content">
+  <table class="table">
+    <thead class="tHEAD">
+      <tr>
+        <th scope="col">Motivo</th>
+        <th scope="col">Respuesta Personalizada</th>
+        <th scope="col">Comentarios</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for pregunta_rechazada in object_list %}
+        <tr>
+          <td class="tdDescription">{{ pregunta_rechazada.motivo }}</td>
+          <td class="tdDescription">{{ pregunta_rechazada.respuestaPersonalizada }}</td>
+          <td class="tdDescription">{{ pregunta_rechazada.comentarios }}</td>
+          <td>
+            <a href="{% url 'update_pregunta_rechazada' pregunta_rechazada.pk %}" class="btn btn-info">Editar</a>
+          </td>
+          <td>
+            <form action="{% url 'delete_pregunta_rechazada' pregunta_rechazada.pk %}" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Eliminar</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% include "pagination.html" %}
+</div>
+<div class="row" style="margin:50px 0px;">
+  <div class="col-sm-12 text-center">
+    <button class="btn btn-danger btn-lg" onclick="window.history.back()">Regresar</button>
+  </div>
+</div>
+{% endblock mainContent %}

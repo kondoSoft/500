@@ -581,3 +581,18 @@ h4{
   border-radius: .25rem;
   border-bottom: 3px solid #F24437;
 }
+#id_motivo,#id_respuestaPersonalizada,#id_comentarios,#id_username,#id_first_name,#id_last_name,
+#id_email,#id_password,#id_groups,#id_user_permissions,#id_is_staff,#id_is_active,#id_is_superuser,#id_last_login,#id_date_joined{
+    width: 80%;
+  padding: .5rem .3rem;
+  font-size: 14px;
+  line-height: 1.25;
+  color: #464a4c;
+  background-color: #fff;
+  background-image: none;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .25rem;
+  border-bottom: 3px solid #F24437;   
+}
