@@ -697,17 +697,14 @@ def send_email(request):
     message = request.POST.get('message')
     result = send_mail(
       'Haz recibido un correo de ' + name + ' | Contacto Integridad Corporativa',
-      message,
+      '%s\n\nEmail del remitente: %s' %(message, email),
       email,
       ['contacto@integridadcorporativa500.mx'],
-      # ['wwallass.0310@gmail.com'],
       fail_silently=False
     )
     if result:
       return JsonResponse({'ok': True})
-
-  # elif method == 'GET':
-  #   return HttpResponse('Listo')
+      
 
 def usersAdmin(request):
   method =  request.method
