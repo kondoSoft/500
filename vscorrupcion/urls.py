@@ -35,7 +35,6 @@ urlpatterns = [
     url(r'^articulos/(?P<slug>[-\w]+)/$', views.articulos, name='articulos'),
     url(r'^modify-answer/(?P<pk>[0-9 a-z]+)/$', views.modifyAnswer, name='modify-answer'),
     url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
-    url(r'^revisor/', views.revisor, name='revisor'),
     url(r'^aprobar-corte/', views.aprobar_corte, name='aprobar-corte'),
     url(r'^validate/(?P<pk>[0-9]+)/(?P<empresa_pk>[0-9]+)/', views.validate, name='validate'),
     # url(r'^empresas/', views.import_empresas, name='validate'),
@@ -49,8 +48,8 @@ urlpatterns = [
     
 
     # kondo-admin
-    url(r'^kondo-admin/corte/(?P<pk>[0-9]+)/$', views.Corte_Detail.as_view(), name='corte'),
-    url(r'^kondo-admin/$', Kondo_Admin.as_view(), name='kondo_admin'),
+    url(r'^revisor/corte/(?P<pk>[0-9]+)/$', views.Corte_Detail.as_view(), name='corte'),
+    url(r'^revisor/$', Kondo_Admin.as_view(), name='kondo_admin'),
     url(r'^reject-question/$', views.rejectQuestion, name='pregunta-rechazada'),
 
     #CRUD GLOSARIO

@@ -332,6 +332,7 @@ def empresa(request):
       usuario = Perfil.objects.get(user=user.pk)
       empresa = usuario.empresa
       cuestionario = Cuestionario.objects.get(Empresa=usuario.empresa.pk, Corte=corte.pk)
+
       preguntas = cuestionario.preguntas.all()
       preguntasCTX = {}
       for pregunta in preguntas:
@@ -351,7 +352,9 @@ def empresa(request):
     pregunta_pk = request.POST.get('pregunta-pk')
     pregunta = Pregunta.objects.get(pk=pregunta_pk)
     respuesta_pk = request.POST.get('respuesta-pk')
+    evidencia = request.POST.get('url')
     respuesta = Respuestas.objects.get(pk=respuesta_pk)
+    respuesta.evidencia = evidencia
     pregunta.respuesta = respuesta
     pregunta.status = '0'
     pregunta.save()
@@ -388,7 +391,7 @@ def loginUser(request):
         return redirect(settings.LOGIN_REDIRECT_URL, user)
       elif group == 'revisor' :
         login(request, user)
-        return redirect('/kondo-admin/', user)
+        return redirect('/revisor/', user)
       else :
         login(request, user)
         # return redirect('/admin/', user)
@@ -413,7 +416,7 @@ def loginUser(request):
         return redirect('/revisor/', user)
       else :
         login(request, user)
-        return redirect('/admin/', user)
+        return redirect('/ic-admin/', user)
     else:
       return render(request,'empresa/login.html', ctx )
 
@@ -491,16 +494,6 @@ def articulos(request, slug):
     'post': articulo
   }
   return render(request, template, context)
-
-
-def revisor(request):
-  user = request.user
-  template = 'revisor/index.html'
-  return render(request, template)
-  # if user.is_authenticated:
-  # else:
-  #   return redirect(settings.LOGIN_URL)
-
 
 def validate(request, pk, empresa_pk):
   method = request.method
@@ -787,7 +780,7 @@ def aprobar_corte(request):
   corte = Corte.objects.get(pk=corte_pk)
   corte.aprovado = True
   corte.save()
-  return redirect('/kondo-admin/')
+  return redirect('/revisor/')
 
 
 
