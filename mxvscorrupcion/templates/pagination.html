@@ -2,15 +2,15 @@
   <ul class="pagination">
   {% if page_obj.has_previous %}
       <li>
-          <span><a href="?page={{ page_obj.previous_page_number }}">Anterior</a></span>
+          <span><a href="?page={{ page_obj.previous_page_number }}">Anterior&nbsp;</a></span>
       </li>
   {% endif %}
       <li class="">
-          <span>  {{ page_obj.number }} de {{ page_obj.paginator.num_pages }} .</span>
+          <span>  {{ page_obj.number }} de {{ page_obj.paginator.num_pages }} </span>
       </li>
   {% if page_obj.has_next %}
       <li>
-          <span><a href="?page={{ page_obj.next_page_number }}">Siguiente</a></span>
+          <span><a href="?page={{ page_obj.next_page_number }}">&nbsp;Siguiente</a></span>
       </li>
   {% endif %}
   </ul>
