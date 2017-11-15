@@ -511,6 +511,20 @@ h3 {
 h4{
     margin-bottom: 0px;
 }
+#id_nombre,#id_sector,#id_pais,#id_website_corporativo,#id_website_integridad,#id_tot100,#id_tot{
+    width: 80%;
+    padding: .5rem .3rem;
+    font-size: 14px;
+    line-height: 1.25;
+    color: #464a4c;
+    background-color: #fff;
+    background-image: none;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    border-bottom: 3px solid #F24437;
+}
 #id_user{
   width: 80%;
   padding: .5rem .3rem;
