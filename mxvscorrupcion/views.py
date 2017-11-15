@@ -44,6 +44,7 @@ class UpdateEmpresa(UpdateView):
         return reverse('list_empresa')
 
 class ListEmpresa(ListView):
+    paginate_by = 50
     model = Empresa
     fields = ['nombre','sector','pais','website_corporativo','website_integridad','tot100','tot',]
     template_name = 'empresa/list_empresa.html'
@@ -102,6 +103,7 @@ class UpdatePerfil(UpdateView):
         return reverse('list_perfiles')
 
 class ListPerfil(ListView):
+    paginate_by = 10
     model = Perfil
     fields = ['user','telefono_fijo','telefono_celular','empresa',]
     template_name = 'perfiles/list_perfiles.html'
@@ -130,6 +132,7 @@ class UpdateGlosario(UpdateView):
         return reverse('list_glosario')
 
 class ListGlosario(ListView):
+    paginate_by = 15
     model = Glosario
     fields = ['titulo','descripcion',]
     template_name = 'glosario/list_glosario.html'
@@ -158,6 +161,7 @@ class UpdateEntradasRecientes(UpdateView):
         return reverse('list_entradas_recientes')
 
 class ListEntradasRecientes(ListView):
+    paginate_by = 10
     model = Entradas_Recientes
     fields = ['titulo','imagen', 'fecha', 'url']
     template_name = 'entradas_recientes/list_entradas_recientes.html'
@@ -186,6 +190,7 @@ class UpdateFuente(UpdateView):
         return reverse('list_fuente')
 
 class ListFuente(ListView):
+    paginate_by = 10
     model = Fuentes
     fields = ['titulo','libro','url',]
     template_name = 'fuentes/list_fuente.html'
@@ -216,6 +221,7 @@ class UpdatePaises(UpdateView):
         return reverse('list_paises')
 
 class ListPaises(ListView):
+    paginate_by = 10
     model = Paises
     fields = ['pais',]
     template_name = 'pais/list_pais.html'
@@ -242,6 +248,7 @@ class UpdateCuestionario(UpdateView):
         return reverse('list_cuestionario')
 
 class ListCuestionario(ListView):
+    paginate_by = 50
     model = Cuestionario
     fields = ['preguntas','Empresa',]
     template_name = 'cuestionario/list_cuestionario.html'
@@ -271,6 +278,7 @@ class UpdateRespuesta(UpdateView):
         return reverse('list_respuestas')
 
 class ListRespuesta(ListView):
+    paginate_by = 50
     model = Respuestas
     fields = ['valor','opcion','catalogo_pregunta',]
     template_name = 'respuestas/list_respuestas.html'
@@ -299,6 +307,7 @@ class UpdateSector(UpdateView):
         return reverse('list_sector')
 
 class ListSector(ListView):
+    paginate_by = 20
     model = Sectores
     fields = ['nombre']
     template_name = 'sector/list_sector.html'
@@ -379,11 +388,11 @@ def loginUser(request):
         return redirect(settings.LOGIN_REDIRECT_URL, user)
       elif group == 'revisor' :
         login(request, user)
-        return redirect('/revisor/', user)
+        return redirect('/kondo-admin/', user)
       else :
         login(request, user)
         # return redirect('/admin/', user)
-        return redirect('/kondo-admin/', user)
+        return redirect('/ic-admin/', user)
     else:
       return render(request, 'empresa/login.html', {'error': True})
   else:
@@ -774,6 +783,20 @@ def aprobar_corte(request):
   corte.aprovado = True
   corte.save()
   return redirect('/kondo-admin/')
+
+
+
+def ic_admin(request):
+  user = request.user
+  if user.is_authenticated():
+    template = 'ic_admin/index.html'
+    return render(request, template)
+  else:
+    return redirect('/login/')
+
+
+
+
 
 
 

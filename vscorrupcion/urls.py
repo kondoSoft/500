@@ -44,6 +44,9 @@ urlpatterns = [
     url(r'^send-mail/', views.send_email, name='send_email'),
     url(r'^admin-users/', views.usersAdmin, name='admin-users'),
 
+    #IC Administracion
+    url(r'^ic-admin/', views.ic_admin, name='ic-admin'),
+    
 
     # kondo-admin
     url(r'^kondo-admin/corte/(?P<pk>[0-9]+)/$', views.Corte_Detail.as_view(), name='corte'),

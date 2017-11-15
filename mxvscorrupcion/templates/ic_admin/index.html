@@ -1,0 +1,60 @@
+{% extends "revisor/base.html" %}
+
+{% block mainContent %}
+<div class="row">
+  <div class="col-sm-12 title">
+    <h3 class="text-center uppercase">Administración</h3>
+    <hr>
+    <hr>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col"><b>Integridad Corporativa 500</b></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="{% url 'list_articulo' %}">Artículos</a></td>
+        </tr>
+        <!--tr>
+          <td><a href="">Cortes</a></td>
+        </tr-->
+        <tr>
+          <td><a href="{% url 'list_cuestionario' %}">Cuestionarios</a></td>
+        </tr>
+        <tr>
+          <td><a href="{% url 'list_empresa' %}">Empresas</a></td>
+        </tr>
+        <tr>
+          <td><a href="{% url 'list_entradas_recientes' %}">Entradas Recientes</a></td>
+        </tr>
+        <tr>
+          <td><a href="{% url 'list_fuente' %}">Fuentes</a></td>
+        </tr>
+        <tr>
+          <td><a href="{% url 'list_glosario' %}">Glosario</a></td>
+        </tr>
+        <tr>
+          <td><a href="{% url 'list_paises' %}">Países</a></td>
+        </tr>
+        <tr>
+          <td><a href="{% url 'list_perfiles' %}">Perfiles</a></td>
+        </tr>
+        <tr>
+          <td><a href="{% url 'list_respuestas' %}">Respuestas</a></td>
+        </tr>
+        <tr>
+          <td><a href="{% url 'list_sector' %}">Sectores</a></td>
+        </tr>
+        <tr>
+          <td><a href="{% url 'admin-users' %}">Usuarios pendientes</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock mainContent %}

@@ -46,5 +46,11 @@
       {% endfor %}
     </tbody>
   </table>
+  {% include "pagination.html" %}
+</div>
+<div class="row" style="margin:50px 0px;">
+  <div class="col-sm-12 text-center">
+    <button class="btn btn-danger btn-lg" onclick="window.history.back()">Regresar</button>
+  </div>
 </div>
 {% endblock mainContent %}
