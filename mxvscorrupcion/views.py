@@ -21,6 +21,9 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 import json
 from django.core.serializers.json import DjangoJSONEncoder
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin
+
 #### CRUD EMPRESA
 
 class CreateEmpresa(CreateView):
@@ -49,7 +52,63 @@ class DeleteEmpresa(DeleteView):
     model = Empresa
     success_url = reverse_lazy('list_empresa')
 
-#### END CRUD EMPRESA
+#### CRUD Articulo
+class CreateArticulo(CreateView):
+    model = Articulo
+    fields = ['imagen','titulo','contenido','revista','autor','slug', 'url', 'fecha', ]
+    template_name = 'articulo/create_articulo.html'
+
+    def get_success_url(self):
+        return reverse('list_articulo')
+
+
+class UpdateArticulo(UpdateView):
+    model = Articulo
+    fields = ['imagen','titulo','contenido','revista','autor','slug', 'url', 'fecha', ]
+    template_name = 'articulo/edit_articulo.html'
+
+    def get_success_url(self):
+        return reverse('list_articulo')
+
+
+class ListArticulo(LoginRequiredMixin,PermissionRequiredMixin,ListView):
+    model = Articulo
+    fields = ['imagen','titulo','contenido','revista','autor','slug', 'url', 'fecha', ]
+    template_name = 'articulo/list_articulo.html'
+    login_url = '/kondo-admin/'
+    permission_required = 'is_admin'
+    # redirect_field_name = 'redirect_to'
+
+class DeleteArticulo(DeleteView):
+    model = Articulo
+    success_url = reverse_lazy('list_articulo')
+
+#### CRUD Perfiles
+class CreatePerfil(CreateView):
+    model = Perfil
+    fields = ['user','telefono_fijo','telefono_celular','empresa',]
+    template_name = 'perfiles/create_perfiles.html'
+
+    def get_success_url(self):
+        return reverse('list_perfiles')
+
+
+class UpdatePerfil(UpdateView):
+    model = Perfil
+    fields = ['user','telefono_fijo','telefono_celular','empresa',]
+    template_name = 'perfiles/edit_perfiles.html'
+
+    def get_success_url(self):
+        return reverse('list_perfiles')
+
+class ListPerfil(ListView):
+    model = Perfil
+    fields = ['user','telefono_fijo','telefono_celular','empresa',]
+    template_name = 'perfiles/list_perfiles.html'
+
+class DeletePerfil(DeleteView):
+    model = Perfil
+    success_url = reverse_lazy('list_perfiles')
 
 #### CRUD GLOSARIO
 
@@ -81,6 +140,33 @@ class DeleteGlosario(DeleteView):
 
 #### END CRUD GLOSARIO
 
+
+class CreateEntradasRecientes(CreateView):
+    model = Entradas_Recientes
+    fields = ['titulo','imagen', 'fecha', 'url']
+    template_name = 'entradas_recientes/create_entradas_recientes.html'
+
+    def get_success_url(self):
+        return reverse('list_entradas_recientes')
+
+class UpdateEntradasRecientes(UpdateView):
+    model = Entradas_Recientes
+    fields = ['titulo','imagen', 'fecha' , 'url']
+    template_name = 'entradas_recientes/edit_entradas_recientes.html'
+
+    def get_success_url(self):
+        return reverse('list_entradas_recientes')
+
+class ListEntradasRecientes(ListView):
+    model = Entradas_Recientes
+    fields = ['titulo','imagen', 'fecha', 'url']
+    template_name = 'entradas_recientes/list_entradas_recientes.html'
+
+class DeleteEntradasRecientes(DeleteView):
+    model = Entradas_Recientes
+    success_url = reverse_lazy('list_entradas_recientes')
+
+
 #### CRUD FUENTES
 
 class CreateFuente(CreateView):
@@ -110,6 +196,7 @@ class DeleteFuente(DeleteView):
 
 #### END CRUD FUENTES
 
+
 #### CRUD PAISES
 
 class CreatePaises(CreateView):
@@ -137,10 +224,7 @@ class DeletePaises(DeleteView):
     model = Paises
     success_url = reverse_lazy('list_paises')
 
-#### END CRUD PAISES
-
 #### CRUD CUESTIONARIO
-
 class CreateCuestionario(CreateView):
     model = Cuestionario
     fields = ['preguntas','Empresa',]
@@ -197,6 +281,34 @@ class DeleteRespuesta(DeleteView):
 
 #### END CRUD RESPUESTAS
 
+#CRUD SECTOR
+class CreateSector(CreateView):
+    model = Sectores
+    fields = ['nombre']
+    template_name = 'sector/create_sector.html'
+
+    def get_success_url(self):
+        return reverse('list_sector')
+
+class UpdateSector(UpdateView):
+    model = Sectores
+    fields = ['nombre']
+    template_name = 'sector/edit_sector.html'
+
+    def get_success_url(self):
+        return reverse('list_sector')
+
+class ListSector(ListView):
+    model = Sectores
+    fields = ['nombre']
+    template_name = 'sector/list_sector.html'
+
+class DeleteSector(DeleteView):
+    model = Sectores
+    success_url = reverse_lazy('list_sector')
+
+##END CRUD SECTOR
+
 def index(request):
   return redirect('/login/')
 
@@ -206,8 +318,11 @@ def empresa(request):
   # user_group = user.groups.all()[0]
   if method == 'GET':
     if user.is_authenticated():
+      corte = Corte.objects.all().order_by('-fecha_de_corte')
+      corte = corte[0]
       usuario = Perfil.objects.get(user=user.pk)
-      cuestionario = Cuestionario.objects.get(Empresa=usuario.empresa.pk)
+      empresa = usuario.empresa
+      cuestionario = Cuestionario.objects.get(Empresa=usuario.empresa.pk, Corte=corte.pk)
       preguntas = cuestionario.preguntas.all()
       preguntasCTX = {}
       for pregunta in preguntas:
@@ -217,7 +332,8 @@ def empresa(request):
       template = 'empresa/index.html'
       context = {
           'preguntas': preguntas,
-          'preguntas_respuestas': json.dumps(preguntasCTX, cls=DjangoJSONEncoder)
+          'preguntas_respuestas': json.dumps(preguntasCTX, cls=DjangoJSONEncoder),
+          'empresa':empresa
       }
       return render(request, template, context)
     else:
@@ -228,6 +344,7 @@ def empresa(request):
     respuesta_pk = request.POST.get('respuesta-pk')
     respuesta = Respuestas.objects.get(pk=respuesta_pk)
     pregunta.respuesta = respuesta
+    pregunta.status = '0'
     pregunta.save()
     return redirect('/empresa/')
 
@@ -270,6 +387,12 @@ def loginUser(request):
     else:
       return render(request, 'empresa/login.html', {'error': True})
   else:
+    ctx = {}
+    try:
+      if request.GET['message']:
+        ctx['message'] = '<p>Estimado usuario, Usted creó una cuenta en integridadcorporativa500.mx.</p>  <p>En breve recibira un correo con instrucciones.</p>'
+    except:
+      pass
     user = request.user
     if user.is_authenticated:
       group = user.groups.all()[0].name
@@ -283,7 +406,7 @@ def loginUser(request):
         login(request, user)
         return redirect('/admin/', user)
     else:
-      return render(request,'empresa/login.html' )
+      return render(request,'empresa/login.html', ctx )
 
 
 def register(request):
@@ -314,20 +437,24 @@ def register(request):
             profile.save()
         else:
             print(user_form.errors)
-        return redirect('/login/')
+        return redirect('/login/?message=true')
 
 def rejectQuestion(request):
     if request.method == 'POST':
+      pregunta_pk = request.POST.get('pregunta-pk')
+      cuestionario_pk = request.POST.get('cuestionario-pk')
+      empresa_pk = request.POST.get('empresa-pk')
       reject_form = Pregunta_Rechazada_Form(request.POST)
       if reject_form.is_valid():
-        pregunta = Pregunta.objects.get(pk=4)
+        pregunta = Pregunta.objects.get(pk=pregunta_pk)
         form = reject_form.save()
         form.save()
         comentario_pk = form.pk
         comentario = Pregunta_Rechazada.objects.get(pk=comentario_pk)
         pregunta.comentarios = comentario
-        # pregunta.save()
-        return redirect('/validate/')
+        pregunta.status = 2
+        pregunta.save()
+        return redirect('/validate/%s/%s/' %(cuestionario_pk, empresa_pk))
 
 def modifyAnswer(request, pk):
   if request.method == 'GET' :
@@ -354,17 +481,41 @@ def articulos(request, slug):
 
 def revisor(request):
   user = request.user
-  if user.is_authenticated:
-    template = 'revisor/index.html'
-    return render(request, template)
+  template = 'revisor/index.html'
+  return render(request, template)
+  # if user.is_authenticated:
+  # else:
+  #   return redirect(settings.LOGIN_URL)
+
+
+def validate(request, pk, empresa_pk):
+  method = request.method
+  if method == 'POST':
+    pregunta_pk = request.POST.get('pregunta-pk')
+    status = request.POST.get('status')
+    if status == '1':
+      pregunta = Pregunta.objects.get(pk=pregunta_pk)
+      pregunta.status = status
+      pregunta.save()
+      return redirect('/validate/%s/%s/' %(pk, empresa_pk))
   else:
-    return redirect(settings.LOGIN_URL)
-
-
-def validate(request):
-  template = 'revisor/validate.html'
-  modalForm = Pregunta_Rechazada_Form()
-  return render(request, template, {'form': modalForm })
+    template = 'revisor/validate.html'
+    modalForm = Pregunta_Rechazada_Form()
+    corte_anterior = Corte.objects.get(aprovado=True)
+    cuestionario_anterior = Cuestionario.objects.get(Corte=corte_anterior, Empresa=empresa_pk)
+    preguntas_anteriores = cuestionario_anterior.preguntas.all()
+    cuestionario_actual = Cuestionario.objects.get(pk=pk)
+    empresa = cuestionario_actual.Empresa
+    preguntas_actuales = cuestionario_actual.preguntas.all()
+    preguntas = zip(preguntas_anteriores, preguntas_actuales)
+    context = {
+      'preguntas': preguntas,
+      'empresa': empresa,
+      'form': modalForm,
+      'pk': pk,
+      'empresa_pk':empresa_pk
+    }
+    return render(request, template, context)
 
 def glosario(request):
 	if request.method == 'GET':
@@ -378,7 +529,7 @@ def fuentes(request):
 
 def entradasRecientes(request):
 	if request.method == 'GET':
-		data = serializers.serialize("json", Entradas_Recientes.objects.all())
+		data = serializers.serialize("json", Entradas_Recientes.objects.all().order_by('-fecha')[:3])
 		return HttpResponse(data, content_type="application/json")
 
 def blog_articulos(request):
@@ -544,48 +695,88 @@ def send_email(request):
   #   return HttpResponse('Listo')
 
 def usersAdmin(request):
-    method =  request.method
-    if method == 'POST':
-        user_id = request.POST.get('user-id')
-        user_email = request.POST.get('email')
-        user = User.objects.get(pk=user_id)
-        user.is_active = True
-        user.save()
-        result = send_mail(
-            'Contacto Integridad Corporativa',
-            'Mensaje de prueba',
-            'contacto@integridadcorporativa500.mx',
-            [user_email],
-            fail_silently=False
-        )
-        return redirect('/admin-users/')
-    else:
-        print(request.get_host())
-        template = 'back_office/index.html'
-        profiles = Perfil.objects.all()
-        context = {
-            'profiles': profiles
-        }
-        return render(request, template, context)
+  method =  request.method
+  if method == 'POST':
+    user_id = request.POST.get('user-id')
+    user_email = request.POST.get('email')
+    user = User.objects.get(pk=user_id)
+    user.is_active = True
+    user.save()
+    result = send_mail(
+        'Contacto Integridad Corporativa',
+        'Mensaje de prueba',
+        'contacto@integridadcorporativa500.mx',
+        [user_email],
+        fail_silently=False
+    )
+    return redirect('/admin-users/')
+  else:
+    print(request.get_host())
+    template = 'back_office/index.html'
+    profiles = Perfil.objects.all()
+    context = {
+        'profiles': profiles
+    }
+    return render(request, template, context)
 
 class Kondo_Admin(ListView):
-  model = Corte
+  paginate_by = 5
+
+  def get_queryset(self):
+    return Corte.objects.all().order_by('-aprovado', 'fecha_de_corte')
 
 class Corte_Detail(ListView):
-  # model = Corte
   paginate_by = 50
 
   def get_queryset(self):
-    print('>>>>>', self.kwargs['pk'])
     self.corte = Corte.objects.get(pk=self.kwargs['pk'])
     return Cuestionario.objects.filter(Corte=self.corte)
 
-  # def get_queryset(self):
-  #   corte = Corte.objects.get(pk=1)
-  #   print(corte)
-    
-  # print('corte', request)
-  # print('corte', corte)
-  # queryset = Cuestionario.objects.all().filter(Corte=corte)
+def new_corte(request):
+  method = request.method
+  if method == 'POST':
+    fecha = request.POST.get('fecha')
+    corte = Corte(fecha_de_corte=fecha, aprovado=False)
+    corte.save()
+    cuestionarios = Cuestionario.objects.all()
+    for cuestionario in cuestionarios:
+      preguntas = cuestionario.preguntas.all()
+      cuestionario.pk = None
+      cuestionario.save()
+      nuevo_cuestionario = cuestionario
+      for pregunta in preguntas:
+        reactivo = pregunta.reactivo
+        respuesta = Respuestas.objects.get(pk=pregunta.respuesta.pk)
+        catalogo_pregunta = respuesta.catalogo_pregunta
+        respuesta.pk = None
+        respuesta.save()
+        nueva_respuesta = respuesta
+        nueva_respuesta.catalogo_pregunta = catalogo_pregunta
+        nueva_respuesta.save()
+        pregunta.pk = None
+        pregunta.save()
+        nueva_pregunta = pregunta
+        nueva_pregunta.respuesta = nueva_respuesta
+        nueva_pregunta.reactivo = reactivo
+        nueva_pregunta.save()
+        nuevo_cuestionario.preguntas.add(nueva_pregunta)
+      nuevo_cuestionario.Corte = corte
+      nuevo_cuestionario.save()
+  return redirect('kondo-admin')
+
+
+def aprobar_corte(request):
+  corte_pk = request.POST.get('corte-pk')
+  corte_anterior = Corte.objects.get(aprovado=True)
+  corte_anterior.aprovado = False
+  corte_anterior.save()
+  corte = Corte.objects.get(pk=corte_pk)
+  corte.aprovado = True
+  corte.save()
+  return redirect('/kondo-admin/')
+
+
+
+
 
 

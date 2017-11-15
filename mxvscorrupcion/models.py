@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class Corte(models.Model):
     # cuestionario = models.ForeignKey(Cuestionario)
-    fecha_de_corte = models.DateTimeField(null=True)
+    fecha_de_corte = models.DateField(null=True, unique_for_date=True)
     aprovado = models.NullBooleanField(blank=True, null=True)
 
     def __str__(self):
@@ -78,11 +78,13 @@ class Respuestas(models.Model):
 
 class Pregunta_Rechazada(models.Model):
     MOTIVO_CHOICES = (
+        ('0', 'Seleccione un motivo'),
         ('1', 'La información es insuficiente'),
         ('2', 'El enlace está roto/ no hay enlace'),
         ('3', 'La información no corresponde al apartado'),
+        ('4', 'Otro (especificar)'),
     )
-    motivo = models.CharField(max_length=3, choices= MOTIVO_CHOICES, default='1')
+    motivo = models.CharField(max_length=3, choices= MOTIVO_CHOICES, default='0')
     respuestaPersonalizada = models.CharField(max_length=300)
     comentarios = models.TextField(null=True)
 
@@ -90,8 +92,14 @@ class Pregunta_Rechazada(models.Model):
         return self.comentarios
 
 class Pregunta(models.Model):
+    PREGUNTAS_CHOICES = (
+        ('0', 'En espera para revisión'),
+        ('1', 'Aprovada'),
+        ('2', 'Rechazda'),
+    )
     reactivo = models.ForeignKey(Catalogo_Preguntas)
     respuesta = models.ForeignKey(Respuestas)
+    status = models.CharField(max_length=3, choices=PREGUNTAS_CHOICES, default='0', null=True, blank=True)
     comentarios = models.ForeignKey(Pregunta_Rechazada, null=True)
     def __str__(self):
         return 'Pregunta: %s || Respuesta: %s || Comentarios %s' %(self.reactivo, self.respuesta, self.comentarios)
@@ -122,7 +130,7 @@ class Empresa(models.Model):
 
 class Cuestionario(models.Model):
     preguntas = models.ManyToManyField(Pregunta)
-    created = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now=True)
     Empresa = models.ForeignKey(Empresa)
     Corte = models.ForeignKey(Corte)
     updated = models.DateTimeField(auto_now_add=True)
@@ -184,4 +192,4 @@ class Perfil(models.Model):
         verbose_name_plural='Perfiles'
 
     def __str__(self):
-        return str(self.user.username)
+        return str(self.empresa.nombre)
