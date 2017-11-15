@@ -396,11 +396,38 @@ class ListPregunta(ListView):
     paginate_by = 50
     model = Pregunta
     fields = ['reactivo', 'respuesta', 'status', 'comentarios',]
-    template_name = 'pregunta/list_pregunta.html'
+    template_name = 'corte/list_corte.html'
 
 class DeletePregunta(DeleteView):
     model = Pregunta
-    success_url = reverse_lazy('list_pregunta')
+    success_url = reverse_lazy('list_corte')
+
+#CRUD CORTE
+class CreateCorte(CreateView):
+    model = Corte
+    fields = ['fecha_de_corte', 'aprovado']
+    template_name = 'corte/create_corte.html'
+
+    def get_success_url(self):
+        return reverse('list_corte')
+
+class UpdateCorte(UpdateView):
+    model = Corte
+    fields = ['fecha_de_corte', 'aprovado']
+    template_name = 'corte/edit_corte.html'
+
+    def get_success_url(self):
+        return reverse('list_corte')
+
+class ListCorte(ListView):
+    paginate_by = 50
+    model = Corte
+    fields = ['fecha_de_corte', 'aprovado']
+    template_name = 'corte/list_corte.html'
+
+class DeleteCorte(DeleteView):
+    model = Corte
+    success_url = reverse_lazy('list_corte')
 
 
 def index(request):

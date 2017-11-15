@@ -35,7 +35,6 @@ urlpatterns = [
     url(r'^articulos/(?P<slug>[-\w]+)/$', views.articulos, name='articulos'),
     url(r'^modify-answer/(?P<pk>[0-9 a-z]+)/$', views.modifyAnswer, name='modify-answer'),
     url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
-    url(r'^aprobar-corte/', views.aprobar_corte, name='aprobar-corte'),
     url(r'^validate/(?P<pk>[0-9]+)/(?P<empresa_pk>[0-9]+)/', views.validate, name='validate'),
     # url(r'^empresas/', views.import_empresas, name='validate'),
     # url(r'^empresas_final/', views.import_empresas_final, name='empresas_final'),
@@ -137,6 +136,12 @@ urlpatterns = [
     url(r'^pregunta/delete/(?P<pk>[0-9 a-z]+)/$', views.DeletePregunta.as_view(), name='delete_pregunta'),
     url(r'^pregunta/list/$', views.ListPregunta.as_view(), name='list_pregunta'),
 
+    #CRUD CORTES
+    url(r'^corte/create/$', views.CreateCorte.as_view(), name='create_corte'),
+    url(r'^corte/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateCorte.as_view(), name='update_corte'),
+    url(r'^corte/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteCorte.as_view(), name='delete_corte'),
+    url(r'^corte/list/$', views.ListCorte.as_view(), name='list_corte'),
+    url(r'^aprobar-corte/', views.aprobar_corte, name='aprobar-corte'),
     url(r'^new-corte/', views.new_corte, name='new-corte'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

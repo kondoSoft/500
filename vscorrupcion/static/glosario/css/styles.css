@@ -567,7 +567,7 @@ h4{
   border-radius: .25rem;
   border-bottom: 3px solid #F24437;
 }
-#id_empresa,#id_reactivo,#id_status,#id_respuesta{
+#id_empresa,#id_reactivo,#id_status,#id_respuesta,#id_fecha_de_corte,#id_aprovado{
   width: 80%;
   padding: .5rem .3rem;
   font-size: 14px;
