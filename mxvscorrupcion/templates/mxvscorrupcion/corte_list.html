@@ -31,11 +31,20 @@
   <div class="col-sm-2 offset-sm-10" style="margin-bottom:40px;">
     <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#create-corte">Agregar Corte</button>
   </div>
+  <div class="col-sm-3 offset-sm-9" style="margin-bottom:40px;">
+    <button type="button" class="btn btn-primary">Cambiar cortes selecionados</button>
+  </div>
 </div>
 <div class="row updates">
   <div class="col-sm-12">
     {% for cortes in object_list %}
     <div class="row align-items-center update">
+      <div class="col-lg-12">
+        <label class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input">
+          <span class="custom-control-indicator"></span>
+        </label>
+      </div>
       <div class="col-sm-9">
         {% if cortes.aprovado %}
           <h3 class="no-margin"><a href="#">{{ cortes.fecha_de_corte }}</a></h3>
