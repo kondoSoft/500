@@ -29,7 +29,6 @@ urlpatterns = [
     url(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',auth_views.password_reset_confirm, name='password_reset_confirm'),
     url(r'^reset/done/$', auth_views.password_reset_complete, name='password_reset_complete'),
     url(r'^admin/', admin.site.urls, name='django-admin'),
-    url(r'^empresa/', views.empresa, name='empresa'),
     url(r'^login/', views.loginUser, name='login'),
     # url(r'^edit/', views.editInfo, name='edit-info'),
     url(r'^signin/', views.register, name='register'),
@@ -89,5 +88,6 @@ urlpatterns = [
     url(r'^empresa/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateEmpresa.as_view(), name='update_empresa'),
     url(r'^empresa/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteEmpresa.as_view(), name='delete_empresa'),
     url(r'^empresas/$', views.ListEmpresa.as_view(), name='list_empresa'),
+    url(r'^empresa/', views.empresa, name='empresa'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
