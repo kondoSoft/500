@@ -9,6 +9,7 @@
   <div class="login">
     <form class="login-form" action="{% url 'login' %}" method="POST">
       {% csrf_token %}
+      {{ form.message.errors }}
       {% if error %}
         <p style="color: #ED4630;">Usuario y/o contraseña incorrectos.</p>
       {% endif %}

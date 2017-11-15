@@ -314,7 +314,12 @@ def register(request):
             profile.save()
         else:
             print(user_form.errors)
-        return redirect('/login/')
+            context = {
+            'userForm': user_form,
+            'perfilForm': perfil_form
+            }
+        # return redirect('/login/')
+        return render(request, 'empresa/register.html', context)
 
 def rejectQuestion(request):
     if request.method == 'POST':

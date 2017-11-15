@@ -293,3 +293,10 @@ footer hr{
 #id_empresa{
   margin-bottom: 30px;
 }
+.errorlist{
+  padding: 5px;
+  background-color: red;
+  color: #FFF;
+  text-transform: capitalize;
+  font-size: 12px;
+}
