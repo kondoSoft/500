@@ -359,7 +359,7 @@ class CreateUser(CreateView):
 
 class UpdateUser(UpdateView):
     model = User
-    fields = ['username', 'first_name', 'last_name', 'email', 'password', 'groups', 'user_permissions', 'is_staff', 'is_active', 'is_superuser', 'last_login', 'date_joined',]
+    fields = ['username', 'first_name', 'last_name', 'email', 'groups', 'user_permissions', 'is_staff', 'is_active', 'is_superuser', 'last_login', 'date_joined',]
     template_name = 'user/edit_user.html'
 
     def get_success_url(self):
