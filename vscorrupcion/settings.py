@@ -149,6 +149,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 MEDIA_ROOT = BASE_DIR
 MEDIA_URL = '/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '/')
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
@@ -169,9 +170,10 @@ LOGOUT_REDIRECT_URL = '/login/'
 
 # Email Settings
 
-EMAIL_HOST = 'mail.integridadcorporativa500.mx'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'contacto@integridadcorporativa500.mx'
-EMAIL_HOST_PASSWORD = 'integridad500..'
+EMAIL_HOST_PASSWORD = 'IC500MCCI'
+# oldpassword = integridad500..
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 # DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
