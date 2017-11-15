@@ -73,6 +73,7 @@ class Respuestas(models.Model):
     valor = models.CharField(max_length=3)
     opcion = models.CharField(max_length=200)
     catalogo_pregunta = models.ForeignKey(Catalogo_Preguntas)
+    evidencia = models.URLField(null=True, blank=True)
     def __str__(self):
         return self.opcion + ' ' + self.valor
 
