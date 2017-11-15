@@ -119,6 +119,18 @@ urlpatterns = [
     url(r'^sector/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteSector.as_view(), name='delete_sector'),
     url(r'^sector/list/$', views.ListSector.as_view(), name='list_sector'),
 
+    #CRUD PREGUNTA RECHAZADA
+    url(r'^pregunta-rechazada/create/$', views.CreatePreguntaRechazada.as_view(), name='create_pregunta_rechazada'),
+    url(r'^pregunta-rechazada/update/(?P<pk>[0-9 a-z]+)/$', views.UpdatePreguntaRechazada.as_view(), name='update_pregunta_rechazada'),
+    url(r'^pregunta-rechazada/delete/(?P<pk>[0-9 a-z]+)/$', views.DeletePreguntaRechazada.as_view(), name='delete_pregunta_rechazada'),
+    url(r'^pregunta-rechazada/list/$', views.ListPreguntaRechazada.as_view(), name='list_pregunta_rechazada'),
+
+    #CRUD USERS
+    url(r'^user/create/$', views.CreateUser.as_view(), name='create_user'),
+    url(r'^user/update/(?P<pk>[0-9 a-z]+)/$', views.UpdateUser.as_view(), name='update_user'),
+    url(r'^user/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteUser.as_view(), name='delete_user'),
+    url(r'^user/list/$', views.ListUser.as_view(), name='list_user'),
+
     url(r'^new-corte/', views.new_corte, name='new-corte'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
