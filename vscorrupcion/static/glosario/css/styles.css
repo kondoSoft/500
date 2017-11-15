@@ -567,7 +567,7 @@ h4{
   border-radius: .25rem;
   border-bottom: 3px solid #F24437;
 }
-#id_empresa{
+#id_empresa,#id_reactivo,#id_status,#id_respuesta{
   width: 80%;
   padding: .5rem .3rem;
   font-size: 14px;

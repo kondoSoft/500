@@ -131,6 +131,12 @@ urlpatterns = [
     url(r'^user/delete/(?P<pk>[0-9 a-z]+)/$', views.DeleteUser.as_view(), name='delete_user'),
     url(r'^user/list/$', views.ListUser.as_view(), name='list_user'),
 
+    #CRUD PREGUNTAS
+    url(r'^pregunta/create/$', views.CreatePregunta.as_view(), name='create_pregunta'),
+    url(r'^pregunta/update/(?P<pk>[0-9 a-z]+)/$', views.UpdatePregunta.as_view(), name='update_pregunta'),
+    url(r'^pregunta/delete/(?P<pk>[0-9 a-z]+)/$', views.DeletePregunta.as_view(), name='delete_pregunta'),
+    url(r'^pregunta/list/$', views.ListPregunta.as_view(), name='list_pregunta'),
+
     url(r'^new-corte/', views.new_corte, name='new-corte'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

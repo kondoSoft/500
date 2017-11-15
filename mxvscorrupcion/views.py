@@ -375,6 +375,33 @@ class DeleteUser(DeleteView):
     model = User
     success_url = reverse_lazy('list_user')
 
+#CRUD PREGUNTAS
+class CreatePregunta(CreateView):
+    model = Pregunta
+    fields = ['reactivo', 'respuesta', 'status', 'comentarios',]
+    template_name = 'pregunta/create_pregunta.html'
+
+    def get_success_url(self):
+        return reverse('list_pregunta')
+
+class UpdatePregunta(UpdateView):
+    model = Pregunta
+    fields = ['reactivo', 'respuesta', 'status', 'comentarios',]
+    template_name = 'pregunta/edit_pregunta.html'
+
+    def get_success_url(self):
+        return reverse('list_pregunta')
+
+class ListPregunta(ListView):
+    paginate_by = 50
+    model = Pregunta
+    fields = ['reactivo', 'respuesta', 'status', 'comentarios',]
+    template_name = 'pregunta/list_pregunta.html'
+
+class DeletePregunta(DeleteView):
+    model = Pregunta
+    success_url = reverse_lazy('list_pregunta')
+
 
 def index(request):
   return redirect('/login/')
