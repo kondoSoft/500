@@ -1,0 +1,46 @@
+{% extends "corte/base.html" %}
+{% block mainContent %}
+<div class="row align-items-center">
+  <div class="col lg-6">
+    <h2>Corte</h2>
+  </div>
+  <div class="col-lg-6 end">
+    <a href="{% url 'create_corte' %}" class="btn btn-warning new-entry">Nuevo Corte</a>
+  </div>  
+</div>
+<div class="col-lg-12 content">
+  <table class="table">
+    <thead class="tHEAD">
+      <tr>
+        <th scope="col">Fecha de Corte</th>
+        <th scope="col">Aprovado</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for corte in object_list %}
+        <tr>
+          <td class="td">{{ corte.fecha_de_corte }}</td>
+          <td class="tdDescription">{{ corte.aprovado }}</td>
+          <td>
+            <a href="{% url 'update_corte' corte.pk %}" class="btn btn-info">Editar</a>
+          </td>
+          <td>
+            <form action="{% url 'delete_corte' corte.pk %}" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Eliminar</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% include "pagination.html" %}
+</div>
+<div class="row" style="margin:50px 0px;">
+  <div class="col-sm-12 text-center">
+    <button class="btn btn-danger btn-lg" onclick="window.history.back()">Regresar</button>
+  </div>
+</div>
+{% endblock mainContent %}

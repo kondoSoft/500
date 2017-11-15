@@ -1,0 +1,52 @@
+{% extends "user/base.html" %}
+{% block mainContent %}
+<div class="row align-items-center">
+  <div class="col lg-6">
+    <h2>Usuarios</h2>
+  </div>
+  <div class="col-lg-6 end">
+    <a href="{% url 'create_user' %}" class="btn btn-warning new-entry">Añadir un usuario</a>
+  </div>  
+</div>
+<div class="col-lg-12 content">
+  <table class="table">
+    <thead class="tHEAD">
+      <tr>
+        <th scope="col">usuario</th>
+        <th scope="col">nombre</th>
+        <th scope="col">apellido</th>
+        <th scope="col">email</th>
+        <th scope="col">grupo</th>
+        <th scope="col">ultimo login</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in object_list %}
+        <tr>
+          <td class="td"><a href="{% url 'update_user' user.pk %}">{{ user.username }}</a></td>
+          <td class="td">{{ user.first_name }}</td>
+          <td class="td">{{ user.last_name }}</td>
+          <td class="td">{{ user.email }}</td>
+          <td class="td">{{ user.groups }}</td>
+          <td class="td">{{ user.last_login }}</td>
+         <!--  <td>
+            <a href="{% url 'update_user' user.pk %}" class="btn btn-info">Editar</a>
+          </td>
+          <td>
+            <form action="{% url 'delete_user' user.pk %}" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Eliminar</button>
+            </form>
+          </td> -->
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% include "pagination.html" %}
+</div>      
+<div class="row" style="margin:50px 0px;">
+  <div class="col-sm-12 text-center">
+    <button class="btn btn-danger btn-lg" onclick="window.history.back()">Regresar</button>
+  </div>
+</div>
+{% endblock mainContent %}

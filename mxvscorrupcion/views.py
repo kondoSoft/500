@@ -24,6 +24,36 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.mixins import PermissionRequiredMixin
 
+
+#### CRUD PREGUNTA RECHAZADA
+
+class CreatePreguntaRechazada(CreateView):
+    model = Pregunta_Rechazada
+    fields = ['motivo', 'respuestaPersonalizada', 'comentarios',]
+    template_name = 'pregunta_rechazada/create_pregunta_rechazada.html'
+
+    def get_success_url(self):
+        return reverse('list_pregunta_rechazada')
+
+
+class UpdatePreguntaRechazada(UpdateView):
+    model = Pregunta_Rechazada
+    fields = ['motivo', 'respuestaPersonalizada', 'comentarios',]
+    template_name = 'pregunta_rechazada/edit_pregunta_rechazada.html'
+
+    def get_success_url(self):
+        return reverse('list_pregunta_rechazada')
+
+class ListPreguntaRechazada(ListView):
+    paginate_by = 50
+    model = Pregunta_Rechazada
+    fields = ['motivo', 'respuestaPersonalizada', 'comentarios',]
+    template_name = 'pregunta_rechazada/list_pregunta_rechazada.html'
+
+class DeletePreguntaRechazada(DeleteView):
+    model = Pregunta_Rechazada
+    success_url = reverse_lazy('list_pregunta_rechazada')
+
 #### CRUD EMPRESA
 
 class CreateEmpresa(CreateView):
@@ -317,6 +347,88 @@ class DeleteSector(DeleteView):
     success_url = reverse_lazy('list_sector')
 
 ##END CRUD SECTOR
+
+#CRUD USER
+class CreateUser(CreateView):
+    model = User
+    fields = ['username', 'first_name', 'last_name', 'email', 'password', 'groups', 'user_permissions', 'is_staff', 'is_active', 'is_superuser', 'last_login', 'date_joined',]
+    template_name = 'user/create_user.html'
+
+    def get_success_url(self):
+        return reverse('list_user')
+
+class UpdateUser(UpdateView):
+    model = User
+    fields = ['username', 'first_name', 'last_name', 'email', 'password', 'groups', 'user_permissions', 'is_staff', 'is_active', 'is_superuser', 'last_login', 'date_joined',]
+    template_name = 'user/edit_user.html'
+
+    def get_success_url(self):
+        return reverse('list_user')
+
+class ListUser(ListView):
+    paginate_by = 20
+    model = User
+    fields = ['username', 'first_name', 'last_name', 'email', 'password', 'groups', 'user_permissions', 'is_staff', 'is_active', 'is_superuser', 'last_login', 'date_joined',]
+    template_name = 'user/list_user.html'
+
+class DeleteUser(DeleteView):
+    model = User
+    success_url = reverse_lazy('list_user')
+
+#CRUD PREGUNTAS
+class CreatePregunta(CreateView):
+    model = Pregunta
+    fields = ['reactivo', 'respuesta', 'status', 'comentarios',]
+    template_name = 'pregunta/create_pregunta.html'
+
+    def get_success_url(self):
+        return reverse('list_pregunta')
+
+class UpdatePregunta(UpdateView):
+    model = Pregunta
+    fields = ['reactivo', 'respuesta', 'status', 'comentarios',]
+    template_name = 'pregunta/edit_pregunta.html'
+
+    def get_success_url(self):
+        return reverse('list_pregunta')
+
+class ListPregunta(ListView):
+    paginate_by = 50
+    model = Pregunta
+    fields = ['reactivo', 'respuesta', 'status', 'comentarios',]
+    template_name = 'corte/list_corte.html'
+
+class DeletePregunta(DeleteView):
+    model = Pregunta
+    success_url = reverse_lazy('list_corte')
+
+#CRUD CORTE
+class CreateCorte(CreateView):
+    model = Corte
+    fields = ['fecha_de_corte', 'aprovado']
+    template_name = 'corte/create_corte.html'
+
+    def get_success_url(self):
+        return reverse('list_corte')
+
+class UpdateCorte(UpdateView):
+    model = Corte
+    fields = ['fecha_de_corte', 'aprovado']
+    template_name = 'corte/edit_corte.html'
+
+    def get_success_url(self):
+        return reverse('list_corte')
+
+class ListCorte(ListView):
+    paginate_by = 50
+    model = Corte
+    fields = ['fecha_de_corte', 'aprovado']
+    template_name = 'corte/list_corte.html'
+
+class DeleteCorte(DeleteView):
+    model = Corte
+    success_url = reverse_lazy('list_corte')
+
 
 def index(request):
   return redirect('/login/')
