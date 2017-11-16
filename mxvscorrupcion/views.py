@@ -441,11 +441,16 @@ def empresa(request):
     if user.is_authenticated():
       corte = Corte.objects.all().order_by('-fecha_de_corte')
       corte = corte[0]
+      # print('CORTE>>>',corte)
       usuario = Perfil.objects.get(user=user.pk)
       empresa = usuario.empresa
-      cuestionario = Cuestionario.objects.get(Empresa=usuario.empresa.pk, Corte=corte.pk)
-
-      preguntas = cuestionario.preguntas.all()
+      cuestionario = Cuestionario.objects.filter(Empresa=usuario.empresa.pk, Corte=corte.pk)
+      # pk = 314
+      # empresa = Empresa.objects.get(pk=pk)
+      # cuestionario = Cuestionario.objects.filter(Empresa=pk, Corte=corte.pk)
+      # print('EMPRESA>>', empresa.nombre)
+      # print('CUESTIONARIOS>>>',cuestionario)
+      preguntas = cuestionario[0].preguntas.all()
       preguntasCTX = {}
       for pregunta in preguntas:
           respuestas = Respuestas.objects.all().filter(catalogo_pregunta=pregunta.reactivo).values_list('opcion','pk')
