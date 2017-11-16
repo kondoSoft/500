@@ -117,7 +117,7 @@ class DeleteArticulo(DeleteView):
 #### CRUD Perfiles
 class CreatePerfil(CreateView):
     model = Perfil
-    fields = ['user','telefono_fijo','telefono_celular','empresa',]
+    fields = ['user','telefono_fijo', 'extension','telefono_celular','empresa',]
     template_name = 'perfiles/create_perfiles.html'
 
     def get_success_url(self):
@@ -126,7 +126,7 @@ class CreatePerfil(CreateView):
 
 class UpdatePerfil(UpdateView):
     model = Perfil
-    fields = ['user','telefono_fijo','telefono_celular','empresa',]
+    fields = ['user','telefono_fijo', 'extension','telefono_celular','empresa',]
     template_name = 'perfiles/edit_perfiles.html'
 
     def get_success_url(self):
@@ -135,7 +135,7 @@ class UpdatePerfil(UpdateView):
 class ListPerfil(ListView):
     paginate_by = 10
     model = Perfil
-    fields = ['user','telefono_fijo','telefono_celular','empresa',]
+    fields = ['user','telefono_fijo','telefono_celular','empresa', 'extension']
     template_name = 'perfiles/list_perfiles.html'
 
 class DeletePerfil(DeleteView):
@@ -549,7 +549,7 @@ def register(request):
         if user_form.is_valid() and perfil_form.is_valid():
             telefono_fijo = perfil_form.cleaned_data['telefono_fijo']
             telefono_celular = perfil_form.cleaned_data['telefono_celular']
-            telefono_celular = perfil_form.cleaned_data['telefono_celular']
+            extension = perfil_form.cleaned_data['extension']
             empresa = perfil_form.cleaned_data['empresa']
             user = user_form.save()
             user.is_active = False
@@ -557,7 +557,7 @@ def register(request):
             group = Group.objects.get(name='empresa')
             group.user_set.add(user)
             group.save()
-            profile = Perfil(user=user,telefono_fijo=telefono_fijo, telefono_celular=telefono_celular, empresa=empresa)
+            profile = Perfil(user=user,telefono_fijo=telefono_fijo, extension=extension,telefono_celular=telefono_celular, empresa=empresa)
             profile.save()
             send_mail(
               'Solicitud de registro enviada | Contacto Integridad Corporativa',
