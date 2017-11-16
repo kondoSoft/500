@@ -184,8 +184,9 @@ class Entradas_Recientes(models.Model):
 
 class Perfil(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='perfil', primary_key=True)
-    telefono_fijo = models.CharField(max_length=12)
-    telefono_celular = models.CharField(max_length=12)
+    telefono_fijo = models.CharField(max_length=10)
+    extension = models.CharField(max_length=5, blank=True, null=True)
+    telefono_celular = models.CharField(max_length=10)
     empresa = models.OneToOneField(Empresa, null=True)
 
     class Meta:
