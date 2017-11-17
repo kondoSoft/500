@@ -17,7 +17,7 @@
         <th scope="col">apellido</th>
         <th scope="col">email</th>
         <th scope="col">grupo</th>
-        <th scope="col">ultimo login</th>
+        <th>action</th>
       </tr>
     </thead>
     <tbody>
@@ -27,17 +27,13 @@
           <td class="td">{{ user.first_name }}</td>
           <td class="td">{{ user.last_name }}</td>
           <td class="td">{{ user.email }}</td>
-          <td class="td">{{ user.groups }}</td>
-          <td class="td">{{ user.last_login }}</td>
-         <!--  <td>
-            <a href="{% url 'update_user' user.pk %}" class="btn btn-info">Editar</a>
-          </td>
+          <td class="td">{{ user.groups.all }}</td>
           <td>
-            <form action="{% url 'delete_user' user.pk %}" method="POST">
+            <form action="{% url 'delete_user' user.pk %}" method="POST" id="delete-form-{{user.pk}}">
               {% csrf_token %}
-              <button type="submit" class="btn btn-danger">Eliminar</button>
+              <button type="submit" class="btn btn-danger delete" user-id="{{user.pk}}">Eliminar</button>
             </form>
-          </td> -->
+          </td>
         </tr>
       {% endfor %}
     </tbody>
@@ -49,4 +45,35 @@
     <button class="btn btn-danger btn-lg" onclick="window.history.back()">Regresar</button>
   </div>
 </div>
+<div class="modal" tabindex="-1" role="dialog" id="modal-confirm">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>¿Está seguro que desea eliminar el usuario?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger">Aceptar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock mainContent %}
+
+{% block javascript %}
+  <script>
+    $(document).ready(function (){
+      var id
+      $('.delete').on('click', function (e){
+        e.preventDefault()
+        $('#modal-confirm').modal()
+        id = $(this).attr('user-id')
+        console.log(id)
+      })
+      $('.modal-footer .btn-danger').on('click', function(){
+        $('#delete-form-' + id).submit()
+      })
+    })
+  </script>
+{% endblock javascript %}
+

@@ -25,6 +25,7 @@
     <p class="no-margin">Bienvenido, <span>{{user.username}}</span></p>
     <a href="{% url 'logout' %}">Cerrar Sesión</a>
   </header>
+  <a href="http://integridadcorporativa500.mx/" style="color:#ED462f; position:relative; left: 50px; top: 20px;"><i class="fa fa-chevron-left" aria-hidden="true"></i> Regresar a IC500</a>
   <main class="container">
     {% block mainContent %}
       
@@ -34,7 +35,9 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-sm-3">
-          <img class="logo-footer" src="{% static 'images/logo500_footer.png' %}" alt="">
+          <a href="http://integridadcorporativa500.mx">
+            <img class="logo-footer" src="{% static 'images/logo500_footer.png' %}" alt="">            
+          </a>
         </div>
         <div class="col-sm-6">
           <p>
@@ -71,6 +74,9 @@
       <p class="no-margin">Copyright &copy; 2017, Todos los Derechos Reservados</p>
     </div>
   </footer>
+    <!-- Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   {% block javascript %}
     
   {% endblock javascript %}

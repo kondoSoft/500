@@ -370,6 +370,9 @@ class ListUser(ListView):
     model = User
     fields = ['username', 'first_name', 'last_name', 'email', 'password', 'groups', 'user_permissions', 'is_staff', 'is_active', 'is_superuser', 'last_login', 'date_joined',]
     template_name = 'user/list_user.html'
+    def get_queryset(self):
+        users = User.objects.all()
+        return users
 
 class DeleteUser(DeleteView):
     model = User
