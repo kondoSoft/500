@@ -7,8 +7,22 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_exempt
 from openpyxl import Workbook, load_workbook
-from .forms import SignUpForm, PerfilForm, Pregunta_Rechazada_Form
-from .models import Empresa, Cuestionario, Pregunta, Articulo, Catalogo_Preguntas, Respuestas, Sectores, Paises, Fuentes, Glosario, Entradas_Recientes, Perfil,Pregunta_Rechazada
+from .forms import SignUpForm, PerfilForm, Pregunta_Rechazada_Form, CreateUserForm
+from .models import (
+    Empresa, 
+    Cuestionario, 
+    Pregunta, 
+    Articulo, 
+    Catalogo_Preguntas, 
+    Respuestas, 
+    Sectores, 
+    Paises, 
+    Fuentes, 
+    Glosario, 
+    Entradas_Recientes, 
+    Perfil,
+    Pregunta_Rechazada
+)
 from .models import Corte
 from django.contrib.auth.models import User, Group
 from django.urls import reverse_lazy
@@ -351,8 +365,8 @@ class DeleteSector(DeleteView):
 #CRUD USER
 class CreateUser(CreateView):
     model = User
-    fields = ['username', 'first_name', 'last_name', 'email', 'password', 'groups', 'user_permissions', 'is_staff', 'is_active', 'is_superuser', 'last_login', 'date_joined',]
     template_name = 'user/create_user.html'
+    form_class = CreateUserForm
 
     def get_success_url(self):
         return reverse('list_user')

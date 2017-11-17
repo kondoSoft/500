@@ -41,3 +41,11 @@ class Pregunta_Rechazada_Form(forms.ModelForm):
     class Meta:
         model = Pregunta_Rechazada
         fields = ('motivo', 'respuestaPersonalizada','comentarios',)
+
+
+class CreateUserForm(UserCreationForm):
+
+    class Meta:
+        model = User
+        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'groups', 'is_staff', 'is_active', 'is_superuser', 'date_joined',]
+    
