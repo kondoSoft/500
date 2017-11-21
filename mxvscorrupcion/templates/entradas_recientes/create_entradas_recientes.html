@@ -5,7 +5,7 @@
     <h3>Crear Entradas recientes</h3>
   </div>
   <div class="col-lg-12 form">
-    <form action="{% url 'create_entradas_recientes' %}" method="POST">
+    <form action="{% url 'create_entradas_recientes' %}" method="POST" enctype="multipart/form-data">
       {%  csrf_token %}
       {{form.as_p}}
       <div class="col-lg-12 buttons">
