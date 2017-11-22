@@ -413,11 +413,11 @@ class ListPregunta(ListView):
     paginate_by = 50
     model = Pregunta
     fields = ['reactivo', 'respuesta', 'status', 'comentarios',]
-    template_name = 'corte/list_corte.html'
+    template_name = 'pregunta/list_pregunta.html'
 
 class DeletePregunta(DeleteView):
     model = Pregunta
-    success_url = reverse_lazy('list_corte')
+    success_url = reverse_lazy('list_pregunta')
 
 #CRUD CORTE
 class CreateCorte(CreateView):
