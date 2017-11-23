@@ -14,6 +14,9 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'email',)
+        help_texts = {
+            'username': 'Obligatorio. Longitud máxima 150 caracteres alfanuméricos. Letras, dígitos y @/./+/-/_ únicamente. Ojo no usar caracteres especiales (tildes o acentos).',
+        }
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
@@ -31,7 +34,7 @@ class PerfilForm(forms.ModelForm):
     telefono_fijo = forms.CharField(max_length=10, label='Teléfono fijo:')
     telefono_celular = forms.CharField(max_length=10, label='Teléfono celular:')
     empresa = forms.ModelChoiceField(queryset=Empresa.objects.order_by('nombre'))
-    extension = forms.CharField(max_length=5, label='Ext.')
+    extension = forms.CharField(max_length=5, label='Ext.', required=False)
     class Meta:
         model = Perfil
         fields = ('telefono_fijo',  'extension', 'telefono_celular', 'empresa',)
