@@ -48,7 +48,7 @@ urlpatterns = [
 
     # kondo-admin
     url(r'^revisor/corte/(?P<pk>[0-9]+)/$', views.Corte_Detail.as_view(), name='corte'),
-    url(r'^revisor/$', Kondo_Admin.as_view(), name='kondo_admin'),
+    url(r'^revisor/$', Kondo_Admin.as_view(), name='revisor'),
     url(r'^reject-question/$', views.rejectQuestion, name='pregunta-rechazada'),
 
     #CRUD GLOSARIO

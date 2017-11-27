@@ -41,7 +41,7 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 
 #### CRUD PREGUNTA RECHAZADA
 
-class CreatePreguntaRechazada(CreateView):
+class CreatePreguntaRechazada(LoginRequiredMixin, CreateView):
     model = Pregunta_Rechazada
     fields = ['motivo', 'respuestaPersonalizada', 'comentarios',]
     template_name = 'pregunta_rechazada/create_pregunta_rechazada.html'
@@ -50,7 +50,7 @@ class CreatePreguntaRechazada(CreateView):
         return reverse('list_pregunta_rechazada')
 
 
-class UpdatePreguntaRechazada(UpdateView):
+class UpdatePreguntaRechazada(LoginRequiredMixin, UpdateView):
     model = Pregunta_Rechazada
     fields = ['motivo', 'respuestaPersonalizada', 'comentarios',]
     template_name = 'pregunta_rechazada/edit_pregunta_rechazada.html'
@@ -58,19 +58,19 @@ class UpdatePreguntaRechazada(UpdateView):
     def get_success_url(self):
         return reverse('list_pregunta_rechazada')
 
-class ListPreguntaRechazada(ListView):
+class ListPreguntaRechazada(LoginRequiredMixin, ListView):
     paginate_by = 50
     model = Pregunta_Rechazada
     fields = ['motivo', 'respuestaPersonalizada', 'comentarios',]
     template_name = 'pregunta_rechazada/list_pregunta_rechazada.html'
 
-class DeletePreguntaRechazada(DeleteView):
+class DeletePreguntaRechazada(LoginRequiredMixin, DeleteView):
     model = Pregunta_Rechazada
     success_url = reverse_lazy('list_pregunta_rechazada')
 
 #### CRUD EMPRESA
 
-class CreateEmpresa(CreateView):
+class CreateEmpresa(LoginRequiredMixin, CreateView):
     model = Empresa
     fields = ['nombre','sector','pais','website_corporativo','website_integridad','tot100','tot',]
     template_name = 'empresa/create_empresa.html'
@@ -79,7 +79,7 @@ class CreateEmpresa(CreateView):
         return reverse('list_empresa')
 
 
-class UpdateEmpresa(UpdateView):
+class UpdateEmpresa(LoginRequiredMixin, UpdateView):
     model = Empresa
     fields = ['nombre','sector','pais','website_corporativo','website_integridad','tot100','tot',]
     template_name = 'empresa/edit_empresa.html'
@@ -87,18 +87,18 @@ class UpdateEmpresa(UpdateView):
     def get_success_url(self):
         return reverse('list_empresa')
 
-class ListEmpresa(ListView):
+class ListEmpresa(LoginRequiredMixin, ListView):
     paginate_by = 50
     model = Empresa
     fields = ['nombre','sector','pais','website_corporativo','website_integridad','tot100','tot',]
     template_name = 'empresa/list_empresa.html'
 
-class DeleteEmpresa(DeleteView):
+class DeleteEmpresa(LoginRequiredMixin, DeleteView):
     model = Empresa
     success_url = reverse_lazy('list_empresa')
 
 #### CRUD Articulo
-class CreateArticulo(CreateView):
+class CreateArticulo(LoginRequiredMixin, CreateView):
     model = Articulo
     fields = ['imagen','titulo','contenido','revista','autor','slug', 'url', 'fecha', ]
     template_name = 'articulo/create_articulo.html'
@@ -107,7 +107,7 @@ class CreateArticulo(CreateView):
         return reverse('list_articulo')
 
 
-class UpdateArticulo(UpdateView):
+class UpdateArticulo(LoginRequiredMixin, UpdateView):
     model = Articulo
     fields = ['imagen','titulo','contenido','revista','autor','slug', 'url', 'fecha', ]
     template_name = 'articulo/edit_articulo.html'
@@ -116,7 +116,7 @@ class UpdateArticulo(UpdateView):
         return reverse('list_articulo')
 
 
-class ListArticulo(LoginRequiredMixin,PermissionRequiredMixin,ListView):
+class ListArticulo(LoginRequiredMixin,ListView):
     model = Articulo
     fields = ['imagen','titulo','contenido','revista','autor','slug', 'url', 'fecha', ]
     template_name = 'articulo/list_articulo.html'
@@ -124,12 +124,12 @@ class ListArticulo(LoginRequiredMixin,PermissionRequiredMixin,ListView):
     permission_required = 'is_admin'
     # redirect_field_name = 'redirect_to'
 
-class DeleteArticulo(DeleteView):
+class DeleteArticulo(LoginRequiredMixin, DeleteView):
     model = Articulo
     success_url = reverse_lazy('list_articulo')
 
 #### CRUD Perfiles
-class CreatePerfil(CreateView):
+class CreatePerfil(LoginRequiredMixin, CreateView):
     model = Perfil
     fields = ['user','telefono_fijo', 'extension','telefono_celular','empresa',]
     template_name = 'perfiles/create_perfiles.html'
@@ -138,7 +138,7 @@ class CreatePerfil(CreateView):
         return reverse('list_perfiles')
 
 
-class UpdatePerfil(UpdateView):
+class UpdatePerfil(LoginRequiredMixin, UpdateView):
     model = Perfil
     fields = ['user','telefono_fijo', 'extension','telefono_celular','empresa',]
     template_name = 'perfiles/edit_perfiles.html'
@@ -146,19 +146,19 @@ class UpdatePerfil(UpdateView):
     def get_success_url(self):
         return reverse('list_perfiles')
 
-class ListPerfil(ListView):
+class ListPerfil(LoginRequiredMixin, ListView):
     paginate_by = 10
     model = Perfil
     fields = ['user','telefono_fijo','telefono_celular','empresa', 'extension']
     template_name = 'perfiles/list_perfiles.html'
 
-class DeletePerfil(DeleteView):
+class DeletePerfil(LoginRequiredMixin, DeleteView):
     model = Perfil
     success_url = reverse_lazy('list_perfiles')
 
 #### CRUD GLOSARIO
 
-class CreateGlosario(CreateView):
+class CreateGlosario(LoginRequiredMixin, CreateView):
     model = Glosario
     fields = ['titulo','descripcion',]
     template_name = 'glosario/create_glosario.html'
@@ -167,7 +167,7 @@ class CreateGlosario(CreateView):
         return reverse('list_glosario')
 
 
-class UpdateGlosario(UpdateView):
+class UpdateGlosario(LoginRequiredMixin, UpdateView):
     model = Glosario
     fields = ['titulo','descripcion',]
     template_name = 'glosario/edit_glosario.html'
@@ -175,20 +175,20 @@ class UpdateGlosario(UpdateView):
     def get_success_url(self):
         return reverse('list_glosario')
 
-class ListGlosario(ListView):
+class ListGlosario(LoginRequiredMixin, ListView):
     paginate_by = 15
     model = Glosario
     fields = ['titulo','descripcion',]
     template_name = 'glosario/list_glosario.html'
 
-class DeleteGlosario(DeleteView):
+class DeleteGlosario(LoginRequiredMixin, DeleteView):
     model = Glosario
     success_url = reverse_lazy('list_glosario')
 
 #### END CRUD GLOSARIO
 
 
-class CreateEntradasRecientes(CreateView):
+class CreateEntradasRecientes(LoginRequiredMixin, CreateView):
     model = Entradas_Recientes
     fields = ['titulo','imagen', 'fecha', 'url']
     template_name = 'entradas_recientes/create_entradas_recientes.html'
@@ -196,7 +196,7 @@ class CreateEntradasRecientes(CreateView):
     def get_success_url(self):
         return reverse('list_entradas_recientes')
 
-class UpdateEntradasRecientes(UpdateView):
+class UpdateEntradasRecientes(LoginRequiredMixin, UpdateView):
     model = Entradas_Recientes
     fields = ['titulo','imagen', 'fecha' , 'url']
     template_name = 'entradas_recientes/edit_entradas_recientes.html'
@@ -204,20 +204,20 @@ class UpdateEntradasRecientes(UpdateView):
     def get_success_url(self):
         return reverse('list_entradas_recientes')
 
-class ListEntradasRecientes(ListView):
+class ListEntradasRecientes(LoginRequiredMixin, ListView):
     paginate_by = 10
     model = Entradas_Recientes
     fields = ['titulo','imagen', 'fecha', 'url']
     template_name = 'entradas_recientes/list_entradas_recientes.html'
 
-class DeleteEntradasRecientes(DeleteView):
+class DeleteEntradasRecientes(LoginRequiredMixin, DeleteView):
     model = Entradas_Recientes
     success_url = reverse_lazy('list_entradas_recientes')
 
 
 #### CRUD FUENTES
 
-class CreateFuente(CreateView):
+class CreateFuente(LoginRequiredMixin, CreateView):
     model = Fuentes
     fields = ['titulo','libro','url',]
     template_name = 'fuentes/create_fuente.html'
@@ -225,7 +225,7 @@ class CreateFuente(CreateView):
     def get_success_url(self):
         return reverse('list_fuente')
 
-class UpdateFuente(UpdateView):
+class UpdateFuente(LoginRequiredMixin, UpdateView):
     model = Fuentes
     fields = ['titulo','libro','url',]
     template_name = 'fuentes/edit_fuente.html'
@@ -233,13 +233,13 @@ class UpdateFuente(UpdateView):
     def get_success_url(self):
         return reverse('list_fuente')
 
-class ListFuente(ListView):
+class ListFuente(LoginRequiredMixin, ListView):
     paginate_by = 10
     model = Fuentes
     fields = ['titulo','libro','url',]
     template_name = 'fuentes/list_fuente.html'
 
-class DeleteFuente(DeleteView):
+class DeleteFuente(LoginRequiredMixin, DeleteView):
     model = Fuentes
     success_url = reverse_lazy('list_fuente')
 
@@ -248,7 +248,7 @@ class DeleteFuente(DeleteView):
 
 #### CRUD PAISES
 
-class CreatePaises(CreateView):
+class CreatePaises(LoginRequiredMixin, CreateView):
     model = Paises
     fields = ['pais',]
     template_name = 'pais/create_pais.html'
@@ -256,7 +256,7 @@ class CreatePaises(CreateView):
     def get_success_url(self):
         return reverse('list_paises')
 
-class UpdatePaises(UpdateView):
+class UpdatePaises(LoginRequiredMixin, UpdateView):
     model = Paises
     fields = ['pais',]
     template_name = 'pais/edit_pais.html'
@@ -264,18 +264,18 @@ class UpdatePaises(UpdateView):
     def get_success_url(self):
         return reverse('list_paises')
 
-class ListPaises(ListView):
+class ListPaises(LoginRequiredMixin, ListView):
     paginate_by = 10
     model = Paises
     fields = ['pais',]
     template_name = 'pais/list_pais.html'
 
-class DeletePaises(DeleteView):
+class DeletePaises(LoginRequiredMixin, DeleteView):
     model = Paises
     success_url = reverse_lazy('list_paises')
 
 #### CRUD CUESTIONARIO
-class CreateCuestionario(CreateView):
+class CreateCuestionario(LoginRequiredMixin, CreateView):
     model = Cuestionario
     fields = ['preguntas','Empresa',]
     template_name = 'cuestionario/create_cuestionario.html'
@@ -283,7 +283,7 @@ class CreateCuestionario(CreateView):
     def get_success_url(self):
         return reverse('list_cuestionario')
 
-class UpdateCuestionario(UpdateView):
+class UpdateCuestionario(LoginRequiredMixin, UpdateView):
     model = Cuestionario
     fields = ['preguntas','Empresa',]
     template_name = 'cuestionario/edit_cuestionario.html'
@@ -291,13 +291,13 @@ class UpdateCuestionario(UpdateView):
     def get_success_url(self):
         return reverse('list_cuestionario')
 
-class ListCuestionario(ListView):
+class ListCuestionario(LoginRequiredMixin, ListView):
     paginate_by = 50
     model = Cuestionario
     fields = ['preguntas','Empresa',]
     template_name = 'cuestionario/list_cuestionario.html'
 
-class DeleteCuestionario(DeleteView):
+class DeleteCuestionario(LoginRequiredMixin, DeleteView):
     model = Cuestionario
     success_url = reverse_lazy('list_cuestionario')
 
@@ -305,7 +305,7 @@ class DeleteCuestionario(DeleteView):
 
 #### CRUD RESPUESTAS
 
-class CreateRespuesta(CreateView):
+class CreateRespuesta(LoginRequiredMixin, CreateView):
     model = Respuestas
     fields = ['valor','opcion','catalogo_pregunta',]
     template_name = 'respuestas/create_respuestas.html'
@@ -313,7 +313,7 @@ class CreateRespuesta(CreateView):
     def get_success_url(self):
         return reverse('list_respuestas')
 
-class UpdateRespuesta(UpdateView):
+class UpdateRespuesta(LoginRequiredMixin, UpdateView):
     model = Respuestas
     fields = ['valor','opcion','catalogo_pregunta',]
     template_name = 'respuestas/edit_respuestas.html'
@@ -321,20 +321,20 @@ class UpdateRespuesta(UpdateView):
     def get_success_url(self):
         return reverse('list_respuestas')
 
-class ListRespuesta(ListView):
+class ListRespuesta(LoginRequiredMixin, ListView):
     paginate_by = 50
     model = Respuestas
     fields = ['valor','opcion','catalogo_pregunta',]
     template_name = 'respuestas/list_respuestas.html'
 
-class DeleteRespuesta(DeleteView):
+class DeleteRespuesta(LoginRequiredMixin, DeleteView):
     model = Respuestas
     success_url = reverse_lazy('list_cuestionario')
 
 #### END CRUD RESPUESTAS
 
 #CRUD SECTOR
-class CreateSector(CreateView):
+class CreateSector(LoginRequiredMixin, CreateView):
     model = Sectores
     fields = ['nombre']
     template_name = 'sector/create_sector.html'
@@ -342,7 +342,7 @@ class CreateSector(CreateView):
     def get_success_url(self):
         return reverse('list_sector')
 
-class UpdateSector(UpdateView):
+class UpdateSector(LoginRequiredMixin, UpdateView):
     model = Sectores
     fields = ['nombre']
     template_name = 'sector/edit_sector.html'
@@ -350,20 +350,20 @@ class UpdateSector(UpdateView):
     def get_success_url(self):
         return reverse('list_sector')
 
-class ListSector(ListView):
+class ListSector(LoginRequiredMixin, ListView):
     paginate_by = 20
     model = Sectores
     fields = ['nombre']
     template_name = 'sector/list_sector.html'
 
-class DeleteSector(DeleteView):
+class DeleteSector(LoginRequiredMixin, DeleteView):
     model = Sectores
     success_url = reverse_lazy('list_sector')
 
 ##END CRUD SECTOR
 
 #CRUD USER
-class CreateUser(CreateView):
+class CreateUser(LoginRequiredMixin, CreateView):
     model = User
     template_name = 'user/create_user.html'
     form_class = CreateUserForm
@@ -371,7 +371,7 @@ class CreateUser(CreateView):
     def get_success_url(self):
         return reverse('list_user')
 
-class UpdateUser(UpdateView):
+class UpdateUser(LoginRequiredMixin, UpdateView):
     model = User
     fields = ['username', 'first_name', 'last_name', 'email', 'groups', 'user_permissions', 'is_staff', 'is_active', 'is_superuser', 'last_login', 'date_joined',]
     template_name = 'user/edit_user.html'
@@ -379,7 +379,7 @@ class UpdateUser(UpdateView):
     def get_success_url(self):
         return reverse('list_user')
 
-class ListUser(ListView):
+class ListUser(LoginRequiredMixin, ListView):
     paginate_by = 20
     model = User
     fields = ['username', 'first_name', 'last_name', 'email', 'password', 'groups', 'user_permissions', 'is_staff', 'is_active', 'is_superuser', 'last_login', 'date_joined',]
@@ -388,12 +388,12 @@ class ListUser(ListView):
         users = User.objects.all()
         return users
 
-class DeleteUser(DeleteView):
+class DeleteUser(LoginRequiredMixin, DeleteView):
     model = User
     success_url = reverse_lazy('list_user')
 
 #CRUD PREGUNTAS
-class CreatePregunta(CreateView):
+class CreatePregunta(LoginRequiredMixin, CreateView):
     model = Pregunta
     fields = ['reactivo', 'respuesta', 'status', 'comentarios',]
     template_name = 'pregunta/create_pregunta.html'
@@ -401,7 +401,7 @@ class CreatePregunta(CreateView):
     def get_success_url(self):
         return reverse('list_pregunta')
 
-class UpdatePregunta(UpdateView):
+class UpdatePregunta(LoginRequiredMixin, UpdateView):
     model = Pregunta
     fields = ['reactivo', 'respuesta', 'status', 'comentarios',]
     template_name = 'pregunta/edit_pregunta.html'
@@ -409,18 +409,18 @@ class UpdatePregunta(UpdateView):
     def get_success_url(self):
         return reverse('list_pregunta')
 
-class ListPregunta(ListView):
+class ListPregunta(LoginRequiredMixin, ListView):
     paginate_by = 50
     model = Pregunta
     fields = ['reactivo', 'respuesta', 'status', 'comentarios',]
     template_name = 'pregunta/list_pregunta.html'
 
-class DeletePregunta(DeleteView):
+class DeletePregunta(LoginRequiredMixin, DeleteView):
     model = Pregunta
     success_url = reverse_lazy('list_pregunta')
 
 #CRUD CORTE
-class CreateCorte(CreateView):
+class CreateCorte(LoginRequiredMixin, CreateView):
     model = Corte
     fields = ['fecha_de_corte', 'aprovado']
     template_name = 'corte/create_corte.html'
@@ -428,7 +428,7 @@ class CreateCorte(CreateView):
     def get_success_url(self):
         return reverse('list_corte')
 
-class UpdateCorte(UpdateView):
+class UpdateCorte(LoginRequiredMixin, UpdateView):
     model = Corte
     fields = ['fecha_de_corte', 'aprovado']
     template_name = 'corte/edit_corte.html'
@@ -436,13 +436,13 @@ class UpdateCorte(UpdateView):
     def get_success_url(self):
         return reverse('list_corte')
 
-class ListCorte(ListView):
+class ListCorte(LoginRequiredMixin, ListView):
     paginate_by = 50
     model = Corte
     fields = ['fecha_de_corte', 'aprovado']
     template_name = 'corte/list_corte.html'
 
-class DeleteCorte(DeleteView):
+class DeleteCorte(LoginRequiredMixin, DeleteView):
     model = Corte
     success_url = reverse_lazy('list_corte')
 
@@ -650,7 +650,10 @@ def validate(request, pk, empresa_pk):
     template = 'revisor/validate.html'
     modalForm = Pregunta_Rechazada_Form()
     corte_anterior = Corte.objects.get(aprovado=True)
+    # print('CORTE>>>',modalForm)
     cuestionario_anterior = Cuestionario.objects.get(Corte=corte_anterior, Empresa=empresa_pk)
+    # for cuestionario in cuestionario_anterior:
+    #     print('Cuestionario>>', cuestionario.Corte)
     preguntas_anteriores = cuestionario_anterior.preguntas.all()
     cuestionario_actual = Cuestionario.objects.get(pk=pk)
     empresa = cuestionario_actual.Empresa
