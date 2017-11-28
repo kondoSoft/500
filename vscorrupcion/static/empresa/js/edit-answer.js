@@ -21,7 +21,6 @@ $(document).ready(function (){
     Object.keys(respuestas[idReactivo]).reverse().map(function (key,i) {
       var option = '<option value="'+respuestas[idReactivo][key]+'">'+key+'</option>'
       if (key == currentAnswer) {
-        console.log(key)
         option = '<option value="'+respuestas[idReactivo][key]+'" selected>'+key+'</option>'
       }
       $('#respuestasSelect').append(option)

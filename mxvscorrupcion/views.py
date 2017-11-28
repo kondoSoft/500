@@ -458,16 +458,10 @@ def empresa(request):
     if user.is_authenticated():
       corte = Corte.objects.all().order_by('-fecha_de_corte')
       corte = corte[0]
-      # print('CORTE>>>',corte)
       usuario = Perfil.objects.get(user=user.pk)
       empresa = usuario.empresa
-      cuestionario = Cuestionario.objects.filter(Empresa=usuario.empresa.pk, Corte=corte.pk)
-      # pk = 314
-      # empresa = Empresa.objects.get(pk=pk)
-      # cuestionario = Cuestionario.objects.filter(Empresa=pk, Corte=corte.pk)
-      # print('EMPRESA>>', empresa.nombre)
-      # print('CUESTIONARIOS>>>',cuestionario)
-      preguntas = cuestionario[0].preguntas.all()
+      cuestionario = Cuestionario.objects.get(Empresa=usuario.empresa.pk, Corte=corte.pk)
+      preguntas = cuestionario.preguntas.all()
       preguntasCTX = {}
       for pregunta in preguntas:
           respuestas = Respuestas.objects.all().filter(catalogo_pregunta=pregunta.reactivo).values_list('opcion','pk')
@@ -489,9 +483,11 @@ def empresa(request):
     evidencia = request.POST.get('url')
     respuesta = Respuestas.objects.get(pk=respuesta_pk)
     respuesta.evidencia = evidencia
+    respuesta.save()
     pregunta.respuesta = respuesta
     pregunta.status = '0'
     pregunta.save()
+
     return redirect('/empresa/')
 
 
@@ -613,6 +609,8 @@ def rejectQuestion(request):
         pregunta.status = 2
         pregunta.save()
         return redirect('/validate/%s/%s/' %(cuestionario_pk, empresa_pk))
+      else:
+        return HttpResponse('Fallo la validacion')
 
 def modifyAnswer(request, pk):
   if request.method == 'GET' :
@@ -650,14 +648,13 @@ def validate(request, pk, empresa_pk):
     template = 'revisor/validate.html'
     modalForm = Pregunta_Rechazada_Form()
     corte_anterior = Corte.objects.get(aprovado=True)
-    # print('CORTE>>>',modalForm)
     cuestionario_anterior = Cuestionario.objects.get(Corte=corte_anterior, Empresa=empresa_pk)
-    # for cuestionario in cuestionario_anterior:
-    #     print('Cuestionario>>', cuestionario.Corte)
     preguntas_anteriores = cuestionario_anterior.preguntas.all()
     cuestionario_actual = Cuestionario.objects.get(pk=pk)
     empresa = cuestionario_actual.Empresa
     preguntas_actuales = cuestionario_actual.preguntas.all()
+    for pregunta in preguntas_actuales:
+        print('%s -- %s\n' %(pregunta.reactivo, pregunta.comentarios))
     preguntas = zip(preguntas_anteriores, preguntas_actuales)
     context = {
       'preguntas': preguntas,
@@ -854,7 +851,7 @@ def usersAdmin(request):
     user.save()
     result = send_mail(
         'Contacto Integridad Corporativa',
-        'Estimado usuario,\n\nUsted creó una cuenta en integridadcorporativa500.mx\n\nHaga clic en el siguiente enlace para crear una contraseña e iniciar sesión: %s/password_reset/' %(baseUrl),
+        'Estimado usuario,\n\nUsted creó una cuenta en integridadcorporativa500.mx\n\nHaga clic en el siguiente enlace para crear una contraseña e iniciar sesión: http://%s/password_reset/' %(baseUrl),
         'contacto@integridadcorporativa500.mx',
         [user_email],
         fail_silently=False
@@ -888,7 +885,12 @@ def new_corte(request):
     fecha = request.POST.get('fecha')
     corte = Corte(fecha_de_corte=fecha, aprovado=False)
     corte.save()
-    cuestionarios = Cuestionario.objects.all()
+    corte_actual = Corte.objects.get(aprovado=True)
+    empresas = Empresa.objects.all()
+    cuestionarios = []
+    for empresa in empresas:
+        cuestionario = Cuestionario.objects.filter(Empresa=empresa, Corte=corte_actual)[0]
+        cuestionarios.append(cuestionario)
     for cuestionario in cuestionarios:
       preguntas = cuestionario.preguntas.all()
       cuestionario.pk = None
@@ -908,11 +910,13 @@ def new_corte(request):
         nueva_pregunta = pregunta
         nueva_pregunta.respuesta = nueva_respuesta
         nueva_pregunta.reactivo = reactivo
+        nueva_pregunta.status = '0'
         nueva_pregunta.save()
         nuevo_cuestionario.preguntas.add(nueva_pregunta)
       nuevo_cuestionario.Corte = corte
       nuevo_cuestionario.save()
-  return redirect('kondo-admin')
+  return redirect('revisor')
+  # return HttpResponse('kondo-admin')
 
 
 def aprobar_corte(request):

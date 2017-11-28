@@ -50,7 +50,9 @@
     </div>
     <div class="row align-items-center p-t-15  p-b-15">
       <div class="col-sm-4">{{anteriores.respuesta.opcion}}</div>
-      <div class="col-sm-4">{{actuales.respuesta.opcion}}</div>
+      <div class="col-sm-4">
+        {{actuales.respuesta.opcion}}<br><a href="{{actuales.respuesta.evidencia}}">Evidencia</a>
+      </div>
       {% if actuales.status == '0' %}
         <div class="col-sm-4 buttons">
           <div class="row justify-content-around">
@@ -70,10 +72,12 @@
           <!--i class="fa fa-pencil" aria-hidden="true"></i>
           <i class="fa fa-times" aria-hidden="true"></i -->
         </div>
-      {% else %}
+      {% elif actuales.status == '2' %}
         <div class="col-sm-4 status-info">
           <p class="status no-margin uppercase">respuesta rechazada</p>
-          <p class="no-margin">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias vel, iste maiores excepturi quam quod!</p>
+          <p class="no-margin">Motivo: {{actuales.comentarios.get_motivo_display}}</p>
+          <p class="no-margin">{{actuales.comentarios.respuestaPersonalizada}}</p>
+          <p class="no-margin">{{actuales.comentarios.comentarios}}</p>
           <!--i class="fa fa-pencil" aria-hidden="true"></i>
           <i class="fa fa-times" aria-hidden="true"></i-->
         </div>
@@ -92,7 +96,7 @@
   </div>
 </div>
 <div class="row justify-content-center">
-  <a href="" class="text-center return uppercase" onclick="function(){window.history.back()}">
+  <a href="{% url 'revisor' %}" class="text-center return uppercase">
     <i class="fa fa-chevron-left" aria-hidden="true"></i> regresar
   </a>
 </div>

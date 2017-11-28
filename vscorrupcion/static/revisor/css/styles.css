@@ -235,6 +235,8 @@ footer hr{
 }
 .status-info{
 	position: relative;
+  max-height: 125px;
+  overflow-y: auto;
 }
 .status-info p:nth-child(2){
 	font-size: 14px;

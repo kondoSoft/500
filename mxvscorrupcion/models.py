@@ -73,7 +73,7 @@ class Respuestas(models.Model):
     valor = models.CharField(max_length=3)
     opcion = models.CharField(max_length=200)
     catalogo_pregunta = models.ForeignKey(Catalogo_Preguntas)
-    evidencia = models.URLField(null=True, blank=True)
+    evidencia = models.URLField(null=True, blank=True, max_length=1000)
     def __str__(self):
         return self.opcion + ' ' + self.valor
 
@@ -133,7 +133,7 @@ class Cuestionario(models.Model):
     preguntas = models.ManyToManyField(Pregunta)
     created = models.DateTimeField(auto_now=True)
     Empresa = models.ForeignKey(Empresa)
-    Corte = models.ForeignKey(Corte)
+    Corte = models.ForeignKey(Corte, on_delete=models.CASCADE)
     updated = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return 'Pregunta: %s, created: %s, id %s' %(self.preguntas, self.created, str(self.pk))

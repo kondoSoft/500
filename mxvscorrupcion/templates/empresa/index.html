@@ -43,9 +43,27 @@
       <div class="col-lg-6 question-answer-left">
         <p class="question-answer-left-a" id="{{pregunta.reactivo.id_reactivo}}" pk="{{pregunta.pk}}" current-answer="{{pregunta.respuesta.opcion}}">{{pregunta.reactivo.descripcion}}</p>
       </div>
-      <div class="col-lg-6 align-self-center question-answer-right">
-        <p class="question-answer-right-p">{{pregunta.respuesta.opcion}}</p>
-      </div>
+      {% if pregunta.status == '0' %}
+        <div class="col-lg-6 align-self-center question-answer-right">
+          <p class="question-answer-right-p">{{pregunta.respuesta.opcion}}</p>
+        </div>
+      {% elif pregunta.status == '1' %}
+        <div class="col-lg-6 align-self-center question-answer-right">
+          <p class="question-answer-right-p" style="color:#ED462F;">Respuesta aceptada</p>
+          <p class="question-answer-right-p">{{pregunta.respuesta.opcion}}</p>
+        </div>
+      {% elif pregunta.status == '2' %}
+        <div class="col-lg-6 align-self-center question-answer-right">
+          <p 
+          class="question-answer-right-p popover-dismiss" 
+          style="color:#ED462F;" 
+          data-toggle="popover"
+          title="{{pregunta.comentarios.respuestaPersonalizada}}"
+          data-content="And here's some amazing content. It's very engaging. Right?"
+          >Respuesta rechazada</p>
+          <p class="question-answer-right-p">{{pregunta.respuesta.opcion}}</p>
+        </div>
+      {% endif %}
     </div>
   {% endfor %}
 </div>

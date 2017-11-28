@@ -40,7 +40,8 @@ class PerfilForm(forms.ModelForm):
         fields = ('telefono_fijo',  'extension', 'telefono_celular', 'empresa',)
 
 class Pregunta_Rechazada_Form(forms.ModelForm):
-    respuestaPersonalizada = forms.CharField(label='Respuesta personalizada')
+    respuestaPersonalizada = forms.CharField(label='Respuesta personalizada', required=False)
+    comentarios = forms.CharField(label='Comentarios', required=False, widget=forms.Textarea)
     class Meta:
         model = Pregunta_Rechazada
         fields = ('motivo', 'respuestaPersonalizada','comentarios',)

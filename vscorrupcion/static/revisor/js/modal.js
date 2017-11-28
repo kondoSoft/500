@@ -19,8 +19,28 @@ function onReject (e) {
   var height = modalContent.offsetHeight / 2
   modal.classList.add('open-modal')
   modalContent.style.top = (e.pageY - height) + 'px'
-  // window.scrollTo(0, e.pageY)
-  // document.getElementsByTagName('body')[0].style.overflow = 'hidden'
+  var value = window.scrollY
+  var interval = setInterval(function(){
+    var up, down
+    if (value <= e.pageY - 400) {
+      up = true
+      value += 5
+    } else {
+      down = true
+      value -= 5
+    }
+    if (value >= e.pageY - 400 && up) {
+      up = false
+      clearInterval(interval)
+    }
+    if (value <= e.pageY - 400 && down) {
+      down = false
+      clearInterval(interval)
+    }
+    window.scrollTo(0, value)
+    
+  },60/1000)
+  document.getElementsByTagName('body')[0].style.overflow = 'hidden'
 }
 
 function onClose (e) {
@@ -32,6 +52,24 @@ function onClose (e) {
 
 
 $(document).ready(function (){
+  $('#id_respuestaPersonalizada').attr('disabled', 'false')
+  $('#id_comentarios').attr('disabled', 'false')
+  $('#id_respuestaPersonalizada').css('background', '#ECF1F1')
+  $('#id_comentarios').css('background', '#ECF1F1')
+  $('#id_motivo').on('change', function (e){
+    var value = e.currentTarget.value
+    if (value != 4) {
+      $('#id_respuestaPersonalizada').attr('disabled', 'true')
+      $('#id_comentarios').attr('disabled', 'true')
+      $('#id_respuestaPersonalizada').css('background', '#ECF1F1')
+      $('#id_comentarios').css('background', '#ECF1F1')
+    } else {
+      $('#id_respuestaPersonalizada').removeAttr('disabled')
+      $('#id_comentarios').removeAttr('disabled')
+      $('#id_respuestaPersonalizada').css('background', '#FFF')
+      $('#id_comentarios').css('background', '#FFF')
+    }
+  })
   $('.accept').click(function (){
     $('#modalAccept').modal()
     var idPregunta = $(this).attr('pk')
