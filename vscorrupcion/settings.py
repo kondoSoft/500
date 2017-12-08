@@ -94,27 +94,27 @@ TINYMCE_DEFAULT_CONFIG = {
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'django',
-#         'USER': 'django',
-#         'PASSWORD': '43541d8e1caf2fdc6694f3b58729f9f7',
-#         'HOST': '165.227.53.250',
-#         'PORT': '5432'
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '500',
-        'USER': 'postgres',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
+        'NAME': 'django',
+        'USER': 'django',
+        'PASSWORD': '43541d8e1caf2fdc6694f3b58729f9f7',
+        'HOST': '165.227.53.250',
         'PORT': '5432'
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': '500',
+#         'USER': 'postgres',
+#         'PASSWORD': '',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432'
+#     }
+# }
 
 # DATABASES = {
 #     'default': {
