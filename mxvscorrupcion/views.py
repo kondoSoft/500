@@ -450,6 +450,8 @@ class DeleteCorte(LoginRequiredMixin, DeleteView):
 def index(request):
   return redirect('/login/')
 
+
+
 def empresa(request):
   method = request.method
   user = request.user
@@ -477,18 +479,29 @@ def empresa(request):
     else:
       return redirect('/login/')
   else:
-    pregunta_pk = request.POST.get('pregunta-pk')
-    pregunta = Pregunta.objects.get(pk=pregunta_pk)
-    respuesta_pk = request.POST.get('respuesta-pk')
-    evidencia = request.POST.get('url')
-    respuesta = Respuestas.objects.get(pk=respuesta_pk)
-    respuesta.evidencia = evidencia
-    respuesta.save()
-    pregunta.respuesta = respuesta
-    pregunta.status = '0'
-    pregunta.save()
-
-    return redirect('/empresa/')
+    data = request.body.decode('UTF-8')
+    data = json.loads(data)
+    email = user.email
+    empresa = Perfil.objects.get(user=user).empresa
+    for pregunta in data:
+        pregunta_pk = pregunta['preguntaId']
+        question = Pregunta.objects.get(pk=pregunta_pk)
+        respuesta_pk = pregunta['respuestaId']
+        evidencia = pregunta['evidencia']
+        respuesta = Respuestas.objects.get(pk=respuesta_pk)
+        respuesta.evidencia = evidencia
+        respuesta.save()
+        question.respuesta = respuesta
+        question.status = '0'
+        question.save()
+    result = send_mail(
+      'La empresa ' + empresa.nombre + ' a actualizado sus datos | Contacto Integridad Corporativa',
+      'La empresa %s a realizado una actualizacion de las respuestas del cuestionario' %(empresa.nombre),
+      email,
+      ['contacto@integridadcorporativa500.mx'],
+      fail_silently=False
+    )
+    return HttpResponse('{"ok": true}')
 
 
 # def editInfo(request):

@@ -12,7 +12,7 @@
   <div class="row">
     <div class="col-lg-12 info">
       <p class="uppercase">
-        AQUÍ VERÁS LA INFORMACIÓN DE LA EMPRESA {{empresa.nombre}} ACTUALIZADA UNA VEZ QUE EL EQUIPO DE IC500 ACEPTE LOS CAMBIOS
+        AQUÍ VERÁS LA INFORMACIÓN DE LA EMPRESA <strong>{{empresa.nombre}}</strong> ACTUALIZADA UNA VEZ QUE EL EQUIPO DE IC500 ACEPTE LOS CAMBIOS
       </p>
       <p class="info-p no-margin">
         La información que actualice la empresa puede ser aceptada o rechazada en cualquier momento por el equipo de IC500 en los 30 días naturales posteriores a la actualización.
@@ -40,35 +40,38 @@
   </div>
   {% for pregunta in preguntas %}
     <div class="row question-answer-container">
+      <!--{% if pregunta.status != '1' %}
+        <div class="col-lg-6 question-answer-left">
+          <p class="question-answer-left-a open-modal" id="{{pregunta.reactivo.id_reactivo}}" pk="{{pregunta.pk}}" current-answer="{{pregunta.respuesta.opcion}}">{{pregunta.reactivo.descripcion}}</p>
+        </div>
+      {% else %}
+        <div class="col-lg-6 question-answer-left">
+          <p class="question-answer-left-a" id="{{pregunta.reactivo.id_reactivo}}" pk="{{pregunta.pk}}" current-answer="{{pregunta.respuesta.opcion}}" style="cursor:auto;">{{pregunta.reactivo.descripcion}}</p>
+        </div>
+      {% endif %}-->
       <div class="col-lg-6 question-answer-left">
-        <p class="question-answer-left-a" id="{{pregunta.reactivo.id_reactivo}}" pk="{{pregunta.pk}}" current-answer="{{pregunta.respuesta.opcion}}">{{pregunta.reactivo.descripcion}}</p>
-      </div>
+          <p class="question-answer-left-a open-modal" id="{{pregunta.reactivo.id_reactivo}}" pk="{{pregunta.pk}}" current-answer="{{pregunta.respuesta.opcion}}">{{pregunta.reactivo.descripcion}}</p>
+        </div>
       {% if pregunta.status == '0' %}
         <div class="col-lg-6 align-self-center question-answer-right">
-          <p class="question-answer-right-p">{{pregunta.respuesta.opcion}}</p>
+          <p class="question-answer-right-p" id="{{pregunta.pk}}">{{pregunta.respuesta.opcion}}</p>
         </div>
       {% elif pregunta.status == '1' %}
         <div class="col-lg-6 align-self-center question-answer-right">
           <p class="question-answer-right-p" style="color:#ED462F;">Respuesta aceptada</p>
-          <p class="question-answer-right-p">{{pregunta.respuesta.opcion}}</p>
+          <p class="question-answer-right-p" id="{{pregunta.pk}}">{{pregunta.respuesta.opcion}}</p>
         </div>
       {% elif pregunta.status == '2' %}
         <div class="col-lg-6 align-self-center question-answer-right">
-          <p 
-          class="question-answer-right-p popover-dismiss" 
-          style="color:#ED462F;" 
-          data-toggle="popover"
-          title="{{pregunta.comentarios.respuestaPersonalizada}}"
-          data-content="And here's some amazing content. It's very engaging. Right?"
-          >Respuesta rechazada</p>
-          <p class="question-answer-right-p">{{pregunta.respuesta.opcion}}</p>
+          <p class="question-answer-right-p"style="color:#ED462F;">Respuesta rechazada</p>
+          <p class="question-answer-right-p" id="{{pregunta.pk}}">{{pregunta.respuesta.opcion}}</p>
         </div>
       {% endif %}
     </div>
   {% endfor %}
 </div>
 <input type="hidden" name="" value="{{preguntas_respuestas}}" id="respuestas-preguntas">
-<!--div class="row button-group">
+<div class="row button-group">
   <div class="col-lg-6">
     <button type="button" class="btn btn-danger" disabled>
       VER RESUMEN
@@ -77,18 +80,18 @@
   <div class="col-lg-6">
     <div class="row">
       <div class="col-lg-9 text-right">
-        <button type="button" class="btn btn-danger">
+        <button type="button" class="btn btn-danger" id='save-data'>
           GUARDAR CAMBIOS
         </button>
       </div>
       <div class="col-lg-3 text-right">
-        <button type="button" class="btn btn-danger">
+        <button type="button" class="btn btn-danger" id="cancel">
           CANCELAR
         </button>
       </div>
     </div>
   </div>
-</div-->
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -102,8 +105,7 @@
       </div>
       <div class="modal-body">
         <p id="pregunta-modal"></p>
-        <form action="{% url 'empresa' %}" method="POST" id="change-answer">
-          {% csrf_token %}
+        <form id="change-answer">
           <select id="respuestasSelect" class="form-control" name="respuesta-pk">
           </select>
           <input type="hidden" name="pregunta-pk" id="pregunta-pk">
@@ -111,11 +113,33 @@
           <br>
           <label for="url-evidencia">Evidencia (URL):</label>
           <input type="text" name="url" class="form-control" id="url-evidencia" required>
+          <small style="color: red; display: none;" id="aviso-evidencia">Este campo es obligatorio</small>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
         <button type="button" class="btn btn-danger" id="submit">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!--h5 class="modal-title-p" id="modal1Label">EDITAR RESPUESTA</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button-->
+      </div>
+      <div class="modal-body">
+        <p>¿Realmente quiere guardar los cambios?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Regresar</button>
+        <button type="button" class="btn btn-danger" id="submit">Aceptar</button>
       </div>
     </div>
   </div>
